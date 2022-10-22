@@ -1,0 +1,1 @@
+set helplang=ja,en
