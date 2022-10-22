@@ -241,8 +241,8 @@ glob **/*/* みたいにディレクトリ内のファイルマッチ
 @@@ ウィンドウ関連
 <C-w>s 水平分割
 <C-w>v 垂直分割
-:sp[lit] {filename}  <C-w>sと:editi {filename} と同じ
-:vsp[lit] {filename} <C-w>vと:editi {filename} と同じ
+:sp[lit] {filename}  <C-w>sと:edit {filename} と同じ
+:vsp[lit] {filename} <C-w>vと:edit {filename} と同じ
 <C-w>w <C-w><C-w> ウィンドウのフォーカスを切り替える
 <C-w>[h|j|k|l] 上下左右を指定した<C-w>w
 :clo[se] <C-w>c アクティブなウィンドウを閉じる
