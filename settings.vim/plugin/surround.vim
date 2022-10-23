@@ -2,10 +2,8 @@ Plug 'tpope/vim-surround'               " コマンド: ds s, cs w1 w2 /*change 
 Plug 'cohama/lexima.vim'                " 自動で対となる文字を補完 e.g. 括弧閉じる
 Plug 'junegunn/rainbow_parentheses.vim' " 括弧の対ごとに色分け
 
-" Activation based on file type
-augroup rainbow_lisp
-  autocmd!
-  autocmd FileType lisp,clojure,scheme RainbowParentheses
-augroup END
+
+autocmd BufRead *.* :RainbowParentheses
+
 let g:rainbow#max_level = 16
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
