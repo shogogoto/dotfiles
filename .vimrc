@@ -1,6 +1,11 @@
 " ~/.vimrcに以下を書く
 " ~ source ~/dotfiles/.vimrc
 
+" ~/.config/init.vimに以下を書く
+" set runtimepath^=~/.vim runtimepath+=~/.vim/after
+" let &packpath = &runtimepath
+" source ~/.vimrc
+
 " ref: https://qiita.com/ulwlu/items/98901f4c4f0683e7aa57
 
 filetype plugin indent on
