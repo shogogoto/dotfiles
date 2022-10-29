@@ -23,7 +23,8 @@ let g:coc_global_extensions = [
       \'coc-tsserver',
       \'coc-ultisnips',
       \'coc-yaml',
-      \'coc-lists'
+      \'coc-explorer',
+      \'coc-jest',
 \]
 
 
@@ -187,3 +188,6 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " nnoremap <C-p> :CocList files<CR>
 nnoremap <silent><nowait> <space>f  :<C-u>CocList files<CR>
+
+" 使い方を見る ?コマンド
+nnoremap <silent> <nowait> <space>x <Cmd>CocCommand explorer<CR>
