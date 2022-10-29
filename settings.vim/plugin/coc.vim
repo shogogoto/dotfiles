@@ -25,6 +25,7 @@ let g:coc_global_extensions = [
       \'coc-yaml',
       \'coc-explorer',
       \'coc-jest',
+      \'coc-git',
 \]
 
 
