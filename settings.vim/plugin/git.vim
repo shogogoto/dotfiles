@@ -1,4 +1,4 @@
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive' " https://wakame.hatenablog.jp/entry/2017/05/03/222511
 Plug 'jonas/tig'
 
 Plug 'rbgrouleff/bclose.vim' "tig-explorerが依存する
@@ -41,7 +41,9 @@ set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{ge
 
 nnoremap <silent> <space>g  :<C-u>CocList --normal gstatus<CR>
 
-
+" tigの使い方
+" https://iberianpig.github.io/posts/2019-04-30_how-to-use-tig-explorer.vim/
+" https://qiita.com/mhimuro/items/8c77709ac6b08abb90f0
 " tig stettings
 let g:tig_explorer_keymap_edit_e  = 'e'
 let g:tig_explorer_keymap_edit    = '<C-o>'
