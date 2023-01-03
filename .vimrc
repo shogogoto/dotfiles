@@ -1,7 +1,8 @@
 " ~/.vimrcに以下を書く
 " ~ source ~/dotfiles/.vimrc
 
-" ~/.config/init.vimに以下を書く
+" ~/.config/nvim/init.vimに以下を書く
+" -> 環境変数でdotfiles配下の設定を見に行くように変更したため不要
 " set runtimepath^=~/.vim runtimepath+=~/.vim/after
 " let &packpath = &runtimepath
 " source ~/.vimrc
