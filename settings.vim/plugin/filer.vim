@@ -51,6 +51,9 @@ let g:coc_explorer_global_presets = {
 \  },
 \ }
 
+" 使い方を見る ?コマンド
+nnoremap <silent> <nowait> <space>x <Cmd>CocCommand explorer<CR>
+
 " Use preset argument to open it
 nmap <space>xv <Cmd>CocCommand explorer --preset .vim<CR>
 nmap <space>xf <Cmd>CocCommand explorer --preset floating<CR>

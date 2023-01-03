@@ -26,6 +26,7 @@ let g:coc_global_extensions = [
       \'coc-explorer',
       \'coc-jest',
       \'coc-git',
+      \'coc-terminal'
 \]
 
 
@@ -169,26 +170,32 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
+" https://github.com/neoclide/coc-lists
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+" nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+" nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+" nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+" nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " nnoremap <C-p> :CocList files<CR>
 nnoremap <silent><nowait> <space>f  :<C-u>CocList files<CR>
 
-" 使い方を見る ?コマンド
-nnoremap <silent> <nowait> <space>x <Cmd>CocCommand explorer<CR>
+" most recent used files
+nnoremap <silent><nowait> <space>m  :<C-u>CocList mru<CR>
+
+
+" https://github.com/hashicorp/terraform-ls/blob/main/docs/USAGE.md
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
