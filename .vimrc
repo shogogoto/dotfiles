@@ -30,7 +30,8 @@ call plug#begin(expand('~/.vim/plugged'))
   runtime! settings.vim/plugin/*.vim
   Plug 'vim-jp/vimdoc-ja'                 " 日本語ヘルプ
   Plug 'tpope/vim-commentary'             " gcc, gc motionでコメントアウト
-  " Plug 'mattn/vim-lsp-settings'
+  Plug 'prabirshrestha/vim-lsp'
+  Plug 'mattn/vim-lsp-settings'
 call plug#end()
 
 "" quickrun  ファイルを実行
@@ -41,13 +42,5 @@ let g:quickrun_config.cpp = {
             \   'command': 'g++',
             \   'cmdopt': '-std=c++11'
             \ }
-
-"" vimshell terminalを分割画面に表示
-"set splitright "右側に表示
-nnoremap <Leader>sh :VimShellPop<CR>
-nnoremap <Leader>sh :rightb vertical terminal<CR>
-let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-let g:vimshell_prompt =  '$ '
-
 
 colorscheme molokai
