@@ -194,8 +194,3 @@ nnoremap <silent><nowait> <space>f  :<C-u>CocList files<CR>
 
 " most recent used files
 nnoremap <silent><nowait> <space>m  :<C-u>CocList mru<CR>
-
-
-" https://github.com/hashicorp/terraform-ls/blob/main/docs/USAGE.md
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
