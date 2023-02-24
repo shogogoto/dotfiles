@@ -29,7 +29,6 @@ let mapleader="\<Space>"
 call plug#begin(expand('~/.vim/plugged'))
   runtime! settings.vim/plugin/*.vim
   Plug 'vim-jp/vimdoc-ja'                 " 日本語ヘルプ
-  Plug 'tpope/vim-commentary'             " gcc, gc motionでコメントアウト
   Plug 'prabirshrestha/vim-lsp'
   Plug 'mattn/vim-lsp-settings'
 call plug#end()
