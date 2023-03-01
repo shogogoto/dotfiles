@@ -8,7 +8,6 @@ let g:coc_global_extensions = [
       \'coc-diagnostic',
       \'coc-dictionary',
       \'coc-eslint',
-      \'coc-floaterm',
       \'coc-highlight',
       \'coc-java',
       \'coc-jedi',

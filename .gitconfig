@@ -1,0 +1,21 @@
+[user]
+  email = gotoadmn0605@gmail.com
+  name = Shogo Goto
+[push]
+  autoSetupRemote = true
+  default = current
+[credential]
+  helper = store --file ~/.git_credentials
+[color]
+  ui = true
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  grep = auto
+[core]
+  editor = vi
+[alias]
+  st = status
+
+
