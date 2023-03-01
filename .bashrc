@@ -11,4 +11,5 @@ clean_vim() {
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
 export XDG_CONFIG_HOME="$HOME/dotfiles"
 
+. ~/.local/bin/bashmarks.sh
 . ~/dotfiles/.bash_aliases
