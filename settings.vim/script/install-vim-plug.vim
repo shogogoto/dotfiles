@@ -7,8 +7,9 @@ function InstallVimPlug(path) abort
     echo "Installing Vim-Plug..."
     echo ""
 
-    let s:cmd = "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-    let s:result = json_decode(system(cmd))
+    let l:cmd = "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+    echo json_decode(system(cmd))
+    let l:result = json_decode(system(cmd))
     if result['cod'] == 200
       echo 'OK!'
     else
