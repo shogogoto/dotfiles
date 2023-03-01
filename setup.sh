@@ -9,6 +9,10 @@ sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt-get update
 sudo apt-get install neovim
 
+# space cli
+sudo apt install unzip
+curl -fsSL https://get.deta.dev/space-cli.sh | sh
+
 # vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
