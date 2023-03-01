@@ -17,5 +17,10 @@
   editor = vi
 [alias]
   st = status
-
-
+  untracked = ls-files --others --exclude-standard
+  mod = ls-files --modified
+  co = checkout
+  cb = checkout -b
+  cm = commit -m
+  config = config --global
+  br = branch
