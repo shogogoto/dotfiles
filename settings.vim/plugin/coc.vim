@@ -22,7 +22,6 @@ let g:coc_global_extensions = [
       \'coc-tsserver',
       \'coc-ultisnips',
       \'coc-yaml',
-      \'coc-explorer',
       \'coc-jest',
       \'coc-git',
       \'coc-terminal'
