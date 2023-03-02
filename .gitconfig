@@ -15,6 +15,7 @@
   grep = auto
 [core]
   editor = vi
+  autocrlf = input
 [alias]
   st = status
   untracked = ls-files --others --exclude-standard
@@ -22,5 +23,5 @@
   co = checkout
   cb = checkout -b
   cm = commit -m
-  config = config --global
+  gconfig = config --global
   br = branch
