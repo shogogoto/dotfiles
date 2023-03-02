@@ -37,8 +37,8 @@ function! s:fern_settings() abort
   nmap <silent> <buffer> <C-u> <Plug>(fern-action-preview:scroll:up:half)
 
 
-  nmap <silent> <buffer> <C-t> <Plug>(fern-action-project-top)
-  nmap <silent> <buffer> t <Plug>(fern-action-project-top:reveal)
+  " nmap <silent> <buffer> T <Plug>(fern-action-project-top)
+  nmap <silent> <buffer> T <Plug>(fern-action-project-top:reveal)
 
 
   nmap <silent> <buffer> t <Plug>(fern-action-mark-children)
