@@ -44,4 +44,3 @@ cd bashmarks && make install && cd $INS
 
 # vim setup
 vi -c PlugInstall -c q -c q
-nvim +CocInstall -c q -c q
