@@ -14,6 +14,10 @@ Plug 'lambdalisue/glyph-palette.vim'
 
 Plug 'junegunn/fzf'
 Plug 'LumaKernel/fern-mapping-fzf.vim'
+Plug 'andykog/fern-search.vim'
+
+Plug 'lambdalisue/fern-comparator-lexical.vim'
+let g:fern#comparator = "lexical"
 
 
 let g:fern#renderer = "devicons"
