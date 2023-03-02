@@ -31,5 +31,10 @@
   "eslint.nodePath": ".yarn/sdks",
   "workspace.workspaceFolderCheckCwd": false,
   "tsserver.tsdk": ".yarn/sdks/typescript/lib",
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
+  "jedi": {
+    "enable": true,
+    "startupMessage": false,
+    "executable.command": "jedi-language-server"
+  }
 }
