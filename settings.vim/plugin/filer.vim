@@ -13,7 +13,7 @@ Plug 'lambdalisue/fern-renderer-devicons.vim'
 Plug 'lambdalisue/glyph-palette.vim'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'LumaKernel/fern-mapping-fzf.vim'
 Plug 'andykog/fern-search.vim'
 
@@ -88,6 +88,7 @@ endfunction
 
 let g:Fern_mapping_fzf_file_sink = function('s:reveal')
 let g:Fern_mapping_fzf_dir_sink = function('s:reveal')
+
 
 
 
