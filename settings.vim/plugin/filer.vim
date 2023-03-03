@@ -12,6 +12,7 @@ Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 Plug 'lambdalisue/fern-renderer-devicons.vim'
 Plug 'lambdalisue/glyph-palette.vim'
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf'
 Plug 'LumaKernel/fern-mapping-fzf.vim'
 Plug 'andykog/fern-search.vim'
@@ -35,14 +36,15 @@ augroup END
 
 
 function! s:fern_settings() abort
-nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
-nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
-nmap <silent> <buffer> <C-d> <Plug>(fern-action-preview:scroll:down:half)
-nmap <silent> <buffer> <C-u> <Plug>(fern-action-preview:scroll:up:half)
+  nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
+  nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
+  nmap <silent> <buffer> <C-d> <Plug>(fern-action-preview:scroll:down:half)
+  nmap <silent> <buffer> <C-u> <Plug>(fern-action-preview:scroll:up:half)
 
 
-" nmap <silent> <buffer> T <Plug>(fern-action-project-top)
-nmap <silent> <buffer> T <Plug>(fern-action-project-top:reveal)
+  " nmap <silent> <buffer> T <Plug>(fern-action-project-top)
+  nmap <silent> <buffer> T <Plug>(fern-action-project-top:reveal)
+  nmap <silent> <buffer> rm <Plug>(fern-action-remove)
 endfunction
 
 augroup fern-settings
@@ -53,8 +55,8 @@ augroup END
 
 
 function! s:init_fern() abort
-" Use 'select' instead of 'edit' for default 'open' action
-nmap <buffer> <Plug>(fern-action-open) <Plug>(fern-action-open:select)
+  " Use 'select' instead of 'edit' for default 'open' action
+  nmap <buffer> <Plug>(fern-action-open) <Plug>(fern-action-open:select)
 endfunction
 
 augroup fern-custom
