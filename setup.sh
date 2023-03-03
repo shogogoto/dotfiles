@@ -23,7 +23,7 @@ curl https://pyenv.run | bash
 
 # docker
 sudo apt install docker-ce docker-ce-cli
-## 権限設定
+## 権限設定 ref: https://linuxhandbook.com/docker-permission-denied/
 # ERROR: permission denied while trying to connect to the Docker daemon socket
 sudo groupadd docker
 sudo usermod -aG docker $USER
