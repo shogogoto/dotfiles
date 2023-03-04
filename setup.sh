@@ -1,10 +1,7 @@
 #!/bin/bash
 
-
-# dotfilesのセットアップ
-./init_dots.sh
-
 sudo add-apt-repository ppa:neovim-ppa/unstable -y
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo apt update -y
 
 # space cli
@@ -16,30 +13,24 @@ sudo apt install xsel xclip -y # WSL2でクリップボードを有効にする
 sudo apt install tig -y
 sudo apt install npm -y # node
 
-# python
+# pythohhhjk
 sudo apt install python3-pip -y
 pip install pipenv
 curl https://pyenv.run | bash
 
 # docker
-sudo apt install docker-ce docker-ce-cli -y
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 ## 権限設定 ref: https://linuxhandbook.com/docker-permission-denied/
 # ERROR: permission denied while trying to connect to the Docker daemon socket
 sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
 
-
-# git reoisitory
-INS="~/dotfiles/.install"
-mkdir -p $INS && cd $INS
-
-git clone https://github.com/huyng/bashmarks.git
-cd bashmarks && make install && cd $INS
-
-. ~/.bashrc
-
 # vim setup
 sudo apt install neovim -y
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim -c PlugInstall -c q -c q
+
+
+./init_dots.sh # dotfilesのセットアップ
+. ~/.bashrc
