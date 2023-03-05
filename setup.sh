@@ -14,6 +14,7 @@ sudo apt install tig -y
 sudo apt install npm -y # node
 
 # pythohhhjk
+sudo apt install libffi-dev -y # for resolve ModuleNotFoundError: No module named '_ctypes'
 sudo apt install python3-pip -y
 pip install pipenv
 curl https://pyenv.run | bash
