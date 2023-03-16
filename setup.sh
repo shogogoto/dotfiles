@@ -5,15 +5,20 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
 sudo apt update -y
 
 # space cli
-sudo apt install unzip
+sudo apt install zip unzip
 curl -fsSL https://get.deta.dev/space-cli.sh | sh
 
 sudo apt install tofrodos -y # install fromdos, todos command
 sudo apt install xsel xclip -y # WSL2でクリップボードを有効にする
 sudo apt install tig -y
-sudo apt install npm -y # node
 
-# pythohhhjk
+# nodejs
+sudo apt install npm -y # node
+sudo apt install -g n
+sudo n stable
+sodo apt purge nodejs npm -y # n導入後は不要なため
+
+# python
 sudo apt install libffi-dev -y # for resolve ModuleNotFoundError: No module named '_ctypes'
 sudo apt install python3-pip -y
 pip install pipenv
