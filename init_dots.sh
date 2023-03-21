@@ -3,6 +3,7 @@
 dot_files=`cat << EOS
 .vimrc
 .gitconfig
+.tigrc
 EOS
 `
 
