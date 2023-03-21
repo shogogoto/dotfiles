@@ -14,4 +14,8 @@ export PIPENV_VENV_IN_PROJECT=1  # pipenvの仮想環境がプロジェクト内
 export GIT_EDITOR=vim
 export EDITOR=vim
 
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 . ~/dotfiles/.bash_aliases

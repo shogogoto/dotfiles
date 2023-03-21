@@ -20,6 +20,7 @@ sodo apt purge nodejs npm -y # n導入後は不要なため
 
 # python
 sudo apt install libffi-dev -y # for resolve ModuleNotFoundError: No module named '_ctypes'
+sudo apt install libbz2-dev -y # for resoluve ModuleNotFoundError: No module named '_bz2' in networkx
 sudo apt install python3-pip -y
 pip install pipenv
 curl https://pyenv.run | bash
