@@ -25,3 +25,4 @@
   cm = commit -m
   gconfig = config --global
   br = branch
+  empty = commit --allow-empty -m
