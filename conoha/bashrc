@@ -1,0 +1,5 @@
+export KERBEROS_CFLAGS="/usr/bin/pkg-config"
+export KERBEROS_LIBS="/usr/bin/pkg-config"
+
+/* export SQLITE_LIBS="/usr/bin/sqlite3" */
+/* export SQLITE_CFLAGS="/usr/bin/sqlite3" */
