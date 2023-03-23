@@ -6,6 +6,10 @@ clean_vim() {
   ps aux|grep gotoh|grep node|awk -F ' ' '{print $2}'|xargs kill
 }
 
+# ssh-add, ssh-agent ref:https://qiita.com/reoring/items/f8c090393e11b673da84
+keychain
+. ~/.keychain/`hostname`-sh
+
 # WSLに割り当てられるIPアドレス
 # neovimでclipboardを使うのに必要
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0

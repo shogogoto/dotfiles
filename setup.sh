@@ -4,6 +4,9 @@ sudo add-apt-repository ppa:neovim-ppa/unstable -y
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo apt update -y
 
+# for ssh-agent
+sudo apt install keychain -y
+
 # space cli
 sudo apt install zip unzip
 curl -fsSL https://get.deta.dev/space-cli.sh | sh
