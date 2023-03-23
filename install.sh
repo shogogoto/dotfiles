@@ -17,7 +17,7 @@ sudo apt install tig -y
 
 # nodejs
 sudo apt install npm -y # node
-sudo apt install -g n
+sudo npm install -g n
 sudo n stable
 sodo apt purge nodejs npm -y # n導入後は不要なため
 
