@@ -25,7 +25,7 @@ let g:coc_global_extensions = [
 \]
 
 
-
+let g:coc_disable_startup_warning = 1
 
 " https://github.com/neoclide/coc.nvim#example-vim-configuration
 
