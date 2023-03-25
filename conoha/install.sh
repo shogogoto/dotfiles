@@ -17,12 +17,13 @@ exec $SHELL -l
 # php 5.4.16をインストールしようとして失敗したため適宜インストール
 sudo apt install libxml2-dev　-y # php 5.4.16
 
-sudo apt install pkg-config -y # php 7.4.33
+# php 7.4.33
+sudo apt install pkg-config -y
 sudo apt install libgssapi-krb5-2 -y
 sudo apt install libsqlite3-dev -y
 sudo apt install libcurl4-openssl-dev -y
 sudo apt install libpng-dev libjpeg-dev libgmp-dev -y
-sudo ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h
+sudo ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h #これ不要かも
 sudo apt install libonig-dev -y
 sudo apt install libreadline-dev -y
 sudo apt install libtidy-dev -y
@@ -39,3 +40,6 @@ sudo apt install libzip-dev -y
 #       >> flush privileges;
 sudo apt install mariadb-server -y
 sudo mysql_secure_installation
+
+# phpとmysql(MariaDB)の連携 for PDO
+sudo apt install php-mysql
