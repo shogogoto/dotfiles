@@ -9,7 +9,7 @@ Plug 'yuki-yano/fern-preview.vim'
 Plug 'lambdalisue/nerdfont.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-Plug 'lambdalisue/fern-renderer-devicons.vim'
+" Plug 'lambdalisue/fern-renderer-devicons.vim'
 Plug 'lambdalisue/glyph-palette.vim'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
