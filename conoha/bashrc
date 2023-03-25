@@ -1,5 +1,5 @@
 
 function wget_wordpress {
-  local version=${1:-latest-ja}
-  wget https://ja/wordpress.org/${version}.tar.gz
+  local version=${1}
+  wget https://ja.wordpress.org/wordpress-${version:-latest}-ja.zip
 }
