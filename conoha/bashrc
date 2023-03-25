@@ -1,5 +1,8 @@
 
-function wget_wordpress {
+function install_wordpress {
   local version=${1}
-  wget https://ja.wordpress.org/wordpress-${version:-latest}-ja.zip
+  local zipname=wordpress-${version:-latest}-ja.zip
+  wget https://ja.wordpress.org/$zipname
+  unzip $zipname
+  rm $zipname
 }
