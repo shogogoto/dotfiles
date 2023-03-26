@@ -3,8 +3,15 @@
 # WordPress Installation Manual ref:https://support.conoha.jp/v/hellovps-w-04/?btn_id=v-hellovps-ex-01-sidebar_v-hellovps-w-04
 
 # web server ref:https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04-ja
-sudo apt install apache2
+sudo apt install apache2 -y
 sudo ufw allow 'Apache'
+
+
+# sudo apt install nginx-y
+
+# SSL無料証明書 Let's Encrypt for apache certbot->letsencryptでもよさげ
+sudo apt install certbot python3-certbot-apache
+
 
 # Install PHP
 curl -L https://raw.githubusercontent.com/phpenv/phpenv-installer/master/bin/phpenv-installer \
