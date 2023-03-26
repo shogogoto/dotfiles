@@ -1,8 +1,29 @@
 
-function install_wordpress {
+function install_wordpress() {
   local version=${1}
   local zipname=wordpress-${version:-latest}-ja.zip
   wget https://ja.wordpress.org/$zipname
   unzip $zipname
   rm $zipname
+}
+
+
+# https://chee-s.net/ubuntu%E3%81%A7lets-encrypt%E3%81%AE%E7%84%A1%E6%96%99ssl-tls%E3%82%B5%E3%83%BC%E3%83%90%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B
+# ubuntuでlets-encryptの無料ssl-tlsサーバ証明書を取得する
+function take_free_ssl_cert() {
+  local domain_name=${1}
+  certbot certonly --webroot -w /var/www/html -d ${domain_name}
+  echo "hello"
+  # certonlyサブコマンド: サーバーソフトウェアへのインストールはしない
+  # 証明書の取得のみ
+  # --webroot: サーバーを動かしたまま証明書を取得できる
+  # -w rootディレクトリ指定
+  # -d フルドメインを指定 複数使用可能なオプション
+}
+
+
+function install_wp_cli() {
+  curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+  chmod +x wp-cli.phar
+  sudo mv wp-cli.phar /usr/local/bin/wp
 }
