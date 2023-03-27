@@ -21,7 +21,8 @@ Plug 'lambdalisue/fern-comparator-lexical.vim'
 let g:fern#comparator = "lexical"
 
 
-let g:fern#renderer = "devicons"
+" let g:fern#renderer = "devicons"
+let g:fern#renderer = "nerdfont"
 " help: Fern内で Shift+? or a help
 let g:fern#default_hidden=1 " Show hidden files
 nnoremap <leader>e <cmd>Fern . -reveal=% -drawer<cr>
