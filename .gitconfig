@@ -26,3 +26,4 @@
   gconfig = config --global
   br = branch
   empty = commit --allow-empty -m
+  cmam   = commit --amend --no-edit
