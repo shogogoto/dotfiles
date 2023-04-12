@@ -42,4 +42,5 @@ let g:quickrun_config.cpp = {
             \   'cmdopt': '-std=c++11'
             \ }
 
-colorscheme molokai
+" colorscheme molokai
+colorscheme inkpot
