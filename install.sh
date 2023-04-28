@@ -36,6 +36,9 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
 
+# etc
+sudo apt install eog -y # preview image file
+
 # vim setup
 sudo apt install neovim -y
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
