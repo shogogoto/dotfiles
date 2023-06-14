@@ -38,6 +38,7 @@ newgrp docker
 
 # etc
 sudo apt install eog -y # preview image file
+sudo apt install jq -y
 
 # vim setup
 sudo apt install neovim -y
