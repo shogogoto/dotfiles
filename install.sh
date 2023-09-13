@@ -54,8 +54,13 @@ vim -c PlugInstall -c q -c q
 git clone https://github.com/huyng/bashmarks.git
 cd bashmarks
 make install
-## ~/.bashrcのaliasのせいでlコマンドが使えないかも
 cd -
+## ~/.bashrcのaliasのせいでlコマンドが使えないかも
+# s <bookmark_name> - Saves the current directory as "bookmark_name"
+# g <bookmark_name> - Goes (cd) to the directory associated with "bookmark_name"
+# p <bookmark_name> - Prints the directory associated with "bookmark_name"
+# d <bookmark_name> - Deletes the bookmark
+# l                 - Lists all available bookmarks
 
 ./init_dots.sh # dotfilesのセットアップ
 . ~/.bashrc
