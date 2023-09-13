@@ -54,8 +54,8 @@ vim -c PlugInstall -c q -c q
 git clone https://github.com/huyng/bashmarks.git
 cd bashmarks
 make install
+## ~/.bashrcのaliasのせいでlコマンドが使えないかも
 cd -
-
 
 ./init_dots.sh # dotfilesのセットアップ
 . ~/.bashrc
