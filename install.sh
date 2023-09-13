@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo add-apt-repository ppa:apt-fast/stable
+sudo add-apt-repository ppa:apt-fast/stable -y
 sudo add-apt-repository ppa:neovim-ppa/unstable -y
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo apt update -y
@@ -29,6 +29,8 @@ sudo apt-fast install libbz2-dev -y # for resoluve ModuleNotFoundError: No modul
 sudo apt-fast install python3-pip -y
 pip install pipenv
 curl https://pyenv.run | bash
+curl -sSL https://install.python-poetry.org | python3 -
+poetry config virtualenvs.in-project true
 
 # docker
 sudo apt-fast install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
@@ -48,5 +50,13 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 vim -c PlugInstall -c q -c q
 
 
+# github repository
+git clone https://github.com/huyng/bashmarks.git
+cd bashmarks
+make install
+cd -
+
+
 ./init_dots.sh # dotfilesのセットアップ
 . ~/.bashrc
+

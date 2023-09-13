@@ -26,3 +26,5 @@ eval "$(pyenv init -)"
 . ~/dotfiles/.bash_aliases
 
 . ~/dotfiles/conoha/bashrc
+
+. ~/.local/bin/bashmarks.sh
