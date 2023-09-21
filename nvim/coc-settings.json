@@ -13,6 +13,10 @@
       ],
       "initializationOptions": {},
       "settings": {}
+    },
+    "ruff-lsp": {
+      "command": "ruff-lsp",
+      "filetypes": ["python"]
     }
   },
   "suggest.keepCompleteopt": true,
@@ -35,5 +39,11 @@
     "enable": true,
     "startupMessage": false,
     "executable.command": "jedi-language-server"
-  }
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ]
 }
