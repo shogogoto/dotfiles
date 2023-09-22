@@ -15,8 +15,8 @@ keychain
 # export DISPLAY=$(cat /etc/resolv.conf | grep -e "^nameserver" | awk '{print $2}'):0.0
 export XDG_CONFIG_HOME="$HOME/dotfiles"
 export PIPENV_VENV_IN_PROJECT=1  # pipenvの仮想環境がプロジェクト内に作成される ~/.local/share/virtualenvsではなく
-export GIT_EDITOR=vim
-export EDITOR=vim
+export GIT_EDITOR=nvim # tig-explorerのエラー回避
+export EDITOR=nvim
 export PATH=$PATH:$HOME/dotfiles/bin
 
 export PYENV_ROOT="$HOME/.pyenv"
