@@ -2,8 +2,10 @@ Plug 'ntpeters/vim-better-whitespace'  " 行末の半角スペースを可視化
 Plug 'junegunn/vim-easy-align'          " 指定文字で整形:gaモーション  https://qiita.com/takuyanin/items/846cb2b3e541f79f0d54
 
 let g:better_whitespace_enabled=0
-let g:strip_whitespace_on_save=1
+" let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
+let g:better_whitespace_filetypes_blacklist=['markdown']
+autocmd BufEnter * if index(g:better_whitespace_filetypes_blacklist, &ft) < 0 | exec 'EnableStripWhitespaceOnSave' | endif
 nnoremap ]w :NextTrailingWhitespace<CR>
 nnoremap [w :PrevTrailingWhitespace<CR>
 
