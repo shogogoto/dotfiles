@@ -1,4 +1,4 @@
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " CocList extensionでインストール済み一覧
 let g:coc_global_extensions = [
@@ -6,7 +6,6 @@ let g:coc_global_extensions = [
       \'coc-cspell-dicts',
       \'coc-diagnostic',
       \'coc-dictionary',
-      \'coc-eslint',
       \'coc-highlight',
       \'coc-jedi',
       \'coc-json',
@@ -16,12 +15,15 @@ let g:coc_global_extensions = [
       \'coc-snippets',
       \'coc-spell-checker',
       \'coc-tslint-plugin',
+      \'coc-eslint',
       \'coc-tsserver',
       \'coc-ultisnips',
       \'coc-yaml',
       \'coc-jest',
       \'coc-git',
-      \'coc-terminal'
+      \'coc-terminal',
+      \'coc-styled-components',
+      \'coc-css'
 \]
 
 

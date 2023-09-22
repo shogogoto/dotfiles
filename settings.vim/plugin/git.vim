@@ -22,7 +22,7 @@ highlight GitGutterChangeDelete ctermfg=yellow
 "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
 
 " navigate chunks of current buffer
-nmap [g (coc-git-prevchunk)
+nmap [g <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
 " navigate conflicts of current buffer
 nmap [c <Plug>(coc-git-prevconflict)
