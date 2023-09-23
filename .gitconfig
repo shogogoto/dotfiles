@@ -16,6 +16,8 @@
 [core]
   editor = vi
   autocrlf = input
+[fetch]
+  prune = true # ローカルのブランチをfetch時にお掃除
 [alias]
   st = status
   untracked = ls-files --others --exclude-standard
@@ -26,4 +28,4 @@
   gconfig = config --global
   br = branch
   empty = commit --allow-empty -m
-  cmam   = commit --amend --no-edit
+  cmam = commit --amend --no-edit
