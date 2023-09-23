@@ -1,1 +1,16 @@
-coc/*
+*
+
+# Allowlist
+!bin/*
+!.bash_alias
+!.bashrc
+!.gitconfig
+!.gitignore
+!.tigrc
+!.vimrc
+!conoha/*
+!init_dots.sh
+!install.sh
+!nvim/*
+!practical-vim.txt
+!settings.vim/*
