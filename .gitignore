@@ -13,4 +13,5 @@
 !install.sh
 !nvim/*
 !practical-vim.txt
+!pypoetry/config.toml
 !settings.vim/*
