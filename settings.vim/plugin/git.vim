@@ -61,3 +61,6 @@ nnoremap <Leader>T :TigOpenCurrentFile<CR>
 
 " open tig with Project root path
 nnoremap <Leader>t :TigOpenProjectRootDir<CR>
+
+" don't use builtin terminal
+let g:tig_explorer_use_builtin_term=0
