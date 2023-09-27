@@ -1,5 +1,6 @@
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" autocmd FileType python let g:coc_root_patterns = ['.git', '.env']
 " CocList extensionでインストール済み一覧
 let g:coc_global_extensions = [
       \'coc-actions',
@@ -24,7 +25,8 @@ let g:coc_global_extensions = [
       \'coc-terminal',
       \'coc-styled-components',
       \'coc-css',
-      \'@yaegassy/coc-ruff'
+      \'@yaegassy/coc-ruff',
+      \'coc-pyright'
 \]
 
 

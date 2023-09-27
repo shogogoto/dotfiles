@@ -40,5 +40,6 @@
   "coc.preferences.formatOnSave": true,
   "ruff.enableExperimentalFormatter": true,
   "ruff.autoFixOnSave": true,
-  "ruff.client.codeAction.showDocumantaion.enable": true
+  "ruff.client.codeAction.showDocumantaion.enable": true,
+  "python.analysis.diagnosticMode": "workspace"
 }
