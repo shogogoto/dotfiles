@@ -7,10 +7,7 @@
     "terraform": {
       "command": "terraform-ls",
       "args": ["serve"],
-      "filetypes": [
-        "terraform",
-        "tf"
-      ],
+      "filetypes": ["terraform", "tf"],
       "initializationOptions": {},
       "settings": {}
     },
@@ -40,10 +37,8 @@
     "startupMessage": false,
     "executable.command": "jedi-language-server"
   },
-  "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ]
+  "coc.preferences.formatOnSave": true,
+  "ruff.enableExperimentalFormatter": true,
+  "ruff.autoFixOnSave": true,
+  "ruff.client.codeAction.showDocumantaion.enable": true
 }

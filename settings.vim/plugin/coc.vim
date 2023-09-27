@@ -23,7 +23,8 @@ let g:coc_global_extensions = [
       \'coc-git',
       \'coc-terminal',
       \'coc-styled-components',
-      \'coc-css'
+      \'coc-css',
+      \'@yaegassy/coc-ruff'
 \]
 
 
