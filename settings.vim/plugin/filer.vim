@@ -24,7 +24,8 @@ let g:fern#comparator = "lexical"
 " let g:fern#renderer = "devicons"
 let g:fern#renderer = "nerdfont"
 " help: Fern内で Shift+? or a help
-let g:fern#default_hidden=1 " Show hidden files
+let g:fern#default_hidden=0 " Show hidden files
+let g:fern#default_exclude = '^\%(\.git\|\.byebug\|__pycache__\)$'
 nnoremap <leader>e <cmd>Fern . -reveal=% -drawer<cr>
 nnoremap <leader>b <cmd>Fern bookmark:///<cr>
 
