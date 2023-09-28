@@ -1,6 +1,6 @@
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" autocmd FileType python let g:coc_root_patterns = ['.git', '.env']
+autocmd FileType python let g:coc_root_patterns = ['.git', '.env']
 " CocList extensionでインストール済み一覧
 let g:coc_global_extensions = [
       \'coc-actions',
@@ -8,7 +8,6 @@ let g:coc_global_extensions = [
       \'coc-diagnostic',
       \'coc-dictionary',
       \'coc-highlight',
-      \'coc-jedi',
       \'coc-json',
       \'coc-markdownlint',
       \'coc-pairs',
