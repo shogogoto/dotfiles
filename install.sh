@@ -32,6 +32,7 @@ curl https://pyenv.run | bash
 curl -sSL https://install.python-poetry.org | python3 -
 poetry config virtualenvs.in-project true
 poetry self add "poetry-dynamic-versioning[plugin]"
+pip3 install ruff-lsp # python formmter
 
 # docker
 sudo apt-fast install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
