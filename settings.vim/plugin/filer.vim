@@ -12,8 +12,6 @@ Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 " Plug 'lambdalisue/fern-renderer-devicons.vim'
 Plug 'lambdalisue/glyph-palette.vim'
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'LumaKernel/fern-mapping-fzf.vim'
 Plug 'andykog/fern-search.vim'
 
