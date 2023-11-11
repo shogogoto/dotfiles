@@ -1,17 +1,18 @@
 *
+!*/
 
 # Allowlist
-!bin/*
+!bin/**
 !.bash_alias
 !.bashrc
 !.gitconfig
 !.gitignore
 !.tigrc
 !.vimrc
-!conoha/*
+!conoha/**
 !init_dots.sh
 !install.sh
-!nvim/*
+!nvim/**
 !practical-vim.txt
 !pypoetry/config.toml
-!settings.vim/*
+!settings.vim/**
