@@ -1,5 +1,5 @@
 #!/bin/bash
-
+sudo apt install software-properties-common # add-apt-repositoryを追加
 sudo add-apt-repository ppa:apt-fast/stable -y
 sudo add-apt-repository ppa:neovim-ppa/unstable -y
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
