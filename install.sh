@@ -36,7 +36,8 @@ poetry self add "poetry-dynamic-versioning[plugin]"
 pip3 install ruff-lsp # python formmter
 
 # docker
-sudo apt-fast install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
+# sudo apt-fast install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
+sudo apt-fast install docker -y
 ## 権限設定 ref: https://linuxhandbook.com/docker-permission-denied/
 # ERROR: permission denied while trying to connect to the Docker daemon socket
 sudo groupadd docker
