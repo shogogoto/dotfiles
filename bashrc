@@ -18,7 +18,7 @@ export PIPENV_VENV_IN_PROJECT=1  # pipenvの仮想環境がプロジェクト内
 export GIT_EDITOR=nvim # tig-explorerのエラー回避
 export EDITOR=nvim
 export PATH=$PATH:$HOME/dotfiles/bin
-
+export DEBIAN_FRONTEND=noninteractive
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"

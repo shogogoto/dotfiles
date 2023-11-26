@@ -1,13 +1,16 @@
 #!/bin/bash
 sudo apt install software-properties-common -yq # add-apt-repositoryを追加
-sudo add-apt-repository ppa:apt-fast/stable -y
-sudo add-apt-repository ppa:neovim-ppa/unstable -y
+sudo add-apt-repository ppa:apt-fast/stable -yq
+sudo add-apt-repository ppa:neovim-ppa/unstable -yq
 # curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo apt update -yq
 sudo apt upgrade -yq
 sudo apt install apt-fast -yq
 # for ssh-agent
 sudo apt-fast install keychain -yq
+
+./init_dots.sh # keychinに依存
+. ~/.bashrc
 
 # space cli
 sudo apt-fast install zip unzip -yq
@@ -52,7 +55,6 @@ sudo apt-fast install neovim -yq
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim -c PlugInstall -c q -c q
 
-
 # github repository
 git clone https://github.com/huyng/bashmarks.git
 cd bashmarks
@@ -65,6 +67,4 @@ cd -
 # d <bookmark_name> - Deletes the bookmark
 # l                 - Lists all available bookmarks
 
-./init_dots.sh # dotfilesのセットアップ
-. ~/.bashrc
 
