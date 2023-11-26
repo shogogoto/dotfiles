@@ -24,7 +24,6 @@ let g:coc_global_extensions = [
       \'coc-terminal',
       \'coc-styled-components',
       \'coc-css',
-      \'@yaegassy/coc-ruff',
       \'coc-pyright'
 \]
 
