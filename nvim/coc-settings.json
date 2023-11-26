@@ -38,5 +38,6 @@
   "ruff.client.codeAction.showDocumantaion.enable": true,
   "python.analysis.diagnosticMode": "workspace",
   "coc.source.ultisnips.enable": false,
-  "python.linting.enabled": false
+  "python.linting.enabled": false,
+  "pyright.testing.provider": "pytest"
 }
