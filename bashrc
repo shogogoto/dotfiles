@@ -6,9 +6,11 @@ clean_vim() {
   ps aux|grep gotoh|grep node|awk -F ' ' '{print $2}'|xargs kill
 }
 
-# ssh-add, ssh-agent ref:https://qiita.com/reoring/items/f8c090393e11b673da84
-keychain
-. ~/.keychain/`hostname`-sh
+# ssh-add, ssh-agent ref:https://qiita.com/reoring/items/f8c090393e11b673da84A
+if [ -f /usr/bin/keychain ]; then
+  keychain
+  . ~/.keychain/`hostname`-sh
+fi
 
 # WSLに割り当てられるIPアドレス
 # neovimでclipboardを使うのに必要
@@ -27,4 +29,12 @@ eval "$(pyenv init -)"
 
 . ~/dotfiles/conoha/bashrc
 
-. ~/.local/bin/bashmarks.sh
+if [ -f ~/.local/bin/bashmarks.sh ]; then
+  . ~/.local/bin/bashmarks.sh
+  ## ~/.bashrcのaliasのせいでlコマンドが使えないかも
+  # s <bookmark_name> - Saves the current directory as "bookmark_name"
+  # g <bookmark_name> - Goes (cd) to the directory associated with "bookmark_name"
+  # p <bookmark_name> - Prints the directory associated with "bookmark_name"
+  # d <bookmark_name> - Deletes the bookmark
+  # l                 - Lists all available bookmarks
+fi
