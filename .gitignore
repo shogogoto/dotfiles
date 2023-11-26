@@ -2,7 +2,7 @@
 
 # Allowlist
 !bin/**
-!bash_alias
+!bash_aliases
 !bashrc
 !gitconfig
 !.gitignore
