@@ -2,12 +2,12 @@
 
 # Allowlist
 !bin/**
-!.bash_alias
-!.bashrc
-!.gitconfig
+!bash_alias
+!bashrc
+!gitconfig
 !.gitignore
-!.tigrc
-!.vimrc
+!tigrc
+!vimrc
 !conoha/**
 !init_dots.sh
 !install.sh
