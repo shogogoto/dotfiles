@@ -1,16 +1,16 @@
 #!/bin/bash
-sudo apt install software-properties-common # add-apt-repositoryを追加
+sudo apt install software-properties-common -y # add-apt-repositoryを追加
 sudo add-apt-repository ppa:apt-fast/stable -y
 sudo add-apt-repository ppa:neovim-ppa/unstable -y
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo apt update -y
-
+sudo apt upgrade -y
 sudo apt install apt-fast -y
 # for ssh-agent
 sudo apt-fast install keychain -y
 
 # space cli
-sudo apt-fast install zip unzip
+sudo apt-fast install zip unzip -y
 curl -fsSL https://get.deta.dev/space-cli.sh | sh
 
 sudo apt-fast install tofrodos -y # install fromdos, todos command
@@ -30,7 +30,7 @@ sudo apt-fast install python3-pip -y
 pip install pipenv
 curl https://pyenv.run | bash
 #curl -sSL https://install.python-poetry.org | python3 -
-sudo apt-fast install python3-poetry
+sudo apt-fast install python3-poetry -y
 poetry config virtualenvs.in-project true
 poetry self add "poetry-dynamic-versioning[plugin]"
 pip3 install ruff-lsp # python formmter
