@@ -1,7 +1,4 @@
 #!/bin/bash
-./init_dots.sh # keychinに依存
-. ~/.bashrc
-
 yes | sudo apt install software-properties-common -yq # add-apt-repositoryを追加
 yes | sudo add-apt-repository ppa:apt-fast/stable -y
 yes | sudo add-apt-repository ppa:neovim-ppa/unstable -y
@@ -52,6 +49,8 @@ yes | sudo apt-fast install jq -yq
 
 # vim setup
 yes | sudo apt install neovim -yq
+./init_dots.sh # keychinに依存
+. ~/.bashrc
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim -c PlugInstall -c q -c q
 
