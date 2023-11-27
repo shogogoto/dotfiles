@@ -10,7 +10,7 @@ fi
 sudo apt install apt-fast -y
 sudo apt-fast update -yq
 sudo apt-fast upgrade -yq
-sudo apt autoremove
+sudo apt autoremove -y
 # for ssh-agent
 sudo apt-fast install keychain -yq
 
