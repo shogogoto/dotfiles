@@ -33,9 +33,10 @@ sudo apt-fast install libffi-dev -yq # for resolve ModuleNotFoundError: No modul
 sudo apt-fast install libbz2-dev -yq # for resoluve ModuleNotFoundError: No module named '_bz2' in networkx
 sudo apt-fast install python3-pip -yq
 curl https://pyenv.run | bash
-#curl -sSL https://install.python-poetry.org | python3 -
-sudo apt-fast install python3-poetry -yq
+curl -sSL https://install.python-poetry.org | python3 -
+#sudo apt-fast install python3-poetry -yq
 poetry config virtualenvs.in-project true
+poetry self update
 poetry self add "poetry-dynamic-versioning[plugin]"
 pip3 install ruff-lsp # python formmter
 
