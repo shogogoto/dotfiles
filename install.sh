@@ -4,13 +4,13 @@ sudo apt install software-properties-common -yq # add-apt-repositoryを追加
 apt list|grep apt-fast -q
 if [ $? = 1 ] ; then
   sudo add-apt-repository ppa:apt-fast/stable -y
+  sudo apt-fast update -yq
+  sudo apt-fast upgrade -yq
+  sudo apt autoremove -y
 fi
 # sudo add-apt-repository ppa:neovim-ppa/unstable -y
 # curl -fsSL https://download.docker.com/linux/ubuntu/gpg | yes | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo apt install apt-fast -y
-#sudo apt-fast update -yq
-#sudo apt-fast upgrade -yq
-sudo apt autoremove -y
 # for ssh-agent
 sudo apt-fast install keychain -yq
 
