@@ -1,7 +1,8 @@
 #!/bin/bash
+export NEEDRESTART_MODE=a
 sudo apt install software-properties-common -yq # add-apt-repositoryを追加
 sudo add-apt-repository ppa:apt-fast/stable -y
-sudo add-apt-repository ppa:neovim-ppa/unstable -y
+# sudo add-apt-repository ppa:neovim-ppa/unstable -y
 # curl -fsSL https://download.docker.com/linux/ubuntu/gpg | yes | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo apt update -yq
 sudo apt upgrade -yq
