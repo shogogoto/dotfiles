@@ -53,6 +53,7 @@ sudo usermod -aG docker $USER
 # etc
 sudo apt-fast install eog -yq # preview image file
 sudo apt-fast install jq -yq
+sudo apt-fast install hub -yq # cliからgithubを開く
 
 # vim setup
 sudo apt-fast install neovim -yq
