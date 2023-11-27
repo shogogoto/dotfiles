@@ -9,6 +9,9 @@ sudo apt-get -y install xrdp
 sudo systemctl enable xrdp
 sudo adduser xrdp ssl-cert
 
-sudo ufw 3389 # rdp port
+# default portは攻撃されやすい
+sudo ufw 5100 #3389 # rdp port
 sudo ufw reload
 sudo ufw status # check
+
+sudo apt install -y fcitx-mozc
