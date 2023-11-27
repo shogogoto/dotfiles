@@ -8,8 +8,8 @@ fi
 # sudo add-apt-repository ppa:neovim-ppa/unstable -y
 # curl -fsSL https://download.docker.com/linux/ubuntu/gpg | yes | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo apt install apt-fast -y
-sudo apt-fast update -yq
-sudo apt-fast upgrade -yq
+#sudo apt-fast update -yq
+#sudo apt-fast upgrade -yq
 sudo apt autoremove -y
 # for ssh-agent
 sudo apt-fast install keychain -yq
