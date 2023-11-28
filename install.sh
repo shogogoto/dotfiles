@@ -32,8 +32,8 @@ sodo apt-fast purge nodejs npm -yq # n導入後は不要なため
 sudo apt-fast install libffi-dev -yq # for resolve ModuleNotFoundError: No module named '_ctypes'
 sudo apt-fast install libbz2-dev -yq # for resoluve ModuleNotFoundError: No module named '_bz2' in networkx
 sudo apt-fast install python3-pip -yq
-pip install pipenv
-# curl https://pyenv.run | bash
+# pip install pipenv
+curl https://pyenv.run | bash
 curl -sSL https://install.python-poetry.org | python3 -
 #sudo apt-fast install python3-poetry -yq
 poetry config virtualenvs.in-project true
