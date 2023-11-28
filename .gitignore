@@ -11,7 +11,7 @@
 !conoha/**
 !init_dots.sh
 !install.sh
-!nvim/**
+!config/nvim/**
 !practical-vim.txt
-!pypoetry/config.toml
+!config/pypoetry/config.toml
 !settings.vim/**
