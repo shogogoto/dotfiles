@@ -8,7 +8,7 @@
 !.gitignore
 !tigrc
 !vimrc
-!conoha/**
+!envs/**
 !init_dots.sh
 !install.sh
 !config/nvim/**
