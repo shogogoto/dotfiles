@@ -26,7 +26,7 @@ export PATH=$PATH:$HOME/dotfiles/bin
 export DEBIAN_FRONTEND=noninteractive
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(py0env init -)"
+eval "$(pyenv init -)"
 export PRE_COMMIT_ALLOW_NO_CONFIG=1
 
 . ~/dotfiles/bash_aliases
