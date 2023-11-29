@@ -11,8 +11,9 @@
       "initializationOptions": {},
       "settings": {}
     },
-    "python": {
-      "command": "ruff-lsp"
+    "ruff-lsp": {
+      "command": "ruff-lsp",
+      "filetypes": ["python"]
     }
   },
   "suggest.keepCompleteopt": true,
