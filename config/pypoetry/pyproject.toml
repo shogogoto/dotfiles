@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "poetry-instance"
+version = "1.6.1"
+description = ""
+authors = []
+license = ""
+
+[tool.poetry.dependencies]
+python = "3.10.12"
+poetry = "1.6.1"
+
+[tool.poetry.group.additional.dependencies]
+poetry-dynamic-versioning = {extras = ["plugin"], version = "^1.1.0"}
+
