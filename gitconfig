@@ -18,6 +18,8 @@
   autocrlf = input
 [fetch]
   prune = true # ローカルのブランチをfetch時にお掃除
+[merge]
+  tool = vimdiff
 [alias]
   st = status
   untracked = ls-files --others --exclude-standard
