@@ -11,6 +11,7 @@
 !envs/**
 !init_dots.sh
 !install.sh
+!config
 !config/nvim/**
 !practical-vim.txt
 !config/pypoetry/config.toml
