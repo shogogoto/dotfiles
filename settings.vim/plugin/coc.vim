@@ -4,15 +4,8 @@ autocmd FileType python let g:coc_root_patterns = ['.git', '.env']
 " CocList extensionでインストール済み一覧
 let g:coc_global_extensions = [
       \'coc-actions',
-      \'coc-cspell-dicts',
-      \'coc-diagnostic',
-      \'coc-dictionary',
-      \'coc-highlight',
       \'coc-json',
       \'coc-markdownlint',
-      \'coc-pairs',
-      \'coc-prettier',
-      \'coc-snippets',
       \'coc-spell-checker',
       \'coc-tslint-plugin',
       \'coc-eslint',

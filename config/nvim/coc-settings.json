@@ -36,5 +36,5 @@
   "coc.source.ultisnips.enable": false,
   "python.linting.enabled": false,
   "pyright.testing.provider": "pytest",
-  "python.linting.ruffEnabled": true
+  "python.linting.ruffEnabled": false
 }
