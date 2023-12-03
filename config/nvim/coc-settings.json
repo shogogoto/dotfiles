@@ -10,10 +10,6 @@
       "filetypes": ["terraform", "tf"],
       "initializationOptions": {},
       "settings": {}
-    },
-    "ruff-lsp": {
-      "command": "ruff-lsp",
-      "filetypes": ["python"]
     }
   },
   "suggest.keepCompleteopt": true,

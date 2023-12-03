@@ -17,13 +17,11 @@ let g:coc_global_extensions = [
       \'coc-tslint-plugin',
       \'coc-eslint',
       \'coc-tsserver',
-      \'coc-ultisnips',
       \'coc-yaml',
       \'coc-jest',
       \'coc-git',
-      \'coc-terminal',
-      \'coc-styled-components',
       \'coc-css',
+      \'@yaegassy/coc-ruff',
       \'coc-pyright'
 \]
 
