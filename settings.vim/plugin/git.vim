@@ -1,9 +1,6 @@
 Plug 'tpope/vim-fugitive' " https://wakame.hatenablog.jp/entry/2017/05/03/222511
 Plug 'jonas/tig'
 
-Plug 'rbgrouleff/bclose.vim' "tig-explorerが依存する
-Plug 'iberianpig/tig-explorer.vim'
-
 " let g:gitgutter_highlight_lines = 1
 nnoremap <Leader>git :GitGutterToggle<CR>
 nnoremap <Leader>gith :GitGutterLineHighlightsToggle<CR>
@@ -40,27 +37,3 @@ xmap ag <Plug>(coc-git-chunk-outer)
 set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
 
 nnoremap <silent> <space>g  :<C-u>CocList --normal gstatus<CR>
-
-" tigの使い方
-" https://iberianpig.github.io/posts/2019-04-30_how-to-use-tig-explorer.vim/
-" https://qiita.com/mhimuro/items/8c77709ac6b08abb90f0
-" tig stettings
-let g:tig_explorer_keymap_edit_e  = 'e'
-let g:tig_explorer_keymap_edit    = '<C-o>'
-let g:tig_explorer_keymap_tabedit = '<C-t>'
-let g:tig_explorer_keymap_split   = '<C-s>'
-let g:tig_explorer_keymap_vsplit  = '<C-v>'
-
-let g:tig_explorer_keymap_commit_edit    = '<ESC>o'
-let g:tig_explorer_keymap_commit_tabedit = '<ESC>t'
-let g:tig_explorer_keymap_commit_split   = '<ESC>s'
-let g:tig_explorer_keymap_commit_vsplit  = '<ESC>v'
-
-" open tig with current file
-nnoremap <Leader>T :TigOpenCurrentFile<CR>
-
-" open tig with Project root path
-nnoremap <Leader>t :TigOpenProjectRootDir<CR>
-
-" don't use builtin terminal
-let g:tig_explorer_use_builtin_term=0
