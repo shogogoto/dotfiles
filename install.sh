@@ -10,7 +10,7 @@ sudo apt autoremove -y
 sudo apt install keychain -yq
 
 # space cli
-sudo apt install zip unzip -yq
+sudo apt install zip unzip curl -yq
 curl -fsSL https://get.deta.dev/space-cli.sh | sh
 
 sudo apt install tofrodos -yq # install fromdos, todos command
