@@ -40,3 +40,11 @@ if [ -f ~/.local/bin/bashmarks.sh ]; then
   # d <bookmark_name> - Deletes the bookmark
   # l                 - Lists all available bookmarks
 fi
+
+
+bind '"\C-n": history-search-forward'
+bind '"\C-p": history-search-backward'
+
+# ついでに履歴の件数も上げておく
+HISTSIZE=100000
+
