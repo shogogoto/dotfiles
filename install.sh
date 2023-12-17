@@ -5,7 +5,6 @@ sudo apt update -yq
 sudo apt upgrade -yq
 sudo apt autoremove -y
 # sudo add-apt-repository ppa:neovim-ppa/unstable -y
-# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | yes | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 # for ssh-agent
 sudo apt install keychain -yq
 
@@ -37,13 +36,18 @@ poetry self add "poetry-dynamic-versioning[plugin]"
 pip3 install ruff-lsp # python formmter
 
 # docker
-# sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
-sudo apt install docker.io docker -yq
-## 権限設定 ref: https://linuxhandbook.com/docker-permission-denied/
-# ERROR: permission denied while trying to connect to the Docker daemon socket
-sudo groupadd docker -f
+sudo apt install ca-certificates gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install -yq docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin 
 sudo usermod -aG docker $USER
-# newgrp docker
+newgrp docker
 
 # etc
 sudo apt install eog -yq # preview image file
