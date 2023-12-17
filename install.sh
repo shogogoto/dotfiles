@@ -45,7 +45,7 @@ echo \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
-sudo apt-get install -yq docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin 
+sudo apt-get install -yq docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo usermod -aG docker $USER
 newgrp docker
 
@@ -53,6 +53,7 @@ newgrp docker
 sudo apt install eog -yq # preview image file
 sudo apt install jq -yq
 sudo apt install hub -yq # cliからgithubを開く
+sudo aot install preload -yq # よく使うアプリを事前に読み込む
 
 # vim setup
 sudo apt install neovim -yq
