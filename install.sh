@@ -46,8 +46,8 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get install -yq docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-sudo usermod -aG docker $USER
-newgrp docker
+sudo groupadd docker -f
+sudo gpasswd -a $USER docker
 
 # etc
 sudo apt install eog -yq # preview image file
