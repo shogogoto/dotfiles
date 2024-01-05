@@ -28,6 +28,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 export PRE_COMMIT_ALLOW_NO_CONFIG=1
+eval "$(direnv hook bash)"
 
 . ~/dotfiles/bash_aliases
 
@@ -48,3 +49,6 @@ bind '"\C-p": history-search-backward'
 # ついでに履歴の件数も上げておく
 HISTSIZE=100000
 
+
+. <(curl -s https://raw.githubusercontent.com/shogogoto/conoha-client/main/conoha-client.bash)
+. <(curl -s https://raw.githubusercontent.com/shogogoto/knowde/main/complete.bash)
