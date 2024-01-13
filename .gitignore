@@ -16,4 +16,4 @@
 !config
 !config/nvim/**
 !config/pypoetry/config.toml
-!config/git/**
+!config/git/ignore
