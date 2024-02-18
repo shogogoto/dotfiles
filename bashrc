@@ -7,10 +7,10 @@ clean_vim() {
 }
 
 # ssh-add, ssh-agent ref:https://qiita.com/reoring/items/f8c090393e11b673da84A
-if [ -f /usr/bin/keychain ]; then
-  keychain
-  . ~/.keychain/`hostname`-sh
-fi
+# if [ -f /usr/bin/keychain ]; then
+#   keychain
+#   . ~/.keychain/`hostname`-sh
+# fi
 
 # WSLに割り当てられるIPアドレス
 # neovimでclipboardを使うのに必要
