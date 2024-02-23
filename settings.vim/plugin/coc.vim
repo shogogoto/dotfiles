@@ -15,7 +15,8 @@ let g:coc_global_extensions = [
       \'coc-git',
       \'coc-css',
       \'@yaegassy/coc-ruff',
-      \'coc-pyright'
+      \'coc-pyright',
+      \'coc-snippets'
 \]
 
 
