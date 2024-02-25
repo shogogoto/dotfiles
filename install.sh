@@ -29,7 +29,7 @@ sudo apt install python3-pip -yq
 # pip install pipenv
 curl https://pyenv.run | bash
 curl -sSL https://install.python-poetry.org | python3 -
-#sudo apt install python3-poetry -yq
+sudo apt install python3-poetry -yq
 poetry config virtualenvs.in-project true
 poetry self update
 poetry self add "poetry-dynamic-versioning[plugin]"
