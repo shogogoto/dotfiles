@@ -55,6 +55,8 @@ sudo apt install jq -yq
 sudo apt install hub -yq # cliからgithubを開く
 sudo apt install preload -yq # よく使うアプリを事前に読み込む
 sudo apt install direnv -yq
+sudo apt install gh -yq # GitHub CLI
+sudo apt install img2pdf -yq
 
 # vim setup
 sudo apt install neovim -yq
