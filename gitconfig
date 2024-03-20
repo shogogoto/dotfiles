@@ -31,3 +31,4 @@
   br = branch
   empty = commit --allow-empty -m
   cmam = commit --amend --no-edit
+  br-clean = !git br|grep -v main|xargs git br -d
