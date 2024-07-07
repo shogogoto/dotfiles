@@ -57,7 +57,7 @@ sudo apt install preload -yq # よく使うアプリを事前に読み込む
 sudo apt install direnv -yq
 sudo apt install gh -yq # GitHub CLI
 sudo apt install img2pdf -yq
-
+sudo apt install pdftk -yq
 # vim setup
 sudo apt install neovim -yq
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
