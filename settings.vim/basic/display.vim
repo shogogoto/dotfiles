@@ -10,3 +10,4 @@
  set cmdheight=2    " メッセージ表示欄を2行確保
  set showmatch      " 対応する括弧を強調表示
  set helpheight=999 " ヘルプを画面いっぱいに開く
+ set colorcolumn=80 "80列目の背景色変更
