@@ -17,7 +17,7 @@ let g:coc_global_extensions = [
       \'@yaegassy/coc-ruff',
       \'coc-pyright',
       \'coc-snippets',
-      \'coc-sh'
+      \'coc-sh',
 \]
 
 
@@ -164,24 +164,24 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " https://github.com/neoclide/coc-lists
 " Mappings for CoCList
 " Show all diagnostics.
-" nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <space>la  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-" nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> <space>le  :<C-u>CocList extensions<cr>
 " Show commands.
-" nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> <space>lc  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-" nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <space>lo  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <space>ls  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent><nowait> <space>lj  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> <space>lk  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-" nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> <space>lp  :<C-u>CocListResume<CR>
 
 " nnoremap <C-p> :CocList files<CR>
-nnoremap <silent><nowait> <space>f  :<C-u>CocList files<CR>
+nnoremap <silent><nowait> <space>lf  :<C-u>CocList files<CR>
 
 " most recent used files
-nnoremap <silent><nowait> <space>m  :<C-u>CocList mru<CR>
+nnoremap <silent><nowait> <space>lm  :<C-u>CocList mru<CR>
