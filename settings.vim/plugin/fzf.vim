@@ -1,7 +1,8 @@
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
-" Plug 'antoinemadec/coc-fzf'
+Plug 'antoinemadec/coc-fzf'
+Plug 'thinca/vim-qfreplace'
 
 " https://github.com/yuki-yano/fzf-preview.vim
 nmap <Leader>f [fzf-p]
@@ -22,3 +23,19 @@ xnoremap          [fzf-p]gr    "sy:FzfPreviewProjectGrepRpc<Space>-F<Space>"<C-r
 nnoremap <silent> [fzf-p]t     :<C-u>FzfPreviewBufferTagsRpc<CR>
 nnoremap <silent> [fzf-p]q     :<C-u>FzfPreviewQuickFixRpc<CR>
 nnoremap <silent> [fzf-p]l     :<C-u>FzfPreviewLocationListRpc<CR>
+
+" Base Fzf window Keymaps
+" <C-g>, <Esc> Cancel fzf
+" <C-x> Open split
+" <C-v> Open vsplit
+" <C-t> Open tabedit
+" <C-o>
+"   Jump to buffer if already open. See :drop.
+"   If g:fzf_preview_buffers_jump is set to 1 then it will open the buffer in
+"   current window instead.
+" <C-q>
+"   Build QuickFix in open-file processes.
+"   Execute :bdelete! command from open-buffer and open-bufnr processes.
+" <C-d> Preview page down
+" <C-u> Preview page up
+" ? Toggle display of preview screen

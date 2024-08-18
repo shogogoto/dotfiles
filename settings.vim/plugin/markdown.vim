@@ -2,8 +2,8 @@
 Plug 'tyru/open-browser.vim'
 Plug 'previm/previm'
 
-" Plug 'godlygeek/tabular'
-" Plug 'preservim/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 
