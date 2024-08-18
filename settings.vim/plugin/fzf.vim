@@ -1,7 +1,7 @@
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
-Plug 'antoinemadec/coc-fzf'
+" Plug 'antoinemadec/coc-fzf'
 Plug 'thinca/vim-qfreplace'
 
 " https://github.com/yuki-yano/fzf-preview.vim
