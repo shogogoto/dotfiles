@@ -61,6 +61,7 @@ sudo apt install img2pdf -yq
 sudo apt install pdftk -yq
 # vim setup
 sudo apt install neovim -yq
+sudo apt install fzf silversearcher-ag -yq # fzf for vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ./init_dots.sh # keychinに依存
 . ~/.bashrc

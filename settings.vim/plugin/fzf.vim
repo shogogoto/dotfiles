@@ -1,8 +1,21 @@
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 " Plug 'antoinemadec/coc-fzf'
 Plug 'thinca/vim-qfreplace'
+
+" https://github.com/junegunn/fzf.vim
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <C-x><C-k> <plug>(fzf-complete-word)
+imap <C-x><C-f> <plug>(fzf-complete-path)
+imap <C-x><C-l> <plug>(fzf-complete-line)
+
+
 
 " https://github.com/yuki-yano/fzf-preview.vim
 nmap <Leader>f [fzf-p]
