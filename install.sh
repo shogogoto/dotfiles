@@ -26,6 +26,7 @@ sodo apt purge nodejs npm -yq # n導入後は不要なため
 sudo apt install libffi-dev -yq # for resolve ModuleNotFoundError: No module named '_ctypes'
 sudo apt install libbz2-dev -yq # for resoluve ModuleNotFoundError: No module named '_bz2' in networkx
 sudo apt install python3-pip -yq
+sudo apt install libsqlite3-dev -yq # requre to pre-commit
 # pip install pipenv
 curl https://pyenv.run | bash
 curl -sSL https://install.python-poetry.org | python3 -
