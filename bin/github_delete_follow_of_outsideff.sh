@@ -1,4 +1,5 @@
 #!/bin/bash
+# FF外のユーザーのfollowを削除する
 
 fetch_following(){
   local TOKEN=${1}
