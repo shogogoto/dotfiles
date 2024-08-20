@@ -18,7 +18,6 @@ let g:coc_global_extensions = [
       \'coc-pyright',
       \'coc-snippets',
       \'coc-sh',
-      \'coc-fzf-preview'
 \]
 
 
