@@ -36,5 +36,9 @@
   "coc.source.ultisnips.enable": false,
   "python.linting.enabled": false,
   "pyright.testing.provider": "pytest",
-  "python.linting.ruffEnabled": false
+  "python.linting.ruffEnabled": false,
+  "cSpell.userWords": [
+    "noqa",
+    "pydantic"
+  ]
 }

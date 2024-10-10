@@ -29,7 +29,7 @@ sudo apt install python3-pip -yq
 sudo apt install libsqlite3-dev -yq # requre to pre-commit
 # pip install pipenv
 curl https://pyenv.run | bash
-curl -sSL https://install.python-poetry.org | python3 -
+# curl -sSL https://install.python-poetry.org | python3 -
 sudo apt install python3-poetry -yq
 poetry config virtualenvs.in-project true
 poetry self update
