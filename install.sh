@@ -61,6 +61,7 @@ sudo apt install direnv -yq
 sudo apt install gh -yq # GitHub CLI
 sudo apt install img2pdf -yq
 sudo apt install pdftk -yq
+sudo apt install byobu -yq
 # vim setup
 sudo apt install neovim -yq
 sudo apt install silversearcher-ag -yq # fzf for vim
