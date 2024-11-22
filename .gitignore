@@ -2,9 +2,9 @@
 */
 
 # Allowlist
-!*.vim
 !*.sh
-
+!.github/
+!.github/**/*
 !bin/**
 !bash_aliases
 !bashrc
@@ -12,9 +12,9 @@
 !.gitignore
 !tigrc
 !vimrc
-!envs/**
+!settings.vim/
 !settings.vim/**
-!config
+!config/
 !config/nvim/**
-!config/pypoetry/config.toml
+!config/pypoetry/**
 !config/git/ignore
