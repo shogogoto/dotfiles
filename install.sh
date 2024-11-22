@@ -52,6 +52,10 @@ sudo gpasswd -a $USER docker
 
 # ubuntu
 sudo apt install neofetch -yq
+sudo apt install flatpak -yq
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo -y
+flatpak install flathub io.github.vikdevelop.SaveDesktop -y
+
 # etc
 sudo apt install eog -yq # preview image file
 sudo apt install jq -yq
