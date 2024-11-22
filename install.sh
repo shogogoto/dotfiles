@@ -50,6 +50,8 @@ sudo apt install -yq docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo groupadd docker -f
 sudo gpasswd -a $USER docker
 
+# ubuntu
+sudo apt install neofetch -yq
 # etc
 sudo apt install eog -yq # preview image file
 sudo apt install jq -yq
@@ -62,6 +64,7 @@ sudo apt install pdftk -yq
 # vim setup
 sudo apt install neovim -yq
 sudo apt install silversearcher-ag -yq # fzf for vim
+sudo apt install cmigemo -yq
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ./init_dots.sh # keychinに依存
 . ~/.bashrc

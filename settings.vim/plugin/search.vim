@@ -4,6 +4,12 @@ Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 " Plug 'antoinemadec/coc-fzf'
 Plug 'thinca/vim-qfreplace'
 
+Plug 'rhysd/migemo-search.vim'
+if executable('cmigemo')
+    cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"
+endif
+
+
 " https://github.com/junegunn/fzf.vim
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
@@ -14,8 +20,6 @@ omap <leader><tab> <plug>(fzf-maps-o)
 imap <C-x><C-k> <plug>(fzf-complete-word)
 imap <C-x><C-f> <plug>(fzf-complete-path)
 imap <C-x><C-l> <plug>(fzf-complete-line)
-
-
 
 " https://github.com/yuki-yano/fzf-preview.vim
 nmap <Leader>f [fzf-p]

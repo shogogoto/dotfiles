@@ -1,6 +1,10 @@
 *
+*/
 
 # Allowlist
+!*.vim
+!*.sh
+
 !bin/**
 !bash_aliases
 !bashrc
@@ -9,9 +13,6 @@
 !tigrc
 !vimrc
 !envs/**
-!init_dots.sh
-!install.sh
-!practical-vim.txt
 !settings.vim/**
 !config
 !config/nvim/**

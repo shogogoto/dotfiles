@@ -1,1 +1,0 @@
-# Plug 'relastle/vim-nayvy'
