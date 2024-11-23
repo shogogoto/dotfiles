@@ -50,11 +50,6 @@ sudo apt install -yq docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo groupadd docker -f
 sudo gpasswd -a $USER docker
 
-# ubuntu
-sudo apt install neofetch -yq
-sudo apt install flatpak -yq
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub io.github.vikdevelop.SaveDesktop -y
 
 # etc
 sudo apt install eog -yq # preview image file
@@ -70,6 +65,7 @@ sudo apt install byobu -yq
 sudo apt install neovim -yq
 sudo apt install silversearcher-ag -yq # fzf for vim
 sudo apt install cmigemo -yq
+sudo apt install ripgrep bat universal-ctags -yq # for fzf.vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ./init_dots.sh # keychinに依存
 . ~/.bashrc
@@ -81,3 +77,8 @@ cd bashmarks
 make install
 cd -
 
+# ubuntu
+sudo apt install neofetch -yq
+sudo apt install flatpak -yq
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub io.github.vikdevelop.SaveDesktop -y
