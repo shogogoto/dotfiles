@@ -1,3 +1,5 @@
+Plug 'haya14busa/vim-asterisk'  " アスタリスク検索強化
+
 " fzfの使い方 CLI
 " vim **<Tab>
 " <Ctrl-r> 履歴から
@@ -22,16 +24,14 @@ let mapleader = "\<Space>"
 
 " fzf
 nnoremap <silent> <leader>f :Files<CR>
-" nnoremap <silent> <leader>g :GFiles<CR>
-" nnoremap <silent> <leader>G :GFiles?<CR>
+nnoremap <silent> <leader>g :GFiles<CR>
+nnoremap <silent> <leader>G :GFiles?<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>h :History<CR>
 nnoremap <silent> <leader>r :Rg<CR>
 
 
 " Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
-" " https://github.com/junegunn/fzf.vim
-" " Mapping selecting mappings
 " nmap <leader><tab> <plug>(fzf-maps-n)
 " xmap <leader><tab> <plug>(fzf-maps-x)
 " omap <leader><tab> <plug>(fzf-maps-o)
