@@ -8,26 +8,18 @@ sudo apt autoremove -y
 # for ssh-agent
 sudo apt install keychain -yq
 
-# space cli
-sudo apt install zip unzip curl -yq
-curl -fsSL https://get.deta.dev/space-cli.sh | sh
-
-sudo apt install tofrodos -yq # install fromdos, todos command
-sudo apt install xsel xclip -yq # WSL2でクリップボードを有効にする
-sudo apt install tig -yq
-
 # nodejs
 sudo apt install npm -yq # node
 sudo npm install -g n
 sudo n stable
 sodo apt purge nodejs npm -yq # n導入後は不要なため
+npm install --save-dev @marp-team/marp-cli # markdownからプレゼン生成
 
 # python
 sudo apt install libffi-dev -yq # for resolve ModuleNotFoundError: No module named '_ctypes'
 sudo apt install libbz2-dev -yq # for resoluve ModuleNotFoundError: No module named '_bz2' in networkx
 sudo apt install python3-pip -yq
 sudo apt install libsqlite3-dev -yq # requre to pre-commit
-# pip install pipenv
 curl https://pyenv.run | bash
 # curl -sSL https://install.python-poetry.org | python3 -
 sudo apt install python3-poetry -yq
@@ -50,17 +42,24 @@ sudo apt install -yq docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo groupadd docker -f
 sudo gpasswd -a $USER docker
 
-
 # etc
+sudo apt install zip unzip curl -yq
+sudo apt install tofrodos -yq # install fromdos, todos command
+sudo apt install xsel xclip -yq # WSL2でクリップボードを有効にする
 sudo apt install eog -yq # preview image file
 sudo apt install jq -yq
-sudo apt install hub -yq # cliからgithubを開く
 sudo apt install preload -yq # よく使うアプリを事前に読み込む
 sudo apt install direnv -yq
-sudo apt install gh -yq # GitHub CLI
 sudo apt install img2pdf -yq
 sudo apt install pdftk -yq
 sudo apt install byobu -yq
+
+# git
+sudo apt install tig -yq
+sudo apt install gh -yq # GitHub CLI
+sudo apt install hub -yq # cliからgithubを開く
+
+
 # vim setup
 sudo apt install neovim -yq
 sudo apt install silversearcher-ag -yq # fzf for vim
