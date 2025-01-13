@@ -26,6 +26,7 @@ fi
 export PATH=$PATH:$HOME/dotfiles/bin
 export DEBIAN_FRONTEND=noninteractive
 export PYENV_ROOT="$HOME/.pyenv"
+export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 export PRE_COMMIT_ALLOW_NO_CONFIG=1
