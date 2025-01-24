@@ -23,7 +23,7 @@ if [ -f /usr/bin/nvim ]; then
   export EDITOR=nvim
   alias vi='nvim'
 fi
-export PATH=$PATH:$HOME/dotfiles/bin
+export PATH=$PATH:$HOME/dotfiles/bin:$HOME/bin
 export DEBIAN_FRONTEND=noninteractive
 export PYENV_ROOT="$HOME/.pyenv"
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
