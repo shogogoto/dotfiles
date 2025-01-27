@@ -43,4 +43,4 @@ let g:quickrun_config.cpp = {
             \ }
 
 " colorscheme molokai
-colorscheme inkpot
+colorscheme habamax

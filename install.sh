@@ -62,6 +62,7 @@ curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash 
 
 # vim setup
 sudo apt install neovim -yq
+sudo apt install cargo -yq # aiツール で必要
 sudo apt install silversearcher-ag -yq # fzf for vim
 sudo apt install cmigemo -yq
 sudo apt install ripgrep bat universal-ctags -yq # for fzf.vim
