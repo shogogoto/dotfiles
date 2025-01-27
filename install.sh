@@ -58,7 +58,7 @@ sudo apt install byobu -yq
 sudo apt install tig -yq
 sudo apt install gh -yq # GitHub CLI
 sudo apt install hub -yq # cliからgithubを開く
-
+curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash # GitHub Actionsのローカル実行CLI
 
 # vim setup
 sudo apt install neovim -yq
