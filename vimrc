@@ -27,7 +27,7 @@ call InstallVimPlug('~/.vim/autoload/plug.vim')
 let mapleader="\<Space>"
 
 call plug#begin(expand('~/.vim/plugged'))
-  runtime! settings.vim/plugin/*.vim
+  runtime! config/nvim/settings.vim/plugin/*.vim
   Plug 'vim-jp/vimdoc-ja'                 " 日本語ヘルプ
   Plug 'prabirshrestha/vim-lsp'
   Plug 'mattn/vim-lsp-settings'
