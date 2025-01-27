@@ -4,10 +4,10 @@ Plug 'haya14busa/vim-asterisk'  " アスタリスク検索強化
 " vim **<Tab>
 " <Ctrl-r> 履歴から
 Plug 'thinca/vim-qfreplace'
-Plug 'rhysd/migemo-search.vim'
-if executable('cmigemo')
-    cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"
-endif
+" Plug 'rhysd/migemo-search.vim'
+" if executable('cmigemo')
+"     cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"
+" endif
 
 
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

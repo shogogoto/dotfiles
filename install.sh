@@ -69,7 +69,7 @@ sudo apt install ripgrep bat universal-ctags -yq # for fzf.vim
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-./init_dots.sh # keychinに依存
+./installers/init_dots.sh # keychinに依存
 . ~/.bashrc
 vim -c PlugInstall -c q -c q
 
