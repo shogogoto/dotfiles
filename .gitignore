@@ -12,9 +12,8 @@
 !.gitignore
 !tigrc
 !vimrc
-!settings.vim/
-!settings.vim/**
 !config/
+!config/nvim
 !config/nvim/**
 !config/pypoetry/**
 !config/git/ignore
