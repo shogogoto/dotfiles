@@ -26,11 +26,30 @@ require("lazy").setup({
     -- import your plugins
     { import = "plugins" },
     { "vim-jp/vimdoc-ja", lazy = true, keys = {{ "h", mode = "c",},}, },
-    { "ntk148v/habamax.nvim", dependencies={ "rktjmp/lush.nvim" } }
+    {
+      "ntk148v/habamax.nvim",
+      dependencies={ "rktjmp/lush.nvim" }
+    },
+    {
+      'nvim-lualine/lualine.nvim',
+      dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
+    {
+      -- コマンドラインで行番号を入力してその行をチラ見、そのままEnterで移動できる
+      'nacro90/numb.nvim',
+      config = function()
+        require('numb').setup()
+      end,
+    },
+    -- Vim起動時や:editしたときに存在しないディレクトリを指定すると勝手にmkdir
+    { "jghauser/mkdir.nvim" }
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "habamax" } },
+  install = {
+    missing = true,
+    colorscheme = { "habamax" }
+  },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
