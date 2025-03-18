@@ -1,6 +1,5 @@
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-git-status.vim'
-Plug 'lambdalisue/fern-bookmark.vim'
 Plug 'lambdalisue/fern-mapping-mark-children.vim'
 Plug 'lambdalisue/fern-mapping-project-top.vim'
 Plug 'lambdalisue/fern-hijack.vim' " vi .でファイラー起動
@@ -22,10 +21,9 @@ let g:fern#comparator = "lexical"
 " let g:fern#renderer = "devicons"
 let g:fern#renderer = "nerdfont"
 " help: Fern内で Shift+? or a help
-let g:fern#default_hidden=0 " Show hidden files
+let g:fern#default_hidden=1 " Show hidden files
 let g:fern#default_exclude = '^\%(\.git\|\.byebug\|__pycache__\)$'
 nnoremap <leader>e <cmd>Fern . -reveal=% -drawer<cr>
-nnoremap <leader>b <cmd>Fern bookmark:///<cr>
 
 " アイコンに色をつける
 augroup my-glyph-palette

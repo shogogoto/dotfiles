@@ -1,7 +1,10 @@
+" Avante
 " Deps
+Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'stevearc/dressing.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'MunifTanjim/nui.nvim'
+Plug 'MeanderingProgrammer/render-markdown.nvim'
 
 " Optional deps
 Plug 'hrsh7th/nvim-cmp'

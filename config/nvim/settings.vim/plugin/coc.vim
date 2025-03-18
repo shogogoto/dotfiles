@@ -3,7 +3,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 autocmd FileType python let g:coc_root_patterns = ['.git', '.env']
 " CocList extensionでインストール済み一覧
 let g:coc_global_extensions = [
-      \'coc-actions',
       \'coc-json',
       \'coc-markdownlint',
       \'coc-spell-checker',
@@ -20,6 +19,7 @@ let g:coc_global_extensions = [
       \'coc-sh',
 \]
 
+      " \'@yaegassy/coc-mypy',
 
 let g:coc_disable_startup_warning = 1
 
@@ -110,8 +110,8 @@ augroup end
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+" xmap <leader>a  <Plug>(coc-codeaction-selected)
+" nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)

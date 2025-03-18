@@ -1,6 +1,5 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
-source ~/.vimrc
-
-" set runtimepath+=~/dotfiles/config/nvim
-" lua require("config.lazy")
+" source ~/.vimrc
+" set runtimepath+=~/.vim/plugged/avante.nvim
+source ~/dotfiles/config/nvim/vimrc
