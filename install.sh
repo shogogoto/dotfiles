@@ -21,6 +21,7 @@ sudo apt install libbz2-dev -yq # for resoluve ModuleNotFoundError: No module na
 sudo apt install python3-pip -yq
 sudo apt install libsqlite3-dev -yq # requre to pre-commit
 curl https://pyenv.run | bash
+git clone https://github.com/pyenv/pyenv-update.git $(pyenv root)/plugins/pyenv-update
 # curl -sSL https://install.python-poetry.org | python3 -
 sudo apt install python3-poetry -yq
 poetry config virtualenvs.in-project true

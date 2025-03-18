@@ -53,4 +53,3 @@ HISTSIZE=100000
 
 
 . <(curl -s https://raw.githubusercontent.com/shogogoto/conoha-client/main/conoha-client.bash)
-. <(curl -s https://raw.githubusercontent.com/shogogoto/knowde/main/complete.bash)
