@@ -45,9 +45,7 @@ return {
             })
           end
         })
-
       end
-
 
       -- LSP keybindings (coc.nvim style)
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -58,7 +56,7 @@ return {
           -- coc.nvim like keybindings
           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
           -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-          vim.keymap.set('n', 'gr', references_with_auto_close, opts)
+          -- vim.keymap.set('n', 'gr', references_with_auto_close, opts) fzfで代替
           vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
           vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
