@@ -67,6 +67,9 @@ local opts = {
   -- 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
   smartindent = true,
   smarttab = true,
+  -------------------------------------------------- spell
+  spell = true,
+  spelllang = { "en_us" },
 }
 
 for k, v in pairs(opts) do

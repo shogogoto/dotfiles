@@ -40,7 +40,9 @@ require("lazy").setup({
     -- Vim起動時や:editしたときに存在しないディレクトリを指定すると勝手にmkdir
     { "jghauser/mkdir.nvim" },
     { "tpope/vim-commentary" },
+    -- text object
     { "tpope/vim-surround" },
+    { "machakann/vim-sandwich" },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
