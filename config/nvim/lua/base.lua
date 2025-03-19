@@ -102,11 +102,8 @@ vim.keymap.set('n', '<Left>', '<nop>')
 
   -------------------------------------------------- tab-indent
 if vim.fn.has("autocmd") == 1 then
-  -- ファイルタイプの検索を有効にする
-  vim.cmd("filetype plugin on")
-
-  -- ファイルタイプに合わせたインデントを利用
-  vim.cmd("filetype indent on")
+  vim.cmd("filetype plugin on") -- ファイルタイプの検索を有効にする
+  vim.cmd("filetype indent on") -- ファイルタイプに合わせたインデントを利用
 
   -- sw=shiftwidth, sts=softtabstop, ts=tabstop, et=expandtabの略
   vim.api.nvim_create_autocmd("FileType", { pattern = "c", command = "setlocal sw=4 sts=4 ts=4 et" })

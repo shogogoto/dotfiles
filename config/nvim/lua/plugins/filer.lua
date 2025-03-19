@@ -29,12 +29,17 @@ return {
       -- hijack_netrw_behavior = "open_current",
       window = {
         position = "float",
+
+        mappings = {
+          ["l"] = "open", -- override "focus_preview" to similar to fern.vim
+          ["h"] = "close_node"
+        }
       },
     },
   },
   init = function()
     -- netrwを無効化
-    -- vim.g.loaded_netrw = 1
-    -- vim.g.loaded_netrwPlugin = 1
+    vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
   end,
 }
