@@ -54,6 +54,7 @@ sudo apt install direnv -yq
 sudo apt install img2pdf -yq
 sudo apt install pdftk -yq
 sudo apt install byobu -yq
+byobu-ctrl-a emacs # <C-a>無効 F12を使うように -> vimの<C-a><C-x>インクリメント使用できるように 
 
 # git
 sudo apt install tig -yq
