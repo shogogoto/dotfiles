@@ -31,10 +31,6 @@ require("lazy").setup({
       dependencies={ "rktjmp/lush.nvim" }
     },
     {
-      'nvim-lualine/lualine.nvim',
-      dependencies = { 'nvim-tree/nvim-web-devicons' }
-    },
-    {
       -- コマンドラインで行番号を入力してその行をチラ見、そのままEnterで移動できる
       'nacro90/numb.nvim',
       config = function()
@@ -42,7 +38,9 @@ require("lazy").setup({
       end,
     },
     -- Vim起動時や:editしたときに存在しないディレクトリを指定すると勝手にmkdir
-    { "jghauser/mkdir.nvim" }
+    { "jghauser/mkdir.nvim" },
+    { "tpope/vim-commentary" },
+    { "tpope/vim-surround" },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.

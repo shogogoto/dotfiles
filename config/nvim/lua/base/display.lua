@@ -21,5 +21,6 @@ local opts = {
   colorcolumn= "80" --80列目の背景色変更
 }
 
-
--- vim.opt
+for k, v in pairs(opts) do
+  vim.opt[k] = v
+end
