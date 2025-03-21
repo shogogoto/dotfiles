@@ -28,6 +28,7 @@ return {
     keys = {
       { "]g", "<cmd>Gitsigns next_hunk<CR>", desc = "Next Git diff hunk" },
       { "[g", "<cmd>Gitsigns prev_hunk<CR>", desc = "Previous Git diff hunk" },
+      { "sg", "<cmd>Gitsigns preview_hunk<CR>", desc = "Show Git diff hunk" },
     },
     opts = {
       signs = {
