@@ -65,7 +65,7 @@ return {
             },
             typescript = {
               "class_declaration", "abstract_class_declaration", "class_expression",
-              "interface_declaration", "type_alias_declaration", "enum_declaration",
+             "interface_declaration", "type_alias_declaration", "enum_declaration",
               "method_definition", "function_declaration", "function_expression",
               "arrow_function", "for_statement", "while_statement", "if_statement"
             },
@@ -382,7 +382,7 @@ return {
   -- TreesitterとCommentプラグインとの連携用
   {
     "numToStr/Comment.nvim",
-    event = { "BufReadPost", "BufNewFile" },
+    -- event = { "BufReadPost", "BufNewFile" },
     dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
     opts = function()
       return {
