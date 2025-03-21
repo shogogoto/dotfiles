@@ -16,7 +16,7 @@ return {
     -- setting the keybinding for LazyGit with 'keys' is recommended in
     -- order to load the plugin when the command is run for the first time
     keys = {
-        { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+        { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
     }
   },
   {"codeindulgence/vim-tig",
@@ -25,6 +25,10 @@ return {
     }
   },
   { "lewis6991/gitsigns.nvim",
+    keys = {
+      { "]g", "<cmd>Gitsigns next_hunk<CR>", desc = "Next Git diff hunk" },
+      { "[g", "<cmd>Gitsigns prev_hunk<CR>", desc = "Previous Git diff hunk" },
+    },
     opts = {
       signs = {
         add          = { text = '┃' },
