@@ -21,7 +21,7 @@ return {
   },
   {"codeindulgence/vim-tig",
     keys = {
-        { "<leader>g", "<cmd>Tig<cr>", desc = "Open Tig" }
+        { "<leader>g", "<cmd>tabnew | Tig<cr>", desc = "Open Tig in new tab" }
     }
   },
   { "lewis6991/gitsigns.nvim",
