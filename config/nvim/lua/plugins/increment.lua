@@ -22,7 +22,7 @@ return {
         augend.integer.alias.decimal,      -- 10進数
         augend.integer.alias.hex,          -- 16進数
         augend.integer.alias.binary,       -- 2進数
-        augend.hexcolor.new{},             -- カラーコード (#fff, #ffffff)
+        augend.hexcolor.new{case="upper"},             -- カラーコード (#fff, #ffffff)
         augend.date.alias["%Y/%m/%d"],     -- 日付 (2023/01/01)
         augend.date.alias["%Y-%m-%d"],     -- 日付 (2023-01-01)
         augend.date.alias["%m/%d"],        -- 月日 (01/01)
