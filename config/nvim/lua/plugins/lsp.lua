@@ -1,6 +1,6 @@
 return {
   { "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
+    -- event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "folke/neodev.nvim", -- Neovim APIの補完を強化（オプション）
@@ -22,24 +22,6 @@ return {
       
       -- LSP機能を補完に追加
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      -- Python (pyright)の設定
-      lspconfig.pyright.setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
-        settings = {
-          python = {
-            analysis = {
-              diagnosticMode = "workspace",
-              typeCheckingMode = "basic",
-            },
-            testing = {
-              provider = "pytest",
-            },
-            inlayHints = false,
-          },
-        },
-      })
-
       -- Python (pyright) - Poetry環境対応
       lspconfig.pyright.setup({
         on_attach = on_attach,

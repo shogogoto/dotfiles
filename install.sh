@@ -59,6 +59,7 @@ byobu-ctrl-a emacs # <C-a>無効 F12を使うように -> vimの<C-a><C-x>イン
 # git
 sudo apt install tig -yq
 sudo apt install gh -yq # GitHub CLI
+gh extension install github/gh-copilot
 sudo apt install hub -yq # cliからgithubを開く
 curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash # GitHub Actionsのローカル実行CLI
 
@@ -81,6 +82,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 ./installers/init_dots.sh # keychinに依存
 . ~/.bashrc
 vim -c PlugInstall -c q -c q
+
 
 ## neovim setup
 sudo apt install luarocks -yq # for neovim lua and lazy.nvim

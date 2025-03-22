@@ -1,7 +1,7 @@
 return {
   { "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
+    -- event = { "BufReadPost", "BufNewFile" },
     opts = {
       ensure_installed = { "lua", "python", "typescript", "javascript", "terraform" },
       highlight = { enable = true },

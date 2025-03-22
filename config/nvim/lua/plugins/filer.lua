@@ -7,14 +7,39 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
+      { "s1n7ax/nvim-window-picker", -- 既存の分割ウィンドウを指定してopen
+        config = function()
+          require("window-picker").setup({
+            autoselect_one = true,
+            include_current = true,
+            filter_rules = {
+              bo = {
+                filetype = { "neo-tree", "neo-tree-popup", "notify" },
+                buftype = { "terminal", "quickfix" }
+              }
+            },
+            other_win_hl_color = "#e35e4f",
+          })
+        end
+      },
+
       -- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     keys = {
-      { "<Leader>ee", "<cmd>Neotree position=left toggle reveal<CR>", mode = "n", desc = "ファイラー開く" },
+      { "<Leader>ee", "<cmd>Neotree position=left toggle reveal_force_cwd<CR>", mode = "n", desc = "ファイラー開く" },
       { "<Leader>ef", "<cmd>Neotree position=float toggle reveal_force_cwd<CR>", mode = "n", desc = "フロートでファイラー開く" },
     },
     opts = {
+      sources = {
+        "filesystem",
+        "buffers",
+        "git_status",
+        "document_symbols",
+      },
       filesystem = {
+        follow_current_file = true,
+        use_libuv_file_watcher = true,
+        expand_root = true,
         -- hijack_netrw_behavior = "open_current",
         window = {
           position = "float",
@@ -55,23 +80,6 @@ return {
       vim.g.loaded_netrw = 1
       vim.g.loaded_netrwPlugin = 1
     end,
-  },
-  {
-    -- 既存の分割ウィンドウを指定してopen
-    "s1n7ax/nvim-window-picker",
-    config = function()
-      require("window-picker").setup({
-        autoselect_one = true,
-        include_current = true,
-        filter_rules = {
-          bo = {
-            filetype = { "neo-tree", "neo-tree-popup", "notify" },
-            buftype = { "terminal", "quickfix" }
-          }
-        },
-        other_win_hl_color = "#e35e4f",
-      })
-    end
   },
 
   -- vi 単体で開く画面
