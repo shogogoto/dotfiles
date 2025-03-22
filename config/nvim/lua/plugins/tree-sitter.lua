@@ -1,23 +1,15 @@
--- return {
---   'nvim-treesitter/nvim-treesitter',
---   opts = {
-
---     ensure_installed = { "python", "typescript", "html", "css", "tsx", "ini" },
---     -- ensure_installed = true, -- すべてのパーサーを自動インストールする
---     sync_install = false,    -- 非同期インストール
---     auto_install = true,     -- ファイルを開いたときに自動インストール
---     highlight = {
---       enable = true,
---       additional_vim_regex_highlighting = false,
---     },
---   },
--- }
 return {
-  -- treesitter 本体
-  {
-    "nvim-treesitter/nvim-treesitter",
+  { "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      ensure_installed = { "lua", "python", "typescript", "javascript", "terraform" },
+      highlight = { enable = true },
+      indent = { enable = true },
+    },
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+    end,
     dependencies = {
       -- テキストオブジェクト
       {
