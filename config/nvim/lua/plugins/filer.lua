@@ -10,10 +10,8 @@ return {
       -- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     keys = {
-      { "<Leader>ee", "<cmd>Neotree position=left toggle dir=%:p:h reveal<CR>", mode = "n", desc = "ファイラー開く" },
+      { "<Leader>ee", "<cmd>Neotree position=left toggle reveal<CR>", mode = "n", desc = "ファイラー開く" },
       { "<Leader>ef", "<cmd>Neotree position=float toggle reveal_force_cwd<CR>", mode = "n", desc = "フロートでファイラー開く" },
-      { "<Leader>eb", "<cmd>Neotree buffers reveal<CR>", mode = "n" , desc = "バッファー一覧"},
-      { "<Leader>eg", "<cmd>Neotree git_status toggle reveal<CR>", mode = "n", desc = "git status一覧" },
     },
     opts = {
       filesystem = {
@@ -53,8 +51,7 @@ return {
         },
       },
     },
-    init = function()
-      -- netrwを無効化
+    init = function() -- netrwを無効化
       vim.g.loaded_netrw = 1
       vim.g.loaded_netrwPlugin = 1
     end,
@@ -75,5 +72,20 @@ return {
         other_win_hl_color = "#e35e4f",
       })
     end
+  },
+
+  -- vi 単体で開く画面
+  {
+    "goolord/alpha-nvim",
+    -- dependencies = { 'echasnovski/mini.icons' },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      -- local name = "alpha.themes.startify"
+      -- local name = "alpha.themes.dashboard"
+      local name = "alpha.themes.theta"
+      local theme = require(name)
+      -- theme.file_icons.provider = "devicons" -- available: devicons, mini, default is mini
+      require("alpha").setup(theme.config)
+    end,
   },
 }
