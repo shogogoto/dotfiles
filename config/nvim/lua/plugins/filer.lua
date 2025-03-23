@@ -8,21 +8,18 @@ return {
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
       { "s1n7ax/nvim-window-picker", -- 既存の分割ウィンドウを指定してopen
-        config = function()
-          require("window-picker").setup({
-            autoselect_one = true,
-            include_current = true,
-            filter_rules = {
-              bo = {
-                filetype = { "neo-tree", "neo-tree-popup", "notify" },
-                buftype = { "terminal", "quickfix" }
-              }
-            },
-            other_win_hl_color = "#e35e4f",
-          })
-        end
+        opts = {
+          autoselect_one = true,
+          include_current = true,
+          filter_rules = {
+            bo = {
+              filetype = { "neo-tree", "neo-tree-popup", "notify" },
+              buftype = { "terminal", "quickfix" }
+            }
+          },
+          other_win_hl_color = "#e35e4f",
+        },
       },
-
       -- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     keys = {
@@ -37,7 +34,9 @@ return {
         "document_symbols",
       },
       filesystem = {
-        follow_current_file = true,
+        follow_current_file = { 
+          enabled = true
+        },
         use_libuv_file_watcher = true,
         expand_root = true,
         -- hijack_netrw_behavior = "open_current",
@@ -85,8 +84,10 @@ return {
   -- vi 単体で開く画面
   {
     "goolord/alpha-nvim",
-    -- dependencies = { 'echasnovski/mini.icons' },
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+      -- { 'echasnovski/mini.icons' },
+    },
     config = function()
       -- local name = "alpha.themes.startify"
       -- local name = "alpha.themes.dashboard"

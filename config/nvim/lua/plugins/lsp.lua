@@ -1,6 +1,6 @@
 return {
   { "neovim/nvim-lspconfig",
-    -- event = { "BufReadPre", "BufNewFile" },
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "folke/neodev.nvim", -- Neovim APIの補完を強化（オプション）
