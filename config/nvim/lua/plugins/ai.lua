@@ -6,6 +6,9 @@ return {
   -- lazy = false,
   priority = 1000, -- GitHub Copilotと共存させたい
   version = false, -- Never set this value to "*"! Never!
+  keys = {
+    { "<Leader>aC", "<cmd>AvanteClear<CR>", mode = "n", desc = "Avante: clear" },
+  },
   opts = {
     provider = "gemini", -- プロバイダーをgeminiに変更
     gemini = {
