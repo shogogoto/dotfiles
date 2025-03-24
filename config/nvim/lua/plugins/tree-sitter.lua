@@ -20,7 +20,7 @@ return {
           local opts = require("lazy.core.plugin").values(plugin, "opts", false)
           local enabled = opts.textobjects.move.enable
           opts.textobjects.move.enable = false
-          
+
           vim.api.nvim_create_autocmd("BufReadPost", {
             callback = function()
               local bufnr = vim.api.nvim_get_current_buf()
@@ -34,7 +34,7 @@ return {
           })
         end,
       },
-      
+
       -- コンテキスト表示
       {
         "nvim-treesitter/nvim-treesitter-context",
@@ -64,7 +64,7 @@ return {
           },
         },
       },
-      
+
       -- コメントプラグイン連携
       {
         "JoosepAlviste/nvim-ts-context-commentstring",
@@ -89,7 +89,7 @@ return {
           },
         },
       },
-      
+
       -- プレイグラウンド
       {
         "nvim-treesitter/playground",
@@ -99,7 +99,7 @@ return {
           { "<leader>th", "<cmd>TSHighlightCapturesUnderCursor<cr>", desc = "TS Highlight Capture" },
         },
       },
-      
+
       -- 自動タグ閉じ
       -- {
       --   "windwp/nvim-ts-autotag",
@@ -110,20 +110,20 @@ return {
       --     enable_close = true,
       --     enable_close_on_slash = true,
       --     filetypes = {
-      --       "html", "xml", "javascript", "javascriptreact", "typescript", 
+      --       "html", "xml", "javascript", "javascriptreact", "typescript",
       --       "typescriptreact", "svelte", "vue", "tsx", "jsx", "rescript",
       --       "php", "markdown", "astro", "handlebars", "hbs"
       --     },
       --   },
       -- },
-      
+
       -- rainbow 括弧
       {
         "HiPhish/rainbow-delimiters.nvim",
         event = { "BufReadPost", "BufNewFile" },
         config = function()
           local rainbow_delimiters = require("rainbow-delimiters")
-          
+
           vim.g.rainbow_delimiters = {
             strategy = {
               [""] = rainbow_delimiters.strategy["global"],
@@ -149,7 +149,7 @@ return {
           }
         end,
       },
-      
+
       -- Treesitter補強プラグイン
       -- {
       --   "nvim-treesitter/nvim-treesitter-refactor",
@@ -218,7 +218,7 @@ return {
             ["ic"] = "@class.inner",
             ["am"] = "@method.outer",
             ["im"] = "@method.inner",
-            
+
             -- コード構造
             ["aa"] = "@parameter.outer",
             ["ia"] = "@parameter.inner",
@@ -230,13 +230,13 @@ return {
             ["il"] = "@loop.inner",
             ["ai"] = "@conditional.outer",
             ["ii"] = "@conditional.inner",
-            
+
             -- コメント/ドキュメント
             ["a/"] = "@comment.outer",
             ["i/"] = "@comment.inner",
             ["ad"] = "@doc.outer",
             ["id"] = "@doc.inner",
-            
+
             -- その他
             ["ar"] = "@regex.outer",
             ["ir"] = "@regex.inner",
@@ -348,16 +348,16 @@ return {
       vim.api.nvim_set_hl(0, "RainbowDelimiterGreen", { fg = "#98C379" })
       vim.api.nvim_set_hl(0, "RainbowDelimiterViolet", { fg = "#C678DD" })
       vim.api.nvim_set_hl(0, "RainbowDelimiterCyan", { fg = "#56B6C2" })
-      
+
       -- Treesitterモジュールの設定
       require("nvim-treesitter.configs").setup(opts)
-      
+
       -- 折りたたみ設定
       vim.opt.foldmethod = "expr"
       vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
       vim.opt.foldenable = false  -- 初期状態では折りたたみを無効化
       vim.opt.foldlevel = 99
-      
+
       -- -- 依存プラグインのrefactorとの連携
       -- if vim.o.ft == "tsx" or vim.o.ft == "jsx" or vim.o.ft == "typescript" or vim.o.ft == "javascript" then
       --   local refactor_opts = require("nvim-treesitter.configs").get_module("refactor")
@@ -365,12 +365,12 @@ return {
       --   refactor_opts.navigation.keymaps.goto_previous_usage = "<a-[>"
       --   require("nvim-treesitter.configs").setup({ refactor = refactor_opts })
       -- end
-      
+
       -- matchup プラグインとの連携 (matchupがインストールされている場合)
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end,
   },
-  
+
   -- TreesitterとCommentプラグインとの連携用
   {
     "numToStr/Comment.nvim",
@@ -386,7 +386,7 @@ return {
       }
     end,
   },
-  
+
   -- Treesitterと連携するautopairsプラグイン
   {
     "windwp/nvim-autopairs",
@@ -426,18 +426,18 @@ return {
     config = function(_, opts)
       local npairs = require("nvim-autopairs")
       npairs.setup(opts)
-      
+
       -- nvim-cmpとの連携（cmpがインストールされている場合）
       local cmp_ok, cmp = pcall(require, "cmp")
       if cmp_ok then
         local cmp_autopairs = require("nvim-autopairs.completion.cmp")
         cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
       end
-      
+
       -- ルールのカスタマイズ
       local Rule = require("nvim-autopairs.rule")
       local ts_conds = require("nvim-autopairs.ts-conds")
-      
+
       -- スペースの追加
       npairs.add_rules({
         Rule(" ", " ")
@@ -459,17 +459,17 @@ return {
               or context:match("%[ %]")
           end)
       })
-      
+
       -- Treesitterを使った条件付きルール
       npairs.add_rules({
         -- コメント内では$を無視
         Rule("$", "$", { "tex", "latex", "markdown" })
           :with_pair(ts_conds.is_not_ts_node({ "comment" })),
-        
+
         -- バッククォート内では式展開{}を追加
         Rule("${", "}", { "javascript", "typescript", "javascriptreact", "typescriptreact" })
           :with_pair(ts_conds.is_ts_node({ "template_string" })),
-        
+
         -- JSX/TSXの特別ルール
         Rule("<", ">", { "javascriptreact", "typescriptreact" })
           :with_pair(ts_conds.is_not_ts_node({ "comment", "string" })),
