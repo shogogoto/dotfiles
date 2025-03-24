@@ -2,8 +2,8 @@ return {
   "voldikss/vim-browser-search",
   lazy = true,
   keys = {
-    { "<leader>s", "<Plug>SearchNormal", desc = "Browser search (normal mode)" },
-    { "<leader>s", "<Plug>SearchVisual", mode = "v", desc = "Browser search (visual mode)" },
+    { "<leader>ws", "<Plug>SearchNormal", desc = "Browser search (normal mode)" },
+    { "<leader>ws", "<Plug>SearchVisual", mode = "v", desc = "Browser search (visual mode)" },
   },
   init = function()
     vim.g.browser_search_default_engine = "google"
