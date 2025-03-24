@@ -89,7 +89,7 @@ return {
           { 'AndreM222/copilot-lualine',
           },
           {"zbirenbaum/copilot-cmp", opts = {},}, -- 効いてるのか不明
-          { "agithub/copilot.vim", -- copilot.luaに含めないとaskで補間が効かない
+          { "github/copilot.vim", -- copilot.luaに含めないとaskで補間が効かない
             config = function(_, opts)
               vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
                 expr = true,
