@@ -1,6 +1,5 @@
 return {
-  {
-    "kdheepak/lazygit.nvim",
+  { "kdheepak/lazygit.nvim",
     lazy = true,
     cmd = {
         "LazyGit",
@@ -19,9 +18,9 @@ return {
         { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
     }
   },
-  {"codeindulgence/vim-tig",
+  { "codeindulgence/vim-tig",
     keys = {
-        { "<leader>g", "<cmd>tabnew | Tig<cr>", desc = "Open Tig in new tab" }
+        { "<leader>gg", "<cmd>tabnew | Tig<cr>", desc = "Open Tig in new tab" }
     }
   },
   { "lewis6991/gitsigns.nvim",
@@ -81,5 +80,12 @@ return {
       },
     },
   },
-  { 'tpope/vim-fugitive'}
+  { 'tpope/vim-fugitive'}, -- :GitXX コマンドの追加
+  { "sindrets/diffview.nvim", opts = {},
+    keys = {
+      { "<leader>gd", "<cmd>DiffviewOpen<CR>", desc = "Open DiffView" },
+      { "<leader>gD", "<cmd>DiffviewClose<CR>", desc = "Close DiffView" },
+    },
+  },
+
 }

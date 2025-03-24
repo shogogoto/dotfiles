@@ -29,7 +29,7 @@ return {
   {
     "ysmb-wtsg/in-and-out.nvim",
     keys = {
-      { "<M-j>", function() require("in-and-out").in_and_out() end, mode = "i" },
+      { "<M-j>", function() require("in-and-out").in_and_out() end, mode = {"i", "n"} },
     },
     opts = { additional_targets = { "“", "”" } },
   }
