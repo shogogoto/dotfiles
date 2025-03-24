@@ -30,15 +30,8 @@ require("lazy").setup({
       "ntk148v/habamax.nvim",
       dependencies={ "rktjmp/lush.nvim" }
     },
-    {
-      -- コマンドラインで行番号を入力してその行をチラ見、そのままEnterで移動できる
-      'nacro90/numb.nvim',
-      config = function()
-        require('numb').setup()
-      end,
-    },
-    -- Vim起動時や:editしたときに存在しないディレクトリを指定すると勝手にmkdir
-    { "jghauser/mkdir.nvim" },
+    { 'nacro90/numb.nvim', opts = {} },
+    { "jghauser/mkdir.nvim" }, -- Vim起動時や:editしたときに存在しないディレクトリを指定すると勝手にmkdir
     { "tpope/vim-commentary" },
     -- text object
     { "tpope/vim-surround" },

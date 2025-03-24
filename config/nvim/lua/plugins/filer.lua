@@ -23,7 +23,7 @@ return {
       -- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     keys = {
-      { "<Leader>ee", "<cmd>Neotree position=left toggle reveal_force_cwd<CR>", mode = "n", desc = "ファイラー開く" },
+      { "<Leader>ee", "<cmd>Neotree position=left toggle dir=%:p:h:h<CR>", mode = "n", desc = "ファイラー開く" },
       { "<Leader>ef", "<cmd>Neotree position=float toggle reveal_force_cwd<CR>", mode = "n", desc = "フロートでファイラー開く" },
     },
     opts = {
@@ -34,7 +34,7 @@ return {
         "document_symbols",
       },
       filesystem = {
-        follow_current_file = { 
+        follow_current_file = {
           enabled = true
         },
         use_libuv_file_watcher = true,
@@ -64,9 +64,7 @@ return {
               require('avante.api').ask()
               sidebar = require('avante').get()
             end
-
             sidebar.file_selector:add_selected_file(relative_path)
-
             -- remove neo tree buffer
             if not open then
               sidebar.file_selector:remove_selected_file('neo-tree filesystem [1]')
@@ -80,10 +78,7 @@ return {
       vim.g.loaded_netrwPlugin = 1
     end,
   },
-
-  -- vi 単体で開く画面
-  {
-    "goolord/alpha-nvim",
+  { "goolord/alpha-nvim", -- vi 単体で開く画面
     dependencies = {
       'nvim-tree/nvim-web-devicons',
       -- { 'echasnovski/mini.icons' },
@@ -96,5 +91,11 @@ return {
       -- theme.file_icons.provider = "devicons" -- available: devicons, mini, default is mini
       require("alpha").setup(theme.config)
     end,
+  },
+  { "ahmedkhalf/project.nvim", -- 自動でprojct rootへcd
+    lazy = false,
+    config = function()
+      require("project_nvim").setup({})
+    end
   },
 }
