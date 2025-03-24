@@ -26,4 +26,11 @@ return {
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
+  {
+    "ysmb-wtsg/in-and-out.nvim",
+    keys = {
+      { "<M-j>", function() require("in-and-out").in_and_out() end, mode = "i" },
+    },
+    opts = { additional_targets = { "“", "”" } },
+  }
 }
