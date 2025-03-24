@@ -5,7 +5,7 @@ return {
   opts = {
     buffers = {
       right = {
-        enabled = true,  -- 右側の分割画面を有効化
+        enabled = true, -- 右側の分割画面を有効化
       },
       scratchPad = {
         enabled = true,
@@ -22,6 +22,6 @@ return {
     },
   },
   keys = {
-    { "<Leader>cc", "<cmd>NoNeckPain<CR>", mode = "n", desc = "no neck pain"}, -- center zだとスペースから指遠い
-  }
+    { "<Leader>cc", "<cmd>NoNeckPain<CR>", mode = "n", desc = "no neck pain" }, -- center zだとスペースから指遠い
+  },
 }
