@@ -3,12 +3,12 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     keys = {
-      { "gD",         vim.lsp.buf.declaration,             desc = "Go to declaration" },
-      { "gd",         vim.lsp.buf.definition,              desc = "Go to definition" },
-      { "K",          vim.lsp.buf.hover,                   desc = "Hover information" },
-      { "gi",         vim.lsp.buf.implementation,          desc = "Go to implementation" },
-      { "<C-k>",      vim.lsp.buf.signature_help,          desc = "Signature help" },
-      { "<leader>wa", vim.lsp.buf.add_workspace_folder,    desc = "Add workspace folder" },
+      { "gD", vim.lsp.buf.declaration, desc = "Go to declaration" },
+      { "gd", vim.lsp.buf.definition, desc = "Go to definition" },
+      { "K", vim.lsp.buf.hover, desc = "Hover information" },
+      { "gi", vim.lsp.buf.implementation, desc = "Go to implementation" },
+      { "<C-k>", vim.lsp.buf.signature_help, desc = "Signature help" },
+      { "<leader>wa", vim.lsp.buf.add_workspace_folder, desc = "Add workspace folder" },
       { "<leader>wr", vim.lsp.buf.remove_workspace_folder, desc = "Remove workspace folder" },
       {
         "<leader>wl",
@@ -17,10 +17,10 @@ return {
         end,
         desc = "List workspace folders",
       },
-      { "<leader>D",  vim.lsp.buf.type_definition, desc = "Type definition" },
-      { "<leader>rn", vim.lsp.buf.rename,          desc = "Rename" },
-      { "<leader>ca", vim.lsp.buf.code_action,     desc = "Code action" },
-      { "gr",         vim.lsp.buf.references,      desc = "References" },
+      { "<leader>D", vim.lsp.buf.type_definition, desc = "Type definition" },
+      { "<leader>rn", vim.lsp.buf.rename, desc = "Rename" },
+      { "<leader>ca", vim.lsp.buf.code_action, desc = "Code action" },
+      { "gr", vim.lsp.buf.references, desc = "References" },
       {
         "<leader>fm",
         function()
@@ -41,7 +41,7 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       {
         "folke/lazydev.nvim", -- LuaLS簡単セットアップ
-        ft = "lua",           -- only load on lua files
+        ft = "lua", -- only load on lua files
         opts = {
           library = {
             -- See the configuration section for more details
@@ -101,35 +101,35 @@ return {
     dependencies = {},
   },
   {
-    -- "WhoIsSethDaniel/mason-tool-installer.nvim", -- と似ている
-    "williamboman/mason-lspconfig.nvim",
+    -- 自動インストールどっちもできる
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    -- "williamboman/mason-lspconfig.nvim",
     opts = {
       ensure_installed = {
+        --lua
         "stylua",
-        "lua-language-server",
+        "lua-language-server", --"lua_ls",
         -- python
         "pyright",
         "ruff", -- formatter
         "pyproject-flake8",
         -- typescript
-        "ts_ls",
-        "eslint-lsp", -- formatter
-        "bashls",
-        "dockerls",
-        "docker_compose_language_service",
-        "cypher_ls",
-        "vimls",
+        "typescript-language-server", --"ts_ls",
+        "eslint-lsp", -- "eslint".
+        "bash-language-server", --"bashls",
+        "dockerfile-language-server", --"dockerls",
+        "docker-compose-language-service", -- "docker_compose_language_service",
+        "cypher-language-server", --"cypher_ls",
+        "vim-language-server", --"vimls",
         -- text
-        "jsonls",
-        "yamlls",
-        "html",
-        "cssls",
-        "vale_ls", --markdown
-        -- "markdownlint",
-        -- "markdown-toc",
+        "json-lsp", -- "jsonls",
+        "yaml-language-server", --"yamlls",
+        -- markdown
+        "markdown-toc",
+        "markdownlint",
       },
-      -- auto_update = true,
-      -- run_on_start = true,
+      auto_update = true,
+      run_on_start = true,
       -- automatic_installation = true,
     },
   },
@@ -144,13 +144,13 @@ return {
       "hrsh7th/cmp-cmdline",
       "saadparwaiz1/cmp_luasnip",
       { "L3MON4D3/LuaSnip" },
-      "rafamadriz/friendly-snippets",            -- cocでも使える
+      "rafamadriz/friendly-snippets", -- cocでも使える
       -- スニペット共存
       { "quangnguyen30192/cmp-nvim-ultisnips" }, -- cmp と UltiSnips の連携プラグイン
-      { "SirVer/ultisnips" },                    -- スニペットエンジン
-      { "honza/vim-snippets" },                  -- スニペット集
-      "hrsh7th/cmp-nvim-lsp",                    -- LSP補完
-      "onsails/lspkind-nvim",                    -- アイコン表示
+      { "SirVer/ultisnips" }, -- スニペットエンジン
+      { "honza/vim-snippets" }, -- スニペット集
+      "hrsh7th/cmp-nvim-lsp", -- LSP補完
+      "onsails/lspkind-nvim", -- アイコン表示
     },
     config = function()
       local cmp = require("cmp")
@@ -167,9 +167,9 @@ return {
           end,
         },
         mapping = cmp.mapping.preset.insert({
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),           -- 補完候補のドキュメントを上にスクロール
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),            -- 補完候補のドキュメントを下にスクロール
-          ["<C-e>"] = cmp.mapping.abort(),                   -- 補完を中断して閉じる
+          ["<C-b>"] = cmp.mapping.scroll_docs(-4), -- 補完候補のドキュメントを上にスクロール
+          ["<C-f>"] = cmp.mapping.scroll_docs(4), -- 補完候補のドキュメントを下にスクロール
+          ["<C-e>"] = cmp.mapping.abort(), -- 補完を中断して閉じる
           ["<CR>"] = cmp.mapping.confirm({ select = true }), -- 補完確定 (現在選択中の候補を使用)
           -- ["<C-Space>"] = cmp.mapping.complete(),
           ["<Tab>"] = cmp.mapping(function(fallback)
