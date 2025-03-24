@@ -30,6 +30,7 @@
   "lazygit.nvim": { "branch": "main", "commit": "b9eae3badab982e71abab96d3ee1d258f0c07961" },
   "lualine.nvim": { "branch": "master", "commit": "9fef261b53fbe3a2ef01ee9667f6fde064b1ed10" },
   "lush.nvim": { "branch": "main", "commit": "45a79ec4acb5af783a6a29673a999ce37f00497e" },
+  "migemo-search.nvim": { "branch": "main", "commit": "4207b8d6fd5b4fb4f25d3ee77bca5d6806e4be06" },
   "mini.nvim": { "branch": "main", "commit": "04ea90af6cd12cf88e169eff82dc57a3ebc5c3ab" },
   "mini.pick": { "branch": "main", "commit": "ef479fcfb94b8f5fdbec46d697c18ca113547f3d" },
   "mkdir.nvim": { "branch": "main", "commit": "c55d1dee4f099528a1853b28bb28caa802eba217" },

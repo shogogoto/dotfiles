@@ -25,17 +25,27 @@ require("lazy").setup({
   spec = {
     -- import your plugins
     { import = "plugins" },
-    { "vim-jp/vimdoc-ja", lazy = true, keys = {{ "h", mode = "c",},}, },
-    {
-      "ntk148v/habamax.nvim",
-      dependencies={ "rktjmp/lush.nvim" }
-    },
     { 'nacro90/numb.nvim', opts = {} },
     { "jghauser/mkdir.nvim" }, -- Vim起動時や:editしたときに存在しないディレクトリを指定すると勝手にmkdir
     { "tpope/vim-commentary" },
+    -- japanese
+    { "vim-jp/vimdoc-ja", lazy = true, keys = {{ "h", mode = "c",},}, },
+    { "sei40kr/migemo-search.nvim",
+      event = "CmdlineEnter",
+      config = function()
+        local ms = require("migemo-search")
+        ms.setup({
+          cmigemo_exec_path = "/usr/bin/cmigemo",
+          migemo_dict_path = "/usr/share/cmigemo/utf-8/migemo-dict",
+        })
+        vim.keymap.set("c", "<CR>", ms.cr)
+      end,
+    },
     -- text object
     { "tpope/vim-surround" },
     { "machakann/vim-sandwich" },
+    -- colorscheme
+    { "ntk148v/habamax.nvim", dependencies={ "rktjmp/lush.nvim" } },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
