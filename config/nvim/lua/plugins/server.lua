@@ -36,6 +36,8 @@ return {
         -- markdown
         "markdown-toc",
         "markdownlint",
+
+        "cspell",
       },
       auto_update = true,
       run_on_start = true,
