@@ -1,3 +1,4 @@
+local symbols = require("user.symbols")
 return {
   {
     "nvim-lualine/lualine.nvim",
@@ -19,7 +20,7 @@ return {
           {
             "diagnostics",
             sources = { "nvim_diagnostic" },
-            symbols = { error = " ", warn = " ", info = " ", hint = " " },
+            symbols = symbols,
           },
         },
         lualine_c = { "filename" },
