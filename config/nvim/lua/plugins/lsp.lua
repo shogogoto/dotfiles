@@ -20,7 +20,7 @@ return {
       { "<leader>D", vim.lsp.buf.type_definition, desc = "Type definition" },
       { "<leader>rn", vim.lsp.buf.rename, desc = "Rename" },
       { "<leader>ca", vim.lsp.buf.code_action, desc = "Code action" },
-      { "gr", vim.lsp.buf.references, desc = "References" },
+      -- { "gr",         vim.lsp.buf.references,      desc = "References" },
       {
         "<leader>fm",
         function()
@@ -54,16 +54,12 @@ return {
           end,
         },
       },
-      {
-        "SmiteshP/nvim-navic", -- 上部に文脈を表示
-        requires = "neovim/nvim-lspconfig",
-        opts = { lsp = { autho_attach = true } },
-      },
     },
     config = function()
       local lspconfig = require("lspconfig")
-      local navic = require("nvim-navic")
+      local capabilities = require("cmp_nvim_lsp").default_capabilities() -- LSP機能を補完に追加
       local on_attach = function(client, bufnr) -- 共通のon_attach関数
+        -- フォーマッティングの設定
         if client.supports_method("textDocument/formatting") then
           vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = bufnr,
@@ -72,32 +68,43 @@ return {
             end,
           })
         end
-        navic.attach(client, bufnr)
+        -- -- 診断情報の表示を有効化
+        if client.supports_method("textDocument/publishDiagnostics") then
+          -- 診断情報の更新時に即座に表示
+          lspconfig.lua_ls.setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+            settings = {
+              Lua = {
+                diagnostics = {
+                  globals = { "vim" }, -- Neovim の global 変数を認識させる
+                  disable = {}, -- 特定の診断を無効化する場合はここに追加
+                  enable = true, -- 診断を有効化
+                },
+                workspace = {
+                  checkThirdParty = false, -- サードパーティライブラリのチェックを無効化
+                  library = vim.api.nvim_get_runtime_file("", true), -- Neovimのランタイムパスをライブラリに追加
+                },
+                telemetry = {
+                  enable = false, -- テレメトリを無効化
+                },
+              },
+            },
+            flags = {
+              debounce_text_changes = 150, -- テキスト変更後の診断更新の遅延時間（ミリ秒）
+            },
+          })
+        end
       end
-      local capabilities = require("cmp_nvim_lsp").default_capabilities() -- LSP機能を補完に追加
 
       -- Lua LSP の設定
       -- lazydev.nvim が自動的に lua_ls の設定を行いますが、追加の設定が必要な場合はここで行います
       lspconfig.lua_ls.setup({
         on_attach = on_attach,
         capabilities = capabilities,
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { "vim" }, -- Neovim の global 変数を認識させる
-            },
-            workspace = {
-              checkThirdParty = false, -- サードパーティライブラリのチェックを無効化
-            },
-            telemetry = {
-              enable = false, -- テレメトリを無効化
-            },
-          },
-        },
       })
     end,
   },
-
   {
     "hrsh7th/nvim-cmp", -- 補完エンジン
     event = { "InsertEnter", "CmdlineEnter" },
@@ -139,8 +146,23 @@ return {
       cmp.setup({
         snippet = {
           expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+            require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+            require("snippy").expand_snippet(args.body) -- For `snippy` users.
+            vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+            vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+
+            -- For `mini.snippets` users:
+            local insert = MiniSnippets.config.expand.insert or MiniSnippets.default_insert
+            insert({ body = args.body }) -- Insert at cursor
+            cmp.resubscribe({ "TextChangedI", "TextChangedP" })
+            require("cmp.config").set_onetime({ sources = {} })
             luasnip.lsp_expand(args.body)
           end,
+        },
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-b>"] = cmp.mapping.scroll_docs(-4), -- 補完候補のドキュメントを上にスクロール
@@ -150,29 +172,18 @@ return {
           -- ["<C-Space>"] = cmp.mapping.complete(),
           ["<Tab>"] = cmp.mapping(function(fallback)
             cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
-            -- if cmp.visible() then
-            --   cmp.select_next_item()
-            -- elseif luasnip.expand_or_jumpable() then
-            --   luasnip.expand_or_jump()
-            -- else
-            --   fallback()
-            -- end
           end, { "i", "s" }),
           ["<S-Tab>"] = cmp.mapping(function(fallback)
             cmp_ultisnips_mappings.jump_backwards(fallback)
-            -- if cmp.visible() then
-            --   cmp.select_prev_item()
-            -- elseif luasnip.jumpable(-1) then
-            --   luasnip.jump(-1)
-            -- else
-            --   fallback()
-            -- end
           end, { "i", "s" }),
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
-          -- { name = "luasnip", priority_weight = 20 },-- LuaSnip を補完候補に含める
+          { name = "luasnip", priority_weight = 20 }, -- LuaSnip を補完候補に含める
           { name = "ultisnips", priority_weight = 10 }, -- UltiSnips を補完候補に含める
+          { name = "luasnip" }, -- For luasnip users.
+          { name = "ultisnips" }, -- For ultisnips users.
+          { name = "snippy" }, -- For snippy users.
           { name = "buffer" },
           { name = "path" },
         }),
