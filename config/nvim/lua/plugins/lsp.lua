@@ -54,9 +54,15 @@ return {
           end,
         },
       },
+      {
+        "SmiteshP/nvim-navic", -- 上部に文脈を表示
+        requires = "neovim/nvim-lspconfig",
+        opts = { lsp = { autho_attach = true } },
+      },
     },
     config = function()
       local lspconfig = require("lspconfig")
+      local navic = require("nvim-navic")
       local on_attach = function(client, bufnr) -- 共通のon_attach関数
         if client.supports_method("textDocument/formatting") then
           vim.api.nvim_create_autocmd("BufWritePre", {
@@ -66,6 +72,7 @@ return {
             end,
           })
         end
+        navic.attach(client, bufnr)
       end
       local capabilities = require("cmp_nvim_lsp").default_capabilities() -- LSP機能を補完に追加
 
@@ -142,15 +149,27 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
+      -- for vsnip
+      "hrsh7th/cmp-vsnip",
+      "hrsh7th/vim-vsnip",
+      -- for lua
+      "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
-      { "L3MON4D3/LuaSnip" },
       "rafamadriz/friendly-snippets", -- cocでも使える
-      -- スニペット共存
-      { "quangnguyen30192/cmp-nvim-ultisnips" }, -- cmp と UltiSnips の連携プラグイン
-      { "SirVer/ultisnips" }, -- スニペットエンジン
       { "honza/vim-snippets" }, -- スニペット集
       "hrsh7th/cmp-nvim-lsp", -- LSP補完
       "onsails/lspkind-nvim", -- アイコン表示
+      --   For mini.snippets users.
+      "echasnovski/mini.snippets",
+      "abeldekat/cmp-mini-snippets",
+
+      -- For snippy users.
+      "dcampos/nvim-snippy",
+      "dcampos/cmp-snippy",
+
+      -- ultisnips = snipet管理
+      { "quangnguyen30192/cmp-nvim-ultisnips" }, -- cmp と UltiSnips の連携プラグイン
+      { "SirVer/ultisnips" }, -- スニペットエンジン
     },
     config = function()
       local cmp = require("cmp")

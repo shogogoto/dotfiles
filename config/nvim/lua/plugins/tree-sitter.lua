@@ -1,7 +1,8 @@
 return {
-  { "nvim-treesitter/nvim-treesitter",
+  {
+    "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    -- event = { "BufReadPost", "BufNewFile" },
+    event = { "BufReadPost", "BufNewFile" },
     opts = {
       ensure_installed = { "lua", "python", "typescript", "javascript", "terraform" },
       highlight = { enable = true },
@@ -47,19 +48,45 @@ return {
           trim_scope = "outer",
           patterns = {
             default = {
-              "class", "function", "method", "for", "while",
-              "if", "switch", "case", "interface", "struct",
-              "enum", "module", "namespace"
+              "class",
+              "function",
+              "method",
+              "for",
+              "while",
+              "if",
+              "switch",
+              "case",
+              "interface",
+              "struct",
+              "enum",
+              "module",
+              "namespace",
             },
             rust = {
-              "impl_item", "struct", "enum", "function", "match",
-              "loop", "for", "while", "if"
+              "impl_item",
+              "struct",
+              "enum",
+              "function",
+              "match",
+              "loop",
+              "for",
+              "while",
+              "if",
             },
             typescript = {
-              "class_declaration", "abstract_class_declaration", "class_expression",
-             "interface_declaration", "type_alias_declaration", "enum_declaration",
-              "method_definition", "function_declaration", "function_expression",
-              "arrow_function", "for_statement", "while_statement", "if_statement"
+              "class_declaration",
+              "abstract_class_declaration",
+              "class_expression",
+              "interface_declaration",
+              "type_alias_declaration",
+              "enum_declaration",
+              "method_definition",
+              "function_declaration",
+              "function_expression",
+              "arrow_function",
+              "for_statement",
+              "while_statement",
+              "if_statement",
             },
           },
         },
@@ -71,21 +98,21 @@ return {
         opts = {
           enable_autocmd = false,
           languages = {
-            typescript = { __default = '// %s', __multiline = '/* %s */' },
-            javascript = { __default = '// %s', __multiline = '/* %s */' },
-            css = '/* %s */',
-            scss = '/* %s */',
-            html = '<!-- %s -->',
-            svelte = '<!-- %s -->',
-            vue = '<!-- %s -->',
-            astro = '<!-- %s -->',
-            handlebars = '{{!-- %s --}}',
-            glimmer = '{{!-- %s --}}',
-            graphql = '# %s',
-            lua = '-- %s',
-            python = '# %s',
-            rust = '// %s',
-            go = '// %s',
+            typescript = { __default = "// %s", __multiline = "/* %s */" },
+            javascript = { __default = "// %s", __multiline = "/* %s */" },
+            css = "/* %s */",
+            scss = "/* %s */",
+            html = "<!-- %s -->",
+            svelte = "<!-- %s -->",
+            vue = "<!-- %s -->",
+            astro = "<!-- %s -->",
+            handlebars = "{{!-- %s --}}",
+            glimmer = "{{!-- %s --}}",
+            graphql = "# %s",
+            lua = "-- %s",
+            python = "# %s",
+            rust = "// %s",
+            go = "// %s",
           },
         },
       },
@@ -95,7 +122,7 @@ return {
         "nvim-treesitter/playground",
         cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" },
         keys = {
-          { "<leader>tp", "<cmd>TSPlaygroundToggle<cr>", desc = "Treesitter Playground" },
+          { "<leader>tp", "<cmd>TSPlaygroundToggle<cr>",             desc = "Treesitter Playground" },
           { "<leader>th", "<cmd>TSHighlightCapturesUnderCursor<cr>", desc = "TS Highlight Capture" },
         },
       },
@@ -179,7 +206,7 @@ return {
     },
     keys = {
       { "<leader>ti", "<cmd>TSConfigInfo<cr>", desc = "Treesitter Info" },
-      { "<leader>tu", "<cmd>TSUpdate<cr>", desc = "Update Parsers" },
+      { "<leader>tu", "<cmd>TSUpdate<cr>",     desc = "Update Parsers" },
       { "<leader>tU", "<cmd>TSUpdateSync<cr>", desc = "Update Parsers (Sync)" },
     },
     opts = {
@@ -246,9 +273,9 @@ return {
             ["ij"] = "@json.inner",
           },
           selection_modes = {
-            ['@parameter.outer'] = 'v', -- charwise
-            ['@function.outer'] = 'V', -- linewise
-            ['@class.outer'] = '<c-v>', -- blockwise
+            ["@parameter.outer"] = "v", -- charwise
+            ["@function.outer"] = "V",  -- linewise
+            ["@class.outer"] = "<c-v>", -- blockwise
           },
           include_surrounding_whitespace = true,
         },
@@ -330,13 +357,56 @@ return {
         include_match_words = true,
       },
       ensure_installed = {
-        "lua", "vim", "vimdoc", "query",
-        "bash", "c", "cpp", "css", "dockerfile", "go", "gomod", "gosum", "gowork",
-        "html", "javascript", "jsdoc", "json", "jsonc", "python", "regex", "rust",
-        "toml", "tsx", "typescript", "yaml", "markdown", "markdown_inline",
-        "comment", "gitignore", "gitcommit", "diff", "git_rebase", "make", "sql",
-        "php", "svelte", "vue", "graphql", "hcl", "java", "kotlin",
-        "http", "ini", "terraform", "zig", "r", "ruby", "scala", "scss", "solidity"
+        "lua",
+        "vim",
+        "vimdoc",
+        "query",
+        "bash",
+        "c",
+        "cpp",
+        "css",
+        "dockerfile",
+        "go",
+        "gomod",
+        "gosum",
+        "gowork",
+        "html",
+        "javascript",
+        "jsdoc",
+        "json",
+        "jsonc",
+        "python",
+        "regex",
+        "rust",
+        "toml",
+        "tsx",
+        "typescript",
+        "yaml",
+        "markdown",
+        "markdown_inline",
+        "comment",
+        "gitignore",
+        "gitcommit",
+        "diff",
+        "git_rebase",
+        "make",
+        "sql",
+        "php",
+        "svelte",
+        "vue",
+        "graphql",
+        "hcl",
+        "java",
+        "kotlin",
+        "http",
+        "ini",
+        "terraform",
+        "zig",
+        "r",
+        "ruby",
+        "scala",
+        "scss",
+        "solidity",
       },
     },
     config = function(_, opts)
@@ -355,7 +425,7 @@ return {
       -- 折りたたみ設定
       vim.opt.foldmethod = "expr"
       vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-      vim.opt.foldenable = false  -- 初期状態では折りたたみを無効化
+      vim.opt.foldenable = false -- 初期状態では折りたたみを無効化
       vim.opt.foldlevel = 99
 
       -- -- 依存プラグインのrefactorとの連携
@@ -441,38 +511,37 @@ return {
       -- スペースの追加
       npairs.add_rules({
         Rule(" ", " ")
-          :with_pair(function(opts)
-            local pair = opts.line:sub(opts.col - 1, opts.col)
-            return vim.tbl_contains({ "()", "[]", "{}" }, pair)
-          end)
-          :with_move(function(opts)
-            return opts.char == ")"
-          end)
-          :with_cr(function(opts)
-            return false
-          end)
-          :with_del(function(opts)
-            local col = vim.api.nvim_win_get_cursor(0)[2]
-            local context = opts.line:sub(col - 1, col + 2)
-            return context:match("%( %)")
-              or context:match("%{ %}")
-              or context:match("%[ %]")
-          end)
+            :with_pair(function(opts)
+              local pair = opts.line:sub(opts.col - 1, opts.col)
+              return vim.tbl_contains({ "()", "[]", "{}" }, pair)
+            end)
+            :with_move(function(opts)
+              return opts.char == ")"
+            end)
+            :with_cr(function(opts)
+              return false
+            end)
+            :with_del(function(opts)
+              local col = vim.api.nvim_win_get_cursor(0)[2]
+              local context = opts.line:sub(col - 1, col + 2)
+              return context:match("%( %)") or context:match("%{ %}") or context:match("%[ %]")
+            end),
       })
 
       -- Treesitterを使った条件付きルール
       npairs.add_rules({
         -- コメント内では$を無視
-        Rule("$", "$", { "tex", "latex", "markdown" })
-          :with_pair(ts_conds.is_not_ts_node({ "comment" })),
+        Rule("$", "$", { "tex", "latex", "markdown" }):with_pair(ts_conds.is_not_ts_node({ "comment" })),
 
         -- バッククォート内では式展開{}を追加
-        Rule("${", "}", { "javascript", "typescript", "javascriptreact", "typescriptreact" })
-          :with_pair(ts_conds.is_ts_node({ "template_string" })),
+        Rule("${", "}", { "javascript", "typescript", "javascriptreact", "typescriptreact" }):with_pair(
+          ts_conds.is_ts_node({ "template_string" })
+        ),
 
         -- JSX/TSXの特別ルール
-        Rule("<", ">", { "javascriptreact", "typescriptreact" })
-          :with_pair(ts_conds.is_not_ts_node({ "comment", "string" })),
+        Rule("<", ">", { "javascriptreact", "typescriptreact" }):with_pair(
+          ts_conds.is_not_ts_node({ "comment", "string" })
+        ),
       })
     end,
   },
