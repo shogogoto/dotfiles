@@ -97,49 +97,6 @@ return {
       })
     end,
   },
-  {
-    "williamboman/mason.nvim", -- LSPのインストール管理
-    opts = {
-      ui = {
-        icons = { package_installed = "✓", package_pending = "➜", package_uninstalled = "✗" },
-      },
-    },
-    keys = { { "<leader>m", "<cmd>Mason<CR>", desc = "Mason Package Manager Menu" } },
-    dependencies = {},
-  },
-  {
-    -- 自動インストールどっちもできる
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    -- "williamboman/mason-lspconfig.nvim",
-    opts = {
-      ensure_installed = {
-        --lua
-        "stylua",
-        "lua-language-server", --"lua_ls",
-        -- python
-        "pyright",
-        "ruff", -- formatter
-        "pyproject-flake8",
-        -- typescript
-        "typescript-language-server", --"ts_ls",
-        "eslint-lsp", -- "eslint".
-        "bash-language-server", --"bashls",
-        "dockerfile-language-server", --"dockerls",
-        "docker-compose-language-service", -- "docker_compose_language_service",
-        "cypher-language-server", --"cypher_ls",
-        "vim-language-server", --"vimls",
-        -- text
-        "json-lsp", -- "jsonls",
-        "yaml-language-server", --"yamlls",
-        -- markdown
-        "markdown-toc",
-        "markdownlint",
-      },
-      auto_update = true,
-      run_on_start = true,
-      -- automatic_installation = true,
-    },
-  },
 
   {
     "hrsh7th/nvim-cmp", -- 補完エンジン
