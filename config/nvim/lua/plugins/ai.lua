@@ -5,7 +5,8 @@
 vim.opt.laststatus = 3 -- avanteで推奨
 
 return {
-  { "yetone/avante.nvim",
+  {
+    "yetone/avante.nvim",
     event = "VeryLazy",
     lazy = false,
     priority = 1000, -- GitHub Copilotと共存させたい
@@ -16,20 +17,20 @@ return {
     opts = {
       provider = "gemini", -- プロバイダーをgeminiに変更
       gemini = {
-        model = "gemini-2.0-flash",  --　既存では1.5-flashしか用意されていない
+        model = "gemini-2.0-flash", --　既存では1.5-flashしか用意されていない
       },
       web_search_engine = {
         proivder = "google",
       },
       -- ファイル操作ツールを設定
       tools = {
-        create_file = true,  -- ファイル作成ツール
-        write_file = true,  -- ファイル書き込みツール - 既存ファイルへの変更が新規バッファに書き込まれる問題を修正
-        rename_file = true,  -- ファイル名変更ツール
-        delete_file = true,  -- ファイル削除ツール
-        list_files = true,   -- ファイル一覧ツール
-        glob = true,         -- ファイルパターンマッチングツール
-        git_diff = true,     -- Gitの差分表示ツール
+        create_file = true, -- ファイル作成ツール
+        write_file = true, -- ファイル書き込みツール - 既存ファイルへの変更が新規バッファに書き込まれる問題を修正
+        rename_file = true, -- ファイル名変更ツール
+        delete_file = true, -- ファイル削除ツール
+        list_files = true, -- ファイル一覧ツール
+        glob = true, -- ファイルパターンマッチングツール
+        git_diff = true, -- Gitの差分表示ツール
       },
     },
     dependencies = {
@@ -58,11 +59,13 @@ return {
           },
         },
       },
-      { 'MeanderingProgrammer/render-markdown.nvim', -- Make sure to set this up properly if you have lazy=true
+      {
+        "MeanderingProgrammer/render-markdown.nvim", -- Make sure to set this up properly if you have lazy=true
         opts = { file_types = { "markdown", "Avante" } },
         ft = { "markdown", "Avante" },
       },
-      {"zbirenbaum/copilot.lua", -- for providers='copilot' -- cmd = "Copilot",
+      {
+        "zbirenbaum/copilot.lua", -- for providers='copilot' -- cmd = "Copilot",
         lazy = false, -- Copilotはすぐに読み込む必要があります
         -- opts = {
         --   auto_trigger = true,
@@ -77,27 +80,27 @@ return {
         --       open = "<M-CR>"
         --     },
         --   },
-          -- filetypes = { ["*"] = true, }
-          -- panel = { enabled = false },
+        -- filetypes = { ["*"] = true, }
+        -- panel = { enabled = false },
         -- },
-        
+
         config = function(_, opts)
           require("copilot").setup(opts)
           -- require("copilot_cmp").setup()
         end,
         dependencies = {
-          { 'AndreM222/copilot-lualine',
-          },
-          {"zbirenbaum/copilot-cmp", opts = {},}, -- 効いてるのか不明
-          { "github/copilot.vim", -- copilot.luaに含めないとaskで補間が効かない
+          { "AndreM222/copilot-lualine" },
+          { "zbirenbaum/copilot-cmp", opts = {} }, -- 効いてるのか不明
+          {
+            "github/copilot.vim", -- copilot.luaに含めないとaskで補間が効かない
             config = function(_, opts)
-              vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+              vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
                 expr = true,
-                replace_keycodes = false
+                replace_keycodes = false,
               })
               vim.g.copilot_no_tab_map = true -- デフォルトのタブキーマッピングを無効化
-              vim.keymap.set('i', '<C-L>', '<Plug>(copilot-accept-word)')
-              vim.keymap.set('i', '<C-K>', '<Plug>(copilot-accept-line)')
+              vim.keymap.set("i", "<C-L>", "<Plug>(copilot-accept-word)")
+              vim.keymap.set("i", "<C-K>", "<Plug>(copilot-accept-line)")
             end,
           },
         },

@@ -54,7 +54,7 @@ sudo apt install direnv -yq
 sudo apt install img2pdf -yq
 sudo apt install pdftk -yq
 sudo apt install byobu -yq
-byobu-ctrl-a emacs # <C-a>無効 F12を使うように -> vimの<C-a><C-x>インクリメント使用できるように 
+byobu-ctrl-a emacs # <C-a>無効 F12を使うように -> vimの<C-a><C-x>インクリメント使用できるように
 
 # git
 sudo apt install tig -yq
@@ -72,7 +72,6 @@ sudo install lazygit -D -t /usr/local/bin/
 
 # vim setup
 sudo apt install neovim -yq
-sudo apt install cargo -yq # aiツール で必要
 sudo apt install silversearcher-ag -yq # fzf for vim
 sudo apt install cmigemo -yq
 sudo apt install ripgrep bat universal-ctags -yq # for fzf.vim
@@ -83,12 +82,19 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 . ~/.bashrc
 vim -c PlugInstall -c q -c q
 
+# rust
+sudo apt install cargo -yq # aiツール で必要
+sudo apt install rustup -yq
+rustup update stable
+cargo install viu # for fzf_lua
+
 
 ## neovim setup
 sudo apt install luarocks -yq # for neovim lua and lazy.nvim
 sudo apt install fd-find -yq # for fzf, telescope.nvim
 # fdはバイナリ名で既に使われているのでfdfindというコマンド名
 ln -s $(which fdfind) ~/.local/bin/fd
+
 
 
 # github repository
@@ -102,3 +108,5 @@ sudo apt install neofetch -yq
 sudo apt install flatpak -yq
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub io.github.vikdevelop.SaveDesktop -y
+
+sudo apt install wl-clipboard # for neovim plugin

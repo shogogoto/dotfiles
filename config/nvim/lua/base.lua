@@ -81,10 +81,10 @@ vim.cmd([[ highlight ColorColumn ctermbg=grey guibg=grey ]])
 
 -------------------------------------------------- keymap
 -- バッファ移動のキーマップ !でnobuflistedでも移動できる
-vim.keymap.set("n", "[b", "<cmd>bprevious!<cr>", { silent = true })
-vim.keymap.set("n", "]b", "<cmd>bnext!<cr>", { silent = true })
-vim.keymap.set("n", "[B", "<cmd>bfirst!<cr>", { silent = true })
-vim.keymap.set("n", "]B", "<cmd>blast!<cr>", { silent = true })
+vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", { silent = true })
+vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { silent = true })
+vim.keymap.set("n", "[B", "<cmd>bfirst<cr>", { silent = true })
+vim.keymap.set("n", "]B", "<cmd>blast<cr>", { silent = true })
 -- タグ移動のキーマップ
 -- vim.keymap.set('n', '[t', '<cmd>tprevious<cr>', { silent = true })
 -- vim.keymap.set('n', ']t', '<cmd>tnext<cr>', { silent = true })

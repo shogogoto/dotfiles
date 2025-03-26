@@ -122,7 +122,7 @@ return {
         "nvim-treesitter/playground",
         cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" },
         keys = {
-          { "<leader>tp", "<cmd>TSPlaygroundToggle<cr>",             desc = "Treesitter Playground" },
+          { "<leader>tp", "<cmd>TSPlaygroundToggle<cr>", desc = "Treesitter Playground" },
           { "<leader>th", "<cmd>TSHighlightCapturesUnderCursor<cr>", desc = "TS Highlight Capture" },
         },
       },
@@ -206,7 +206,7 @@ return {
     },
     keys = {
       { "<leader>ti", "<cmd>TSConfigInfo<cr>", desc = "Treesitter Info" },
-      { "<leader>tu", "<cmd>TSUpdate<cr>",     desc = "Update Parsers" },
+      { "<leader>tu", "<cmd>TSUpdate<cr>", desc = "Update Parsers" },
       { "<leader>tU", "<cmd>TSUpdateSync<cr>", desc = "Update Parsers (Sync)" },
     },
     opts = {
@@ -217,7 +217,7 @@ return {
         additional_vim_regex_highlighting = false,
         disable = function(lang, buf)
           local max_filesize = 100 * 1024 -- 100 KB
-          local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+          -- local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
           if ok and stats and stats.size > max_filesize then
             return true
           end
@@ -274,7 +274,7 @@ return {
           },
           selection_modes = {
             ["@parameter.outer"] = "v", -- charwise
-            ["@function.outer"] = "V",  -- linewise
+            ["@function.outer"] = "V", -- linewise
             ["@class.outer"] = "<c-v>", -- blockwise
           },
           include_surrounding_whitespace = true,
@@ -511,21 +511,21 @@ return {
       -- スペースの追加
       npairs.add_rules({
         Rule(" ", " ")
-            :with_pair(function(opts)
-              local pair = opts.line:sub(opts.col - 1, opts.col)
-              return vim.tbl_contains({ "()", "[]", "{}" }, pair)
-            end)
-            :with_move(function(opts)
-              return opts.char == ")"
-            end)
-            :with_cr(function(opts)
-              return false
-            end)
-            :with_del(function(opts)
-              local col = vim.api.nvim_win_get_cursor(0)[2]
-              local context = opts.line:sub(col - 1, col + 2)
-              return context:match("%( %)") or context:match("%{ %}") or context:match("%[ %]")
-            end),
+          :with_pair(function(opts)
+            local pair = opts.line:sub(opts.col - 1, opts.col)
+            return vim.tbl_contains({ "()", "[]", "{}" }, pair)
+          end)
+          :with_move(function(opts)
+            return opts.char == ")"
+          end)
+          :with_cr(function(opts)
+            return false
+          end)
+          :with_del(function(opts)
+            local col = vim.api.nvim_win_get_cursor(0)[2]
+            local context = opts.line:sub(col - 1, col + 2)
+            return context:match("%( %)") or context:match("%{ %}") or context:match("%[ %]")
+          end),
       })
 
       -- Treesitterを使った条件付きルール
