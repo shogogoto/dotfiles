@@ -2,7 +2,6 @@ return {
   "nvimtools/none-ls.nvim",
   config = function()
     local null_ls = require("null-ls")
-    local diagnostics = null_ls.builtins.diagnostics
     local symbols = require("user.symbols")
     vim.diagnostic.config({
       virtual_text = {
@@ -30,31 +29,37 @@ return {
       severity_sort = true, -- 重要度でソート
     })
 
-    null_ls.setup({
-      -- diagnostics_format = "#{m} (#{s}: #{c})",
-      diagnostics_format = "%[%l:%c%] #{m} (#{s}: #{c})",
-      sources = {
-        -- null_ls.builtins.diagnostics.cspell,
-        -- null_ls.builtins.code_actions.cspell,
-        -- null_ls.builtins.code_actions.eslint_d,
-        -- diagnostics.lua_ls, -- lua_lsの診断を有効化
-        null_ls.builtins.code_actions.gitsigns,
-        null_ls.builtins.completion.luasnip,
-        null_ls.builtins.completion.spell,
+    -- null_ls.setup({
+    --   -- diagnostics_format = "#{m} (#{s}: #{c})",
+    --   debug = true,
+    --   diagnostics_format = "%[%l:%c%] #{m} (#{s}: #{c})",
+    --   sources = {
+    --     --     -- null_ls.builtins.diagnostics.cspell,
+    --     --     -- null_ls.builtins.code_actions.cspell,
+    --     --     -- null_ls.builtins.code_actions.eslint_d,
+    --     --     null_ls.builtins.diagnostics.lua_ls,
+    --     --     null_ls.builtins.code_actions.gitsigns,
+    --     --     null_ls.builtins.completion.luasnip,
+    --     --     null_ls.builtins.completion.spell,
 
-        null_ls.builtins.formatting.stylua,
-        -- null_ls.builtins.diagnostics.ruff,
-        -- null_ls.builtins.formatting.ruff,
-        -- null_ls.builtins.formatting.prettier
-      },
-      on_attach = function(client, bufnr)
-        -- LSPアタッチ時の処理
-        if client.supports_method("textDocument/publishDiagnostics") then
-          -- 診断情報をサポートしている場合の処理
-          vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-        end
-      end,
-    })
+    --     --     null_ls.builtins.formatting.stylua,
+    --     -- null_ls.builtins.diagnostics.ruff,
+    --     --     -- null_ls.builtins.formatting.ruff.with({
+    --     --     --   filetypes = { "python" },
+    --     --     --   -- extra_args = function()
+    --     --     --   --   return { "--config", vim.fn.getcwd() .. "/pyproject.toml" }
+    --     --     --   -- end,
+    --     --     -- }),
+    --     --     -- null_ls.builtins.formatting.prettier
+    --   },
+    --   on_attach = function(client, bufnr)
+    --     -- LSPアタッチ時の処理
+    --     if client.supports_method("textDocument/publishDiagnostics") then
+    --       -- 診断情報をサポートしている場合の処理
+    --       vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+    --     end
+    --   end,
+    -- })
   end,
   dependencies = {
     { "nvim-lua/plenary.nvim" },

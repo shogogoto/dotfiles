@@ -21,24 +21,25 @@ return {
         "luacheck",
         -- python
         "pyright",
-        "ruff", -- formatter
+        -- "ruff", -- formatter
         "pyproject-flake8",
         -- typescript
-        "typescript-language-server",  --"ts_ls",
-        "eslint-lsp",                  -- "eslint".
-        "bash-language-server",        --"bashls",
-        "dockerfile-language-server",  --"dockerls",
+        "typescript-language-server", --"ts_ls",
+        "eslint-lsp", -- "eslint".
+        "bash-language-server", --"bashls",
+        "dockerfile-language-server", --"dockerls",
         "docker-compose-language-service", -- "docker_compose_language_service",
-        "cypher-language-server",      --"cypher_ls",
-        "vim-language-server",         --"vimls",
+        "cypher-language-server", --"cypher_ls",
+        "vim-language-server", --"vimls",
         -- text
-        "json-lsp",                    -- "jsonls",
-        "yaml-language-server",        --"yamlls",
+        "json-lsp", -- "jsonls",
+        "yaml-language-server", --"yamlls",
         -- markdown
         "markdown-toc",
         "markdownlint",
 
         "cspell",
+        "copilot-language-server",
       },
       auto_update = true,
       run_on_start = true,

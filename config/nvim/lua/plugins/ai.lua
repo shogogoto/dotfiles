@@ -15,7 +15,7 @@ return {
       { "<Leader>aC", "<cmd>AvanteClear<CR>", mode = "n", desc = "Avante: clear" },
     },
     opts = {
-      provider = "gemini", -- プロバイダーをgeminiに変更
+      provider = "gemini",          -- プロバイダーをgeminiに変更
       gemini = {
         model = "gemini-2.0-flash", --　既存では1.5-flashしか用意されていない
       },
@@ -25,12 +25,12 @@ return {
       -- ファイル操作ツールを設定
       tools = {
         create_file = true, -- ファイル作成ツール
-        write_file = true, -- ファイル書き込みツール - 既存ファイルへの変更が新規バッファに書き込まれる問題を修正
+        write_file = true,  -- ファイル書き込みツール - 既存ファイルへの変更が新規バッファに書き込まれる問題を修正
         rename_file = true, -- ファイル名変更ツール
         delete_file = true, -- ファイル削除ツール
-        list_files = true, -- ファイル一覧ツール
-        glob = true, -- ファイルパターンマッチングツール
-        git_diff = true, -- Gitの差分表示ツール
+        list_files = true,  -- ファイル一覧ツール
+        glob = true,        -- ファイルパターンマッチングツール
+        git_diff = true,    -- Gitの差分表示ツール
       },
     },
     dependencies = {
@@ -39,11 +39,11 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
-      "echasnovski/mini.pick", -- for file_selector provider mini.pick
+      "echasnovski/mini.pick",         -- for file_selector provider mini.pick
       "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-      "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-      "ibhagwan/fzf-lua", -- for file_selector provider fzf
-      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+      "hrsh7th/nvim-cmp",              -- autocompletion for avante commands and mentions
+      "ibhagwan/fzf-lua",              -- for file_selector provider fzf
+      "nvim-tree/nvim-web-devicons",   -- or echasnovski/mini.icons
       {
         -- support for image pasting
         "HakonHarnes/img-clip.nvim",
@@ -66,7 +66,7 @@ return {
       },
       {
         "zbirenbaum/copilot.lua", -- for providers='copilot' -- cmd = "Copilot",
-        lazy = false, -- Copilotはすぐに読み込む必要があります
+        lazy = false,             -- Copilotはすぐに読み込む必要があります
         -- opts = {
         --   auto_trigger = true,
         --   suggestion = {
@@ -90,9 +90,9 @@ return {
         end,
         dependencies = {
           { "AndreM222/copilot-lualine" },
-          { "zbirenbaum/copilot-cmp", opts = {} }, -- 効いてるのか不明
+          { "zbirenbaum/copilot-cmp",   opts = {} }, -- 効いてるのか不明
           {
-            "github/copilot.vim", -- copilot.luaに含めないとaskで補間が効かない
+            "github/copilot.vim",                  -- copilot.luaに含めないとaskで補間が効かない
             config = function(_, opts)
               vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
                 expr = true,
