@@ -6,7 +6,7 @@ return {
       theme = "evil_lualine",
       options = {
         icons_enabled = true,
-        theme = cozynight,
+        theme = "auto",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         disabled_filetypes = {},
