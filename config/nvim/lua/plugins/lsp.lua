@@ -3,12 +3,12 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     keys = {
-      { "gD",         vim.lsp.buf.declaration,             desc = "Go to declaration" },
-      { "gd",         vim.lsp.buf.definition,              desc = "Go to definition" },
-      { "K",          vim.lsp.buf.hover,                   desc = "Hover information" },
-      { "gi",         vim.lsp.buf.implementation,          desc = "Go to implementation" },
-      { "<C-k>",      vim.lsp.buf.signature_help,          desc = "Signature help" },
-      { "<leader>wa", vim.lsp.buf.add_workspace_folder,    desc = "Add workspace folder" },
+      { "gD", vim.lsp.buf.declaration, desc = "Go to declaration" },
+      { "gd", vim.lsp.buf.definition, desc = "Go to definition" },
+      { "K", vim.lsp.buf.hover, desc = "Hover information" },
+      { "gi", vim.lsp.buf.implementation, desc = "Go to implementation" },
+      { "<C-k>", vim.lsp.buf.signature_help, desc = "Signature help" },
+      { "<leader>wa", vim.lsp.buf.add_workspace_folder, desc = "Add workspace folder" },
       { "<leader>wr", vim.lsp.buf.remove_workspace_folder, desc = "Remove workspace folder" },
       {
         "<leader>wl",
@@ -17,9 +17,9 @@ return {
         end,
         desc = "List workspace folders",
       },
-      { "<leader>D",  vim.lsp.buf.type_definition, desc = "Type definition" },
-      { "<leader>rn", vim.lsp.buf.rename,          desc = "Rename" },
-      { "<leader>ca", vim.lsp.buf.code_action,     desc = "Code action" },
+      { "<leader>D", vim.lsp.buf.type_definition, desc = "Type definition" },
+      { "<leader>rn", vim.lsp.buf.rename, desc = "Rename" },
+      { "<leader>ca", vim.lsp.buf.code_action, desc = "Code action" },
       -- { "gr",         vim.lsp.buf.references,      desc = "References" },
       {
         "<leader>fm",
@@ -33,7 +33,7 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       {
         "folke/lazydev.nvim", -- LuaLS簡単セットアップ
-        ft = "lua",           -- only load on lua files
+        ft = "lua", -- only load on lua files
         opts = {
           library = {
             { path = "${3rd}/luv/library", words = { "vim%.uv" } },
@@ -55,24 +55,21 @@ return {
             vim.lsp.buf.format({ bufnr = bufnr })
           end,
         })
-        -- end
-
-        -- ruff 公式
-        -- vim.api.nvim_create_autocmd("LspAttach", {
-        --   group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", { clear = true }),
-        --   callback = function(args)
-        --     -- local client = vim.lsp.get_client_by_id(args.data.client_id)
-        --     if client == nil then
-        --       return
-        --     end
-        --     if client.name == "ruff" then
-        --       -- Disable hover in favor of Pyright
-        --       client.server_capabilities.hoverProvider = false
-        --     end
-        --   end,
-        --   desc = "LSP: Disable hover capability from Ruff",
-        -- })
       end
+      vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = false, -- インラインテキストを無効化
+        signs = true, -- 左側のサインを表示
+        update_in_insert = false,
+        underline = true,
+        severity_sort = true,
+        float = {
+          border = "rounded",
+          source = "always",
+          header = "Diagnostic Information",
+          prefix = "■ ",
+        },
+      })
+
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
         on_attach = on_attach,
@@ -81,7 +78,7 @@ return {
             diagnostics = {
               globals = { "vim", "require" }, -- Neovim の global 変数を認識させる
               -- disable = {}, -- 特定の診断を無効化する場合はここに追加
-              enable = true,                  -- 診断を有効化
+              enable = true, -- 診断を有効化
             },
             -- workspace = {
             --   checkThirdParty = false, -- サードパーティライブラリのチェックを無効化
@@ -105,12 +102,12 @@ return {
           },
           python = {
             analysis = {
-              autoImportCompletions = true,  -- 追加: 補完時に自動import
-              autoSearchPaths = true,        -- 追加: パスを自動検索
-              diagnosticMode = "workspace",  -- openFilesOnly, workspace(これじゃないと補完が効かない)
+              autoImportCompletions = true, -- 追加: 補完時に自動import
+              autoSearchPaths = true, -- 追加: パスを自動検索
+              diagnosticMode = "workspace", -- openFilesOnly, workspace(これじゃないと補完が効かない)
               useLibraryCodeForTypes = true, -- 追加: ライブラリの型情報を使用
               --unused import, var などをエラーにするのはstrictだけ
-              typeCheckingMode = "strict",   -- basic, standard, strict, off
+              typeCheckingMode = "strict", -- basic, standard, strict, off
               -- ignore = { "*" },
             },
             pythonPath = ".venv/bin/python",
@@ -153,9 +150,9 @@ return {
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets", -- cocでも使える
-      { "honza/vim-snippets" },       -- スニペット集
-      "hrsh7th/cmp-nvim-lsp",         -- LSP補完
-      "onsails/lspkind-nvim",         -- アイコン表示
+      { "honza/vim-snippets" }, -- スニペット集
+      "hrsh7th/cmp-nvim-lsp", -- LSP補完
+      "onsails/lspkind-nvim", -- アイコン表示
       --   For mini.snippets users.
       "echasnovski/mini.snippets",
       "abeldekat/cmp-mini-snippets",
@@ -166,7 +163,7 @@ return {
 
       -- ultisnips = snipet管理
       { "quangnguyen30192/cmp-nvim-ultisnips" }, -- cmp と UltiSnips の連携プラグイン
-      { "SirVer/ultisnips" },                    -- スニペットエンジン
+      { "SirVer/ultisnips" }, -- スニペットエンジン
     },
     config = function()
       local cmp = require("cmp")
@@ -179,11 +176,11 @@ return {
       cmp.setup({
         snippet = {
           expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)        -- For `vsnip` users.
-            require("luasnip").lsp_expand(args.body)    -- For `luasnip` users.
+            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+            require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
             require("snippy").expand_snippet(args.body) -- For `snippy` users.
-            vim.fn["UltiSnips#Anon"](args.body)         -- For `ultisnips` users.
-            vim.snippet.expand(args.body)               -- For native neovim snippets (Neovim v0.10+)
+            vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+            vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
 
             -- For `mini.snippets` users:
             local MiniSnippets = require("mini.snippets")
@@ -199,9 +196,9 @@ return {
           documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),           -- 補完候補のドキュメントを上にスクロール
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),            -- 補完候補のドキュメントを下にスクロール
-          ["<C-e>"] = cmp.mapping.abort(),                   -- 補完を中断して閉じる
+          ["<C-b>"] = cmp.mapping.scroll_docs(-4), -- 補完候補のドキュメントを上にスクロール
+          ["<C-f>"] = cmp.mapping.scroll_docs(4), -- 補完候補のドキュメントを下にスクロール
+          ["<C-e>"] = cmp.mapping.abort(), -- 補完を中断して閉じる
           ["<CR>"] = cmp.mapping.confirm({ select = true }), -- 補完確定 (現在選択中の候補を使用)
           -- ["<C-Space>"] = cmp.mapping.complete(),
           ["<Tab>"] = cmp.mapping(function(fallback)
@@ -213,13 +210,13 @@ return {
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
-          { name = "luasnip",   priority_weight = 20 }, -- LuaSnip を補完候補に含める
+          { name = "luasnip", priority_weight = 20 }, -- LuaSnip を補完候補に含める
           { name = "ultisnips", priority_weight = 10 }, -- UltiSnips を補完候補に含める
-          { name = "luasnip" },                         -- For luasnip users.
-          { name = "ultisnips" },                       -- For ultisnips users.
-          { name = "vsnip" },                           -- For snippy users.
-          { name = "snippy" },                          -- For snippy users.
-        }, {                                            -- この区切り意味不明
+          { name = "luasnip" }, -- For luasnip users.
+          { name = "ultisnips" }, -- For ultisnips users.
+          { name = "vsnip" }, -- For snippy users.
+          { name = "snippy" }, -- For snippy users.
+        }, { -- この区切り意味不明
           { name = "buffer" },
           { name = "path" },
         }),

@@ -1,6 +1,7 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "LuaSnip": { "branch": "master", "commit": "c9b9a22904c97d0eb69ccb9bab76037838326817" },
+  "actions-preview.nvim": { "branch": "master", "commit": "4ab7842eb6a5b6d2b004f8234dcf33382a0fdde2" },
   "alpha-nvim": { "branch": "main", "commit": "de72250e054e5e691b9736ee30db72c65d560771" },
   "avante.nvim": { "branch": "main", "commit": "cd13eeb7d9093b74b14da7382d49addbf9846f04" },
   "barbar.nvim": { "branch": "master", "commit": "53b5a2f34b68875898f0531032fbf090e3952ad7" },
@@ -43,8 +44,8 @@
   "mason-tool-installer.nvim": { "branch": "main", "commit": "98767d37f8e5255a5111fc1e3163232d4dc07bda" },
   "mason.nvim": { "branch": "main", "commit": "fc98833b6da5de5a9c5b1446ac541577059555be" },
   "migemo-search.nvim": { "branch": "main", "commit": "4207b8d6fd5b4fb4f25d3ee77bca5d6806e4be06" },
-  "mini.nvim": { "branch": "main", "commit": "3ad46cdb7a51281e0024416023b56cf5c7909ae7" },
-  "mini.pick": { "branch": "main", "commit": "ef479fcfb94b8f5fdbec46d697c18ca113547f3d" },
+  "mini.nvim": { "branch": "main", "commit": "189010888bc37fc1c382f2dcc81b7a6441160686" },
+  "mini.pick": { "branch": "main", "commit": "4dfc0a21f16d34e9b2429b96d62788ed8a65e6cd" },
   "mini.snippets": { "branch": "main", "commit": "04e1c0f8538a4ee0ddc054e30e92a93cb4c1b568" },
   "mkdir.nvim": { "branch": "main", "commit": "c55d1dee4f099528a1853b28bb28caa802eba217" },
   "neo-tree.nvim": { "branch": "v3.x", "commit": "9b5d67119c46e3262ffe1508fe6d8540b79ad75d" },
