@@ -1,11 +1,11 @@
 -- 診断結果を表示するためのキーマップ
-vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show diagnostic at cursor" })
-
+vim.keymap.set("n", "<leader>df", vim.diagnostic.open_float, { desc = "Show diagnostic at cursor" })
+vim.keymap.set("n", "<leader>dd", vim.diagnostic.setloclist, { desc = "Open Diagnostics List" })
 vim.keymap.set("n", "gK", function()
   local new_config = not vim.diagnostic.config().virtual_lines
   vim.diagnostic.config({ virtual_lines = new_config })
 end, { desc = "Toggle diagnostic virtual_lines" })
-vim.opt.updatetime = 600 -- ホバー表示の遅延時間を設定（ミリ秒）
+vim.opt.updatetime = 1000 -- ホバー表示の遅延時間を設定（ミリ秒）
 
 local symbols = require("user.symbols")
 local sev = vim.diagnostic.severity
@@ -16,7 +16,7 @@ local function format_diagnostic(diagnostic)
   local src = diagnostic.source or ""
   if src:lower() == "ruff" and code ~= "" then
     local url = string.format("https://docs.astral.sh/ruff/rules/%s", code)
-    return string.format("[%s] %s: %s\nReference: %s", src, code, msg, url)
+    return string.format("[%s] %s: %s\nRef: %s", src, code, msg, url)
   end
   if code ~= "" then
     return string.format("[%s] %s: %s", src, code, msg)
@@ -24,20 +24,20 @@ local function format_diagnostic(diagnostic)
     return string.format("[%s]: %s", src, msg)
   end
 end
--- カーソルがホバーした時に自動的に診断情報を表示する
-vim.api.nvim_create_autocmd("CursorHold", {
-  callback = function()
-    vim.diagnostic.open_float({
-      focusable = false,
-      close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-    })
-  end,
-})
+-- カーソルがホバーした時に自動的に診断情報を表示する うぜーかも gKでトグルするだけでよい
+-- vim.api.nvim_create_autocmd("CursorHold", {
+--   callback = function()
+--     vim.diagnostic.open_float({
+--       focusable = false,
+--       close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+--     })
+--   end,
+-- })
 
 vim.diagnostic.config({
-  underline = true,         -- エラー箇所に下線を表示
+  underline = true, -- エラー箇所に下線を表示
   update_in_insert = false, -- インサートモード中は更新しない
-  severity_sort = true,     -- 重要度でソート
+  severity_sort = true, -- 重要度でソート
   signs = {
     text = {
       [sev.ERROR] = symbols.error,
@@ -46,8 +46,6 @@ vim.diagnostic.config({
       [sev.HINT] = symbols.hint,
     },
   },
-
-  -- loclist = { open = true },
   -- virtual_text = false,
   -- virtual_lines = true,
   virtual_text = {
@@ -56,11 +54,5 @@ vim.diagnostic.config({
     spacing = 0, -- テキストとの間隔
     header = "Diagnostic Details", -- ヘッダーテキスト
     format = format_diagnostic, -- テキストのフォーマット関数
-  },
-  float = {
-    source = "always",
-    border = "single",
-    title = "Diagnostics",
-    format = format_diagnostic,
   },
 })
