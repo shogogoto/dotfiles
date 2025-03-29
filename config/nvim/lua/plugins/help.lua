@@ -1,7 +1,8 @@
 return {
+  -- 重要! キーマップ一覧
   "folke/which-key.nvim",
   dependencies = {
-    { 'echasnovski/mini.nvim', version = false },
+    { "echasnovski/mini.nvim", version = false },
   },
   event = "VeryLazy",
   opts = {

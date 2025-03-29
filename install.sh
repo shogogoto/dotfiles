@@ -94,7 +94,7 @@ sudo apt install luarocks -yq # for neovim lua and lazy.nvim
 sudo apt install fd-find -yq # for fzf, telescope.nvim
 # fdはバイナリ名で既に使われているのでfdfindというコマンド名
 ln -s $(which fdfind) ~/.local/bin/fd
-
+sudo apt install tree-sitter-cli -yq # for nvim lspsage
 
 
 # github repository
