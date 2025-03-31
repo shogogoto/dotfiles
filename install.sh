@@ -19,7 +19,7 @@ npm install --save-dev @marp-team/marp-cli # markdownからプレゼン生成
 sudo apt install libffi-dev -yq # for resolve ModuleNotFoundError: No module named '_ctypes'
 sudo apt install libbz2-dev -yq # for resoluve ModuleNotFoundError: No module named '_bz2' in networkx
 sudo apt install python3-pip -yq
-sudo apt install libsqlite3-dev -yq # requre to pre-commit
+sudo apt install libsqlite3-dev -yq # require to pre-commit
 curl https://pyenv.run | bash
 git clone https://github.com/pyenv/pyenv-update.git $(pyenv root)/plugins/pyenv-update
 # curl -sSL https://install.python-poetry.org | python3 -
@@ -55,6 +55,7 @@ sudo apt install img2pdf -yq
 sudo apt install pdftk -yq
 sudo apt install byobu -yq
 byobu-ctrl-a emacs # <C-a>無効 F12を使うように -> vimの<C-a><C-x>インクリメント使用できるように
+curl -sS https://starship.rs/install.sh | sh
 
 # git
 sudo apt install tig -yq

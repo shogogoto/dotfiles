@@ -17,6 +17,10 @@ LANG=C xdg-user-dirs-gtk-update # directoryを英語へ
 # neovimでclipboardを使うのに必要
 # export DISPLAY=$(cat /etc/resolv.conf | grep -e "^nameserver" | awk '{print $2}'):0.0
 export XDG_CONFIG_HOME="$HOME/dotfiles/config"
+
+export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship.toml
+
+
 export PIPENV_VENV_IN_PROJECT=1  # pipenvの仮想環境がプロジェクト内に作成される ~/.local/share/virtualenvsではなく
 if [ -f /usr/bin/nvim ]; then
   export GIT_EDITOR=nvim # tig-explorerのエラー回避
