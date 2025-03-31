@@ -9,12 +9,14 @@ return {
 				formatters_by_ft = {
 					lua = { "stylua" },
 					javascript = js_formatters,
+					javascriptreact = js_formatters,
 					typescript = js_formatters,
+					typescriptreact = js_formatters,
 					markdown = js_formatters,
 					html = js_formatters,
 					css = js_formatters,
 					json = js_formatters,
-					python = { "ruff_fix", "my_ruff", "ruff_format" },
+					python = { "ruff_fix", "ruff_format" },
 					["*"] = { "codespell" },
 					["_"] = { "trim_whitespace" },
 				},
@@ -32,9 +34,9 @@ return {
 				},
 			})
 
-			-- vim.keymap.set("n", "<leader>fm", function()
-			--   conform.format({ async = true })
-			-- end, { desc = "Format" })
+			vim.keymap.set("n", "<leader>fm", function()
+				require("conform").format({ async = true, lsp_fallback = true })
+			end, { desc = "Format" })
 		end,
 	},
 }
