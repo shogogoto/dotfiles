@@ -84,7 +84,7 @@ return {
 			ensure_installed = {
 				--lua
 				"stylua",
-				"lua-language-server", --"lua_ls",
+				-- "lua-language-server", --"lua_ls",
 				"luacheck",
 				-- python
 				"pyright",
