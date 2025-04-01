@@ -1,4 +1,4 @@
-local js_formatters = { "prettier", "eslint_d" }
+local js_formatters = { "biome", "biome-check", "biome-organize-import" }
 
 return {
 	{
@@ -6,6 +6,7 @@ return {
 		-- events = "VeryLazy",
 		config = function()
 			local conform = require("conform").setup({
+				-- https://github.com/stevearc/conform.nvim/tree/master/lua/conform/formatters
 				formatters_by_ft = {
 					lua = { "stylua" },
 					javascript = js_formatters,

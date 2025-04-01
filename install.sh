@@ -14,6 +14,7 @@ sudo npm install -g n
 sudo n stable
 sodo apt purge nodejs npm -yq # n導入後は不要なため
 npm install --save-dev @marp-team/marp-cli # markdownからプレゼン生成
+sudo npm install -g @anthropic-ai/claude-code # AI
 
 # python
 sudo apt install libffi-dev -yq # for resolve ModuleNotFoundError: No module named '_ctypes'

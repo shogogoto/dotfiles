@@ -25,6 +25,7 @@ return {
 				"pyproject-flake8",
 				-- typescript
 				"typescript-language-server", --"ts_ls",
+				"biome",
 				"eslint-lsp",
 				"eslint_d",
 				"prettier",
