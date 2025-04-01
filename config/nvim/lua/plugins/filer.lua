@@ -14,7 +14,7 @@ return {
 			},
 			{
 				"<Leader>fe", -- efだとeコマンドと衝突
-				"<cmd>Neotree position=float toggle reveal_force_cwd<CR>",
+				"<cmd>Neotree position=float toggle reveal dir=<CR>",
 				mode = "n",
 				desc = "フロートでファイラー開く",
 			},
@@ -26,7 +26,7 @@ return {
 				callback = function()
 					-- ネステッドな Neovim セッションでない場合のみ実行 tig対策
 					if not vim.env.NVIM then
-						vim.cmd("Neotree")
+						vim.cmd("Neotree show reveal dir=%:p:h:h")
 					end
 				end,
 			})
@@ -95,6 +95,10 @@ return {
 				},
 			},
 			-- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
+			-- {
+			-- 	"ahmedkhalf/project.nvim", -- 自動でprojct rootへcd
+			-- 	lazy = false,
+			-- },
 		},
 	},
 	{
@@ -110,13 +114,6 @@ return {
 			local theme = require(name)
 			-- theme.file_icons.provider = "devicons" -- available: devicons, mini, default is mini
 			require("alpha").setup(theme.config)
-		end,
-	},
-	{
-		"ahmedkhalf/project.nvim", -- 自動でprojct rootへcd
-		lazy = false,
-		config = function()
-			require("project_nvim").setup({})
 		end,
 	},
 	{
