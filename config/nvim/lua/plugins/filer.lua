@@ -5,54 +5,41 @@ return {
 		"nvim-neo-tree/neo-tree.nvim",
 		lazy = false,
 		branch = "v3.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-			"MunifTanjim/nui.nvim",
-			{
-				"s1n7ax/nvim-window-picker", -- 既存の分割ウィンドウを指定してopen
-				opts = {
-					autoselect_one = true,
-					include_current = true,
-					filter_rules = {
-						bo = {
-							filetype = { "neo-tree", "neo-tree-popup", "notify" },
-							buftype = { "terminal", "quickfix" },
-						},
-					},
-					other_win_hl_color = "#e35e4f",
-				},
-			},
-			-- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
-		},
 		keys = {
 			{
-				"<Leader>ee",
+				"<Leader>e",
 				"<cmd>Neotree position=left toggle reveal dir=%:p:h:h<CR>",
 				mode = "n",
 				desc = "ファイラー開く",
 			},
 			{
-				"<Leader>ef",
+				"<Leader>fe", -- efだとeコマンドと衝突
 				"<cmd>Neotree position=float toggle reveal_force_cwd<CR>",
 				mode = "n",
 				desc = "フロートでファイラー開く",
 			},
 		},
+		config = function(_, opts)
+			require("neo-tree").setup(opts)
+			-- Vimの起動時にneo-treeを自動的に開く
+			vim.api.nvim_create_autocmd("VimEnter", {
+				callback = function()
+					-- ネステッドな Neovim セッションでない場合のみ実行 tig対策
+					if not vim.env.NVIM then
+						vim.cmd("Neotree")
+					end
+				end,
+			})
+		end,
 		opts = {
-			sources = {
-				"filesystem",
-				"buffers",
-				"git_status",
-				"document_symbols",
-			},
+			sources = { "filesystem", "buffers", "git_status", "document_symbols" },
 			filesystem = {
 				follow_current_file = { enabled = true },
 				use_libuv_file_watcher = true,
 				expand_root = true,
 				-- hijack_netrw_behavior = "open_current",
 				window = {
-					position = "float",
+					position = "left",
 					width = 30,
 					mappings = {
 						["<cr>"] = "open_with_window_picker",
@@ -89,6 +76,26 @@ return {
 			vim.g.loaded_netrw = 1
 			vim.g.loaded_netrwPlugin = 1
 		end,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+			{
+				"s1n7ax/nvim-window-picker", -- 既存の分割ウィンドウを指定してopen
+				opts = {
+					autoselect_one = true,
+					include_current = true,
+					filter_rules = {
+						bo = {
+							filetype = { "neo-tree", "neo-tree-popup", "notify" },
+							buftype = { "terminal", "quickfix" },
+						},
+					},
+					other_win_hl_color = "#e35e4f",
+				},
+			},
+			-- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
+		},
 	},
 	{
 		"goolord/alpha-nvim", -- vi 単体で開く画面
