@@ -21,11 +21,14 @@ return {
 		},
 		config = function(_, opts)
 			require("neo-tree").setup(opts)
-			-- Vimの起動時にneo-treeを自動的に開く
 			vim.api.nvim_create_autocmd("VimEnter", {
 				callback = function()
-					-- ネステッドな Neovim セッションでない場合のみ実行 tig対策
-					if not vim.env.NVIM and not vim.env.NVIM_TIG and not vim.env.GIT_EDITOR then
+					local tgt = "COMMIT_EDITMSG"
+					-- フツーの編集画面
+					local is_uncommiting = not string.match(vim.api.nvim_buf_get_name(0), tgt)
+					-- env.NVIM: neovimからneivimを起動 => ex. /run/user/1000/nvim.499729.0 else nil
+					local is_direct_open = vim.env.NVIM == nil
+					if is_direct_open and is_uncommiting then
 						vim.cmd("Neotree show reveal dir=%:p:h:h")
 					end
 				end,
