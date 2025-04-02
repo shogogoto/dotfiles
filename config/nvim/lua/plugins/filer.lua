@@ -25,7 +25,7 @@ return {
 			vim.api.nvim_create_autocmd("VimEnter", {
 				callback = function()
 					-- ネステッドな Neovim セッションでない場合のみ実行 tig対策
-					if not vim.env.NVIM then
+					if not vim.env.NVIM and not vim.env.NVIM_TIG and not vim.env.GIT_EDITOR then
 						vim.cmd("Neotree show reveal dir=%:p:h:h")
 					end
 				end,
