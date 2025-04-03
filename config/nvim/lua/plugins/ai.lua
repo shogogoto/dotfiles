@@ -60,11 +60,6 @@ return {
 				},
 			},
 			{
-				"MeanderingProgrammer/render-markdown.nvim", -- Make sure to set this up properly if you have lazy=true
-				opts = { file_types = { "markdown", "Avante" } },
-				ft = { "markdown", "Avante" },
-			},
-			{
 				"zbirenbaum/copilot.lua", -- for providers='copilot' -- cmd = "Copilot",
 				lazy = false, -- Copilotはすぐに読み込む必要があります
 				-- opts = {

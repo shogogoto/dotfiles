@@ -84,7 +84,26 @@ return {
 			})
 			lspconfig.taplo.setup({ capabilities = capabilities })
 			lspconfig.ts_ls.setup({ capabilities = capabilities })
-
+			lspconfig.jsonls.setup({
+				capabilities = capabilities,
+				settings = {
+					json = {
+						schemas = {
+							{
+								fileMatch = { "package.json" },
+								url = "https://json.schemastore.org/package.json",
+							},
+							{
+								fileMatch = { "tsconfig.json", "tsconfig.*.json" },
+								url = "https://json.schemastore.org/tsconfig.json",
+							},
+							-- 他のJSONスキーマも必要に応じて追加
+						},
+						validate = { enable = true },
+						format = { enable = true },
+					},
+				},
+			})
 			----------------------------------------------------------------------------------------------
 		end,
 	},
