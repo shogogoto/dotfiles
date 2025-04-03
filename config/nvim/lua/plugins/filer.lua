@@ -8,13 +8,13 @@ return {
 		keys = {
 			{
 				"<Leader>e",
-				"<cmd>Neotree position=left toggle reveal dir=%:p:h:h<CR>",
+				"<cmd>Neotree position=left toggle reveal<CR>",
 				mode = "n",
 				desc = "ファイラー開く",
 			},
 			{
 				"<Leader>fe", -- efだとeコマンドと衝突
-				"<cmd>Neotree position=float toggle reveal dir=<CR>",
+				"<cmd>Neotree position=float toggle reveal<CR>",
 				mode = "n",
 				desc = "フロートでファイラー開く",
 			},
@@ -29,7 +29,7 @@ return {
 					-- env.NVIM: neovimからneivimを起動 => ex. /run/user/1000/nvim.499729.0 else nil
 					local is_direct_open = vim.env.NVIM == nil
 					if is_direct_open and is_uncommiting then
-						vim.cmd("Neotree show reveal dir=%:p:h:h")
+						vim.cmd("Neotree show reveal dir=%:p:h")
 					end
 				end,
 			})
