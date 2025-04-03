@@ -83,7 +83,24 @@ return {
 				},
 			})
 			lspconfig.taplo.setup({ capabilities = capabilities })
-			lspconfig.ts_ls.setup({ capabilities = capabilities })
+			lspconfig.ts_ls.setup({
+				capabilities = capabilities,
+				init_options = {
+					preferences = {
+						unused = {
+							disableUnusedMembersForProperties = true,
+							ignoreEnums = true,
+						},
+					},
+				},
+			})
+			lspconfig.biome.setup({
+				capabilities = capabilities,
+				init_options = {
+					format = { enable = true },
+					validate = { enable = true },
+				},
+			})
 			lspconfig.jsonls.setup({
 				capabilities = capabilities,
 				settings = {

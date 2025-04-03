@@ -1,3 +1,31 @@
+local function camelToKebab(str)
+	local result = string.gsub(str, "(%u)", function(c)
+		return "-" .. string.lower(c)
+	end)
+	if string.sub(result, 1, 1) == "-" then
+		result = string.sub(result, 2)
+	end
+
+	return result
+end
+
+local function getLastSegment(str)
+	if not str or str == "" then
+		return ""
+	end
+	local lastSlashPos = 0
+	for i = 1, #str do
+		if string.sub(str, i, i) == "/" then
+			lastSlashPos = i
+		end
+	end
+	if lastSlashPos == 0 then
+		return str -- '/'がない場合は元の文字列を返す
+	else
+		return string.sub(str, lastSlashPos + 1)
+	end
+end
+
 return {
 	{
 		"folke/trouble.nvim",
@@ -57,6 +85,12 @@ return {
 							local url = string.format("https://docs.astral.sh/ruff/rules/%s", code)
 							return string.format("[%s] %s: %s\nRef: %s", src, code, msg, url)
 						end
+						if src:lower() == "biome" and code ~= "" then
+							local name = getLastSegment(code)
+							local url = string.format("https://biomejs.dev/linter/rules/%s/", camelToKebab(name))
+							return string.format("[%s] %s: %s\nRef: %s", src, code, msg, url)
+						end
+
 						if code ~= "" then
 							return string.format("[%s] %s: %s", src, code, msg)
 						else
