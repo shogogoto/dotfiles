@@ -1,4 +1,4 @@
-local js_formatters = { "biome" }
+local js_formatters = { "biome-check" }
 
 return {
 	{
