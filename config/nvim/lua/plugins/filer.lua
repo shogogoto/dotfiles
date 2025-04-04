@@ -40,6 +40,14 @@ return {
 				follow_current_file = { enabled = true },
 				use_libuv_file_watcher = true,
 				expand_root = true,
+				filtered_items = {
+					never_show = {
+						".git",
+						".DS_Store",
+						"node_modules",
+						"__pycache__",
+					},
+				},
 				-- hijack_netrw_behavior = "open_current",
 				window = {
 					position = "left",
