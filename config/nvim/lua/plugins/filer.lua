@@ -8,13 +8,13 @@ return {
 		keys = {
 			{
 				"<Leader>e",
-				"<cmd>Neotree position=left toggle reveal<CR>",
+				"<cmd>Neotree position=left reveal<CR>",
 				mode = "n",
 				desc = "ファイラー開く",
 			},
 			{
 				"<Leader>fe", -- efだとeコマンドと衝突
-				"<cmd>Neotree position=float toggle reveal<CR>",
+				"<cmd>Neotree position=float reveal<CR>",
 				mode = "n",
 				desc = "フロートでファイラー開く",
 			},

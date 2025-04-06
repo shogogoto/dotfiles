@@ -237,36 +237,36 @@ return {
 			})
 		end,
 	},
-	{
-		-- buffer line下にガイドを表示してくれたり色々LSP強化
-		"nvimdev/lspsaga.nvim",
-		config = function()
-			-- https://nvimdev.github.io/lspsaga/
-			require("lspsaga").setup({
-				diagnostic = {
-					max_height = 0.8,
-					keys = {
-						quit = { "q", "<ESC>" },
-					},
-				},
-				lightbulb = {
-					sign = false, -- 行番号のところの表示を消す 画面が揺れないように
-				},
-				outline = {
-					win_position = "left",
-					cloese_after_jump = true,
-					keys = { jump = "<CR>", quit = "q", toggle_or_jump = "l" },
-				},
-			})
-			-- なぜか keys, optsが使えない
-			vim.keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
-			vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc") -- 関数のdocなどfloatで表示
-		end,
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter", -- optional
-			"nvim-tree/nvim-web-devicons", -- optional
-		},
-	},
+	-- {
+	-- 	-- buffer line下にガイドを表示してくれたり色々LSP強化
+	-- 	"nvimdev/lspsaga.nvim",
+	-- 	config = function()
+	-- 		-- https://nvimdev.github.io/lspsaga/
+	-- 		require("lspsaga").setup({
+	-- 			diagnostic = {
+	-- 				max_height = 0.8,
+	-- 				keys = {
+	-- 					quit = { "q", "<ESC>" },
+	-- 				},
+	-- 			},
+	-- 			lightbulb = {
+	-- 				sign = false, -- 行番号のところの表示を消す 画面が揺れないように
+	-- 			},
+	-- 			outline = {
+	-- 				win_position = "left",
+	-- 				cloese_after_jump = true,
+	-- 				keys = { jump = "<CR>", quit = "q", toggle_or_jump = "l" },
+	-- 			},
+	-- 		})
+	-- 		-- なぜか keys, optsが使えない
+	-- 		vim.keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
+	-- 		vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc") -- 関数のdocなどfloatで表示
+	-- 	end,
+	-- 	dependencies = {
+	-- 		"nvim-treesitter/nvim-treesitter", -- optional
+	-- 		"nvim-tree/nvim-web-devicons", -- optional
+	-- 	},
+	-- },
 	{
 		-- 関数詳細を表示
 		"ray-x/lsp_signature.nvim",

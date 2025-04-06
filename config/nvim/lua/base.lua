@@ -132,3 +132,11 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 		vim.opt_local.spell = false
 	end,
 })
+
+-- ディレクトリ変更時にLSPをリフレッシュ
+vim.api.nvim_create_autocmd("DirChanged", {
+	pattern = "*",
+	callback = function()
+		vim.cmd("LspRestart")
+	end,
+})
