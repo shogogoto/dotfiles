@@ -3,7 +3,7 @@
   "LuaSnip": { "branch": "master", "commit": "c9b9a22904c97d0eb69ccb9bab76037838326817" },
   "actions-preview.nvim": { "branch": "master", "commit": "4ab7842eb6a5b6d2b004f8234dcf33382a0fdde2" },
   "alpha-nvim": { "branch": "main", "commit": "de72250e054e5e691b9736ee30db72c65d560771" },
-  "avante.nvim": { "branch": "main", "commit": "89a86f0fc197ec9ffb3663a499432f8df4e4b1e5" },
+  "avante.nvim": { "branch": "main", "commit": "1c36cfc8120681ffe3261cba83f00338630da606" },
   "barbar.nvim": { "branch": "master", "commit": "53b5a2f34b68875898f0531032fbf090e3952ad7" },
   "browse.nvim": { "branch": "main", "commit": "1ccf8705668216d8a311d31e87246b494b8eb571" },
   "clever-f.vim": { "branch": "master", "commit": "6a3ac5e3688598af9411ab741737f98c47370c22" },
@@ -86,6 +86,6 @@
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "vim-tig": { "branch": "master", "commit": "dcf1e73c8e2cfee38f4e676ec0afbcf84c8d016d" },
   "vim-vsnip": { "branch": "master", "commit": "b7445b3c43acb08c0b74350d046e0088ece88033" },
-  "vimdoc-ja": { "branch": "master", "commit": "ac531ad8ae4e1510c8974b9efa13fa1e6530c230" },
+  "vimdoc-ja": { "branch": "master", "commit": "3d2db8d052181c6f3e39dfdbe5003a1bbda6b3e9" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" }
 }

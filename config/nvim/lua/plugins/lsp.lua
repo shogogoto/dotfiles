@@ -147,12 +147,12 @@ return {
 			"hrsh7th/cmp-nvim-lsp", -- LSP補完
 			"onsails/lspkind-nvim", -- アイコン表示
 			--   For mini.snippets users.
-			"echasnovski/mini.snippets",
-			"abeldekat/cmp-mini-snippets",
+			-- "echasnovski/mini.snippets",
+			-- "abeldekat/cmp-mini-snippets",
 
 			-- For snippy users.
-			"dcampos/nvim-snippy",
-			"dcampos/cmp-snippy",
+			-- "dcampos/nvim-snippy",
+			-- "dcampos/cmp-snippy",
 
 			-- ultisnips = snipet管理
 			{ "quangnguyen30192/cmp-nvim-ultisnips" }, -- cmp と UltiSnips の連携プラグイン
