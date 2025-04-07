@@ -50,7 +50,7 @@ return {
 				settings = {
 					-- ref https://microsoft.github.io/pyright/#/settings
 					pyright = {
-						disableOrganizeImports = true, -- Using Ruff's import organizer
+						-- disableOrganizeImports = true, -- Using Ruff's import organizer
 						-- disableTaggedHints = false,
 					},
 					python = {
@@ -58,13 +58,17 @@ return {
 							autoImportCompletions = true, -- 追加: 補完時に自動import
 							autoSearchPaths = true, -- 追加: パスを自動検索
 							diagnosticMode = "workspace", -- openFilesOnly, workspace(これじゃないと補完が効かない)
+							diagnosticSeverityOverrides = {
+								reportUnknownMemberType = "none",
+								reportUnknownVariableType = "none",
+								reportUnknownArgumentType = "none",
+							},
 							useLibraryCodeForTypes = true, -- 追加: ライブラリの型情報を使用
 							--unused import, var などをエラーにするのはstrictだけ
 							typeCheckingMode = "strict", -- basic, standard, strict, off
-							ignore = { "*" },
+							-- ignore = { "*" },
+							-- ignore = { "reportUnknownMemberType" },
 						},
-						pythonPath = ".venv/bin/python",
-						venvPath = ".venv",
 					},
 				},
 			})
