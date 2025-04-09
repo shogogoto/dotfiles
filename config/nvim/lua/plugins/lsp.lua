@@ -38,7 +38,9 @@ return {
 		},
 		config = function()
 			local lspconfig = require("lspconfig")
-			local capabilities = require("cmp_nvim_lsp").default_capabilities() -- LSP機能を補完に追加
+			local capabilities = require("cmp_nvim_lsp").default_capabilities({
+				dynamicRegistration = true,
+			}) -- LSP機能を補完に追加
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 				settings = {
@@ -65,7 +67,7 @@ return {
 							},
 							useLibraryCodeForTypes = true, -- 追加: ライブラリの型情報を使用
 							--unused import, var などをエラーにするのはstrictだけ
-							typeCheckingMode = "strict", -- basic, standard, strict, off
+							typeCheckingMode = "strict", -- basic, standard, strict, off:vscode_package_collections
 							-- ignore = { "*" },
 							-- ignore = { "reportUnknownMemberType" },
 						},

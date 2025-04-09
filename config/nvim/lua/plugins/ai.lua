@@ -59,47 +59,47 @@ return {
 					},
 				},
 			},
-			{
-				"zbirenbaum/copilot.lua", -- for providers='copilot' -- cmd = "Copilot",
-				lazy = false, -- Copilotはすぐに読み込む必要があります
-				opts = {
-					auto_trigger = true,
-					suggestion = {
-						enabled = true,
-						auto_trigger = true,
-						keymap = {
-							accept = "<C-j>",
-							accept_line = "<C-k>",
-							accept_word = "<c-l>",
-							refresh = "<C-r>",
-							open = "<M-CR>",
-						},
-					},
-					filetypes = { ["*"] = true },
-					panel = { enabled = false },
-				},
+			-- {
+			-- 	"zbirenbaum/copilot.lua", -- for providers='copilot' -- cmd = "Copilot",
+			-- 	lazy = false, -- Copilotはすぐに読み込む必要があります
+			-- 	opts = {
+			-- 		auto_trigger = true,
+			-- 		suggestion = {
+			-- 			enabled = true,
+			-- 			auto_trigger = true,
+			-- 			keymap = {
+			-- 				accept = "<C-j>",
+			-- 				accept_line = "<C-k>",
+			-- 				accept_word = "<c-l>",
+			-- 				refresh = "<C-r>",
+			-- 				open = "<M-CR>",
+			-- 			},
+			-- 		},
+			-- 		filetypes = { ["*"] = true },
+			-- 		panel = { enabled = false },
+			-- 	},
 
-				config = function(_, opts)
-					require("copilot").setup(opts)
-					-- require("copilot_cmp").setup()
-				end,
-				dependencies = {
-					{ "AndreM222/copilot-lualine" },
-					{ "zbirenbaum/copilot-cmp", opts = {} }, -- 効いてるのか不明
-					{
-						"github/copilot.vim", -- copilot.luaに含めないとaskで補間が効かない
-						config = function(_, opts)
-							vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
-								expr = true,
-								replace_keycodes = false,
-							})
-							vim.g.copilot_no_tab_map = true -- デフォルトのタブキーマッピングを無効化
-							vim.keymap.set("i", "<C-L>", "<Plug>(copilot-accept-word)")
-							vim.keymap.set("i", "<C-K>", "<Plug>(copilot-accept-line)")
-						end,
-					},
-				},
-			},
+			-- 	config = function(_, opts)
+			-- 		require("copilot").setup(opts)
+			-- 		-- require("copilot_cmp").setup()
+			-- 	end,
+			-- 	dependencies = {
+			-- 		{ "AndreM222/copilot-lualine" },
+			-- 		{ "zbirenbaum/copilot-cmp", opts = {} }, -- 効いてるのか不明
+			-- 	},
+			-- },
 		},
+	},
+	{
+		"github/copilot.vim", -- copilot.luaに含めないとaskで補間が効かない
+		config = function(_, opts)
+			vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
+				expr = true,
+				replace_keycodes = false,
+			})
+			vim.g.copilot_no_tab_map = true -- デフォルトのタブキーマッピングを無効化
+			vim.keymap.set("i", "<C-L>", "<Plug>(copilot-accept-word)")
+			vim.keymap.set("i", "<C-K>", "<Plug>(copilot-accept-line)")
+		end,
 	},
 }
