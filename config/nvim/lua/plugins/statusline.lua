@@ -51,21 +51,10 @@ return {
 					"filename",
 					{
 						"lsp_progress",
-						display_components = { "lsp_client_name", { "title", "percentage", "message" } },
-						-- With spinner
-						-- display_components = { 'lsp_client_name', 'spinner', { 'title', 'percentage', 'message' }},
-						-- colors = {
-						--   percentage = colors.cyan,
-						--   title = colors.cyan,
-						--   message = colors.cyan,
-						--   spinner = colors.cyan,
-						--   lsp_client_name = colors.magenta,
-						--   use = true,
-						-- },
 						separators = {
 							component = " ",
 							progress = " | ",
-							message = { pre = "(", post = ")" },
+							-- message = { pre = "(", post = ")" },
 							percentage = { pre = "", post = "%% " },
 							title = { pre = "", post = ": " },
 							lsp_client_name = { pre = "[", post = "]" },

@@ -113,3 +113,10 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 flatpak install flathub io.github.vikdevelop.SaveDesktop -y
 
 sudo apt install wl-clipboard # for neovim plugin
+
+
+# firefox の favicon自動更新
+wget https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-linux64.tar.gz
+tar -xvzf geckodriver-v0.33.0-linux64.tar.gz
+sudo mv geckodriver /usr/local/bin/
+
