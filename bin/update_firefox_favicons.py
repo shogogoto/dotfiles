@@ -105,7 +105,7 @@ print("\nSeleniumを使用してヘッドレスモードでfaviconを更新し�
 
 # Firefoxのオプションを設定
 options = Options()
-options.add_argument("-headless")  # ヘッドレスモードで実行
+# options.add_argument("-headless")  # ヘッドレスモードで実行
 
 # 現在のユーザープロファイルを使用
 options.add_argument("-profile")

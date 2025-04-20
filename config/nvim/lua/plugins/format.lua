@@ -1,4 +1,4 @@
-local js_formatters = { "biome-check" }
+local js_formatters = { "biome-check", "biome" }
 
 return {
 	{
@@ -19,6 +19,11 @@ return {
 					python = { "ruff_fix", "ruff_format" },
 					["*"] = { "codespell" },
 					["_"] = { "trim_whitespace" },
+				},
+				formatters = {
+					["biome-check"] = {
+						prepend_args = { "--unsafe" },
+					},
 				},
 				-- stop_after_first = false,
 				-- default_format_opts = {

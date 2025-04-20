@@ -39,6 +39,11 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities({
+				workspace = {
+					didChangeWatchedFiles = {
+						dynamicRegistration = true,
+					},
+				},
 				dynamicRegistration = true,
 			}) -- LSP機能を補完に追加
 			lspconfig.lua_ls.setup({
@@ -107,26 +112,26 @@ return {
 					validate = { enable = true },
 				},
 			})
-			lspconfig.jsonls.setup({
-				capabilities = capabilities,
-				settings = {
-					json = {
-						schemas = {
-							{
-								fileMatch = { "package.json" },
-								url = "https://json.schemastore.org/package.json",
-							},
-							{
-								fileMatch = { "tsconfig.json", "tsconfig.*.json" },
-								url = "https://json.schemastore.org/tsconfig.json",
-							},
-							-- 他のJSONスキーマも必要に応じて追加
-						},
-						validate = { enable = true },
-						format = { enable = true },
-					},
-				},
-			})
+			-- lspconfig.jsonls.setup({
+			-- 	capabilities = capabilities,
+			-- 	settings = {
+			-- 		json = {
+			-- 			schemas = {
+			-- 				{
+			-- 					fileMatch = { "package.json" },
+			-- 					url = "https://json.schemastore.org/package.json",
+			-- 				},
+			-- 				{
+			-- 					fileMatch = { "tsconfig.json", "tsconfig.*.json" },
+			-- 					url = "https://json.schemastore.org/tsconfig.json",
+			-- 				},
+			-- 				-- 他のJSONスキーマも必要に応じて追加
+			-- 			},
+			-- 			validate = { enable = true },
+			-- 			format = { enable = true },
+			-- 		},
+			-- 	},
+			-- })
 			----------------------------------------------------------------------------------------------
 		end,
 	},
@@ -173,7 +178,7 @@ return {
 					expand = function(args)
 						vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
 						require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-						require("snippy").expand_snippet(args.body) -- For `snippy` users.
+						-- require("snippy").expand_snippet(args.body) -- For `snippy` users.
 						vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
 						vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
 
@@ -209,8 +214,8 @@ return {
 					{ name = "ultisnips", priority_weight = 10 }, -- UltiSnips を補完候補に含める
 					{ name = "luasnip" }, -- For luasnip users.
 					{ name = "ultisnips" }, -- For ultisnips users.
-					{ name = "vsnip" }, -- For snippy users.
-					{ name = "snippy" }, -- For snippy users.
+					-- { name = "vsnip" }, -- For snippy users.
+					-- { name = "snippy" }, -- For snippy users.
 				}, { -- この区切り意味不明
 					{ name = "buffer" },
 					{ name = "path" },
@@ -249,15 +254,8 @@ return {
 		config = function()
 			-- https://nvimdev.github.io/lspsaga/
 			require("lspsaga").setup({
-				diagnostic = {
-					max_height = 0.8,
-					keys = {
-						quit = { "q", "<ESC>" },
-					},
-				},
-				lightbulb = {
-					sign = false, -- 行番号のところの表示を消す 画面が揺れないように
-				},
+				diagnostic = { max_height = 0.8, keys = { quit = { "q", "<ESC>" } } },
+				lightbulb = { sign = false }, -- 行番号のところの表示を消す 画面が揺れないように
 				outline = {
 					win_position = "left",
 					cloese_after_jump = true,
@@ -273,15 +271,34 @@ return {
 			"nvim-tree/nvim-web-devicons", -- optional
 		},
 	},
-	-- {
-	-- 	-- 関数詳細を表示
-	-- 	"ray-x/lsp_signature.nvim",
-	-- 	event = "InsertEnter",
-	-- 	opts = {
-	-- 		bind = true,
-	-- 		handler_opts = {
-	-- 			border = "rounded",
-	-- 		},
-	-- 	},
-	-- },
+	{
+		-- 関数詳細を表示
+		"ray-x/lsp_signature.nvim",
+		event = "InsertEnter",
+		opts = {
+			bind = true,
+			handler_opts = {
+				border = "rounded",
+			},
+			close_events = { "CursorMoved", "BufHidden", "InsertLeave" },
+		},
+	},
+	{
+		"ThePrimeagen/refactoring.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		lazy = false,
+		opts = {},
+		config = function(_, opts)
+			vim.keymap.set("x", "<leader>re", ":Refactor extract ")
+			vim.keymap.set("x", "<leader>rf", ":Refactor extract_to_file ")
+			vim.keymap.set("x", "<leader>rv", ":Refactor extract_var ")
+			vim.keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
+			vim.keymap.set("n", "<leader>rI", ":Refactor inline_func")
+			vim.keymap.set("n", "<leader>rb", ":Refactor extract_block")
+			vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
+		end,
+	},
 }
