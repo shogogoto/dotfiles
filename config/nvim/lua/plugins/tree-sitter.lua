@@ -289,8 +289,8 @@ return {
 
 				-- JSX/TSXの特別ルール
 				-- Rule("<", ">", { "javascriptreact", "typescriptreact" }):with_pair(
--- 					ts_conds.is_not_ts_node({ "comment", "string" })
--- 				),
+				-- 					ts_conds.is_not_ts_node({ "comment", "string" })
+				-- 				),
 			})
 		end,
 	},
@@ -300,7 +300,7 @@ return {
 			require("nvim-ts-autotag").setup({
 				opts = {
 					-- Defaults
-					enable_close = false, -- Auto close tags
+					enable_close = true, -- Auto close tags
 					enable_rename = true, -- Auto rename pairs of tags
 					enable_close_on_slash = true, -- Auto close on trailing </
 				},
