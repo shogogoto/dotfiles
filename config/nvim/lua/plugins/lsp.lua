@@ -43,6 +43,12 @@ return {
 					didChangeWatchedFiles = {
 						dynamicRegistration = true,
 					},
+					fileOperations = {
+						dynamicRegistration = true,
+						didCreate = true,
+						didRename = true,
+						didDelete = true,
+					},
 				},
 				dynamicRegistration = true,
 			}) -- LSP機能を補完に追加
@@ -59,6 +65,8 @@ return {
 					pyright = {
 						-- disableOrganizeImports = true, -- Using Ruff's import organizer
 						-- disableTaggedHints = false,
+						watchFiles = true,
+						watchFileKinds = { "SourceAndConfig" },
 					},
 					python = {
 						analysis = {
@@ -101,6 +109,11 @@ return {
 						unused = {
 							disableUnusedMembersForProperties = true,
 							ignoreEnums = true,
+						},
+						watchOptions = {
+							watchFile = "useFsEvents",
+							watchDirectory = "useFsEvents",
+							fallbackPolling = "dynamicPriority",
 						},
 					},
 				},
@@ -300,5 +313,16 @@ return {
 			vim.keymap.set("n", "<leader>rb", ":Refactor extract_block")
 			vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
 		end,
+	},
+	{
+		"luckasRanarison/tailwind-tools.nvim",
+		name = "tailwind-tools",
+		build = ":UpdateRemotePlugins",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-telescope/telescope.nvim", -- optional
+			"neovim/nvim-lspconfig", -- optional
+		},
+		opts = {}, -- your configuration
 	},
 }

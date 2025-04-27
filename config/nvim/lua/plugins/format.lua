@@ -5,6 +5,7 @@ return {
 		"stevearc/conform.nvim",
 		-- events = "VeryLazy",
 		config = function()
+			local util = require("conform.util")
 			local conform = require("conform").setup({
 				-- https://github.com/stevearc/conform.nvim/tree/master/lua/conform/formatters
 				formatters_by_ft = {
@@ -22,7 +23,7 @@ return {
 				},
 				formatters = {
 					["biome-check"] = {
-						prepend_args = { "--unsafe" },
+						args = { "check", "--write", "--unsafe", "--stdin-file-path", "$FILENAME" },
 					},
 				},
 				-- stop_after_first = false,
@@ -98,6 +99,7 @@ return {
 				-- typescript
 				"typescript-language-server", --"ts_ls",
 				"biome",
+				"tailwindcss-language-server",
 				-- "eslint-lsp",
 				-- "eslint_d",
 				-- "prettier",
