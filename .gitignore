@@ -16,4 +16,6 @@
 !config/nvim
 !config/nvim/**
 !config/pypoetry/**
+!config/zellij
+!config/zellij/config.kdl
 !config/git/ignore

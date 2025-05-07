@@ -17,7 +17,7 @@ LANG=C xdg-user-dirs-gtk-update # directoryを英語へ
 # neovimでclipboardを使うのに必要
 # export DISPLAY=$(cat /etc/resolv.conf | grep -e "^nameserver" | awk '{print $2}'):0.0
 export XDG_CONFIG_HOME="$HOME/dotfiles/config"
-
+export ZELLIJ_CONFIG_DIR=$XDG_CONFIG_HOME/zellij
 export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship.toml
 
 
