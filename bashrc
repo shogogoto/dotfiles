@@ -55,5 +55,6 @@ bind '"\C-p": history-search-backward'
 # ついでに履歴の件数も上げておく
 HISTSIZE=100000
 
+export PATH=$HOME/.cargo/bin:$PATH
 
 . <(curl -s https://raw.githubusercontent.com/shogogoto/conoha-client/main/conoha-client.bash)

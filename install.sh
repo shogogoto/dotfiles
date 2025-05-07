@@ -90,6 +90,7 @@ sudo apt install cargo -yq # aiツール で必要
 sudo apt install rustup -yq
 rustup update stable
 cargo install viu # for fzf_lua
+cargo install --locked zellij # byobu的なターミナルマルチプレクサ
 
 
 ## neovim setup
