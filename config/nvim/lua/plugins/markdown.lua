@@ -8,6 +8,7 @@ return {
 				skip_heading = true,
 				icon = "▎",
 			},
+			-- strikethrough = { enabled = true },
 		},
 		ft = { "markdown", "Avante" },
 		keys = {

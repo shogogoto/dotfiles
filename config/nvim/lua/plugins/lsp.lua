@@ -40,9 +40,9 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities({
 				workspace = {
-					didChangeWatchedFiles = {
-						dynamicRegistration = true,
-					},
+					-- didChangeWatchedFiles = {
+					-- 	dynamicRegistration = true,
+					-- },
 					fileOperations = {
 						dynamicRegistration = true,
 						didCreate = true,
@@ -50,7 +50,7 @@ return {
 						didDelete = true,
 					},
 				},
-				dynamicRegistration = true,
+				-- dynamicRegistration = true,
 			}) -- LSP機能を補完に追加
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
@@ -66,7 +66,7 @@ return {
 						-- disableOrganizeImports = true, -- Using Ruff's import organizer
 						-- disableTaggedHints = false,
 						watchFiles = true,
-						watchFileKinds = { "SourceAndConfig" },
+						-- watchFileKinds = { "SourceAndConfig" },
 					},
 					python = {
 						analysis = {

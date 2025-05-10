@@ -90,16 +90,32 @@ return {
 			-- },
 		},
 	},
+	-- {
+	-- 	"github/copilot.vim", -- copilot.luaに含めないとaskで補間が効かない
+	-- 	config = function(_, opts)
+	-- 		vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
+	-- 			expr = true,
+	-- 			replace_keycodes = false,
+	-- 		})
+	-- 		vim.g.copilot_no_tab_map = true -- デフォルトのタブキーマッピングを無効化
+	-- 		vim.keymap.set("i", "<C-L>", "<Plug>(copilot-accept-word)")
+	-- 		vim.keymap.set("i", "<C-K>", "<Plug>(copilot-accept-line)")
+	-- 	end,
+	-- },
 	{
-		"github/copilot.vim", -- copilot.luaに含めないとaskで補間が効かない
-		config = function(_, opts)
-			vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
-				expr = true,
-				replace_keycodes = false,
-			})
-			vim.g.copilot_no_tab_map = true -- デフォルトのタブキーマッピングを無効化
-			vim.keymap.set("i", "<C-L>", "<Plug>(copilot-accept-word)")
-			vim.keymap.set("i", "<C-K>", "<Plug>(copilot-accept-line)")
+		"monkoose/neocodeium",
+		event = "VeryLazy",
+		config = function()
+			local neocodeium = require("neocodeium")
+			neocodeium.setup()
+			vim.keymap.set("i", "<C-j>", neocodeium.accept)
+			vim.keymap.set("i", "<C-k>", neocodeium.accept_line)
+			vim.keymap.set("i", "<C-l>", neocodeium.accept_word)
+			vim.keymap.set("i", "<M-]>", neocodeium.cycle_or_complete)
+			vim.keymap.set("i", "<M-[>", function()
+				neocodeium.cycle_or_complete(-1)
+			end)
+			vim.keymap.set("i", "<C-h>", neocodeium.clear)
 		end,
 	},
 }
