@@ -1,5 +1,14 @@
 local symbols = require("user.symbols")
 
+local common_mappings = {
+	["<cr>"] = "open_with_window_picker",
+	["l"] = "open_with_window_picker", -- override "focus_preview" to similar to fern.vim
+	["s"] = "split_with_window_picker",
+	["v"] = "vsplit_with_window_picker",
+	["h"] = "close_node",
+	["oa"] = "avante_add_files",
+}
+
 return {
 	{
 		"nvim-neo-tree/neo-tree.nvim",
@@ -52,14 +61,7 @@ return {
 				window = {
 					position = "left",
 					width = 30,
-					mappings = {
-						["<cr>"] = "open_with_window_picker",
-						["l"] = "open_with_window_picker", -- override "focus_preview" to similar to fern.vim
-						["s"] = "split_with_window_picker",
-						["v"] = "vsplit_with_window_picker",
-						["h"] = "close_node",
-						["oa"] = "avante_add_files",
-					},
+					mappings = common_mappings,
 				},
 				commands = {
 					avante_add_files = function(state)
@@ -81,6 +83,7 @@ return {
 					end,
 				},
 			},
+			git_status = { window = { mappings = common_mappings } },
 			default_component_configs = { diagnostics = { symbols = symbols } },
 		},
 		init = function() -- netrwを無効化
