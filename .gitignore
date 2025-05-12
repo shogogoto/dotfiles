@@ -19,3 +19,6 @@
 !config/zellij
 !config/zellij/config.kdl
 !config/git/ignore
+!installers
+!installers/**
+
