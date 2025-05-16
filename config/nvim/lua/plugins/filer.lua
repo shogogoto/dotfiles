@@ -45,6 +45,7 @@ return {
 		end,
 		opts = {
 			sources = { "filesystem", "buffers", "git_status", "document_symbols" },
+			window = { mappings = common_mappings },
 			filesystem = {
 				follow_current_file = { enabled = true },
 				use_libuv_file_watcher = true,
@@ -61,7 +62,6 @@ return {
 				window = {
 					position = "left",
 					width = 30,
-					mappings = common_mappings,
 				},
 				commands = {
 					avante_add_files = function(state)
@@ -83,7 +83,6 @@ return {
 					end,
 				},
 			},
-			git_status = { window = { mappings = common_mappings } },
 			default_component_configs = { diagnostics = { symbols = symbols } },
 		},
 		init = function() -- netrwを無効化
