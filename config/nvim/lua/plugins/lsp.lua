@@ -50,7 +50,7 @@ return {
 						didDelete = true,
 					},
 				},
-				-- dynamicRegistration = true,
+				dynamicRegistration = true,
 			}) -- LSP機能を補完に追加
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
@@ -63,15 +63,15 @@ return {
 				settings = {
 					-- ref https://microsoft.github.io/pyright/#/settings
 					pyright = {
-						-- disableOrganizeImports = true, -- Using Ruff's import organizer
-						-- disableTaggedHints = false,
+						disableOrganizeImports = true, -- Using Ruff's import organizer
+						disableTaggedHints = false,
 						watchFiles = true,
 						-- watchFileKinds = { "SourceAndConfig" },
 					},
 					python = {
 						analysis = {
 							autoImportCompletions = true, -- 追加: 補完時に自動import
-							autoSearchPaths = true, -- 追加: パスを自動検索
+							-- autoSearchPaths = true, -- 追加: パスを自動検索
 							diagnosticMode = "workspace", -- openFilesOnly, workspace(これじゃないと補完が効かない)
 							diagnosticSeverityOverrides = {
 								reportUnknownMemberType = "none",

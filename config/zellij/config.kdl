@@ -130,10 +130,8 @@ keybinds clear-defaults=true {
         }
     }
     shared_except "locked" {
-        bind "Alt left" { MoveFocusOrTab "left"; }
         bind "Alt down" { MoveFocus "down"; }
         bind "Alt up" { MoveFocus "up"; }
-        bind "Alt right" { MoveFocusOrTab "right"; }
         bind "Alt +" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt =" { Resize "Increase"; }
@@ -153,6 +151,8 @@ keybinds clear-defaults=true {
     shared {
         bind "F2" { NewTab; SwitchToMode "normal"; } // byobu
         bind "Ctrl F6" { CloseTab; SwitchToMode "normal"; } // byobu
+        bind "Alt left" { MoveFocusOrTab "left"; }
+        bind "Alt right" { MoveFocusOrTab "right"; }
     }
     shared_except "locked" "move" {
         bind "Ctrl h" { SwitchToMode "move"; }
