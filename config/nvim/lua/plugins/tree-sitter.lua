@@ -23,6 +23,7 @@ return {
 				end,
 			},
 			indent = { enable = true },
+			folds = { enable = true },
 			incremental_selection = {
 				enable = false,
 			},
@@ -107,10 +108,10 @@ return {
 			-- Treesitterモジュールの設定
 			require("nvim-treesitter.configs").setup(opts)
 
-			-- 折りたたみ設定
-			-- vim.opt.foldmethod = "expr"
-			-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-			-- vim.opt.foldenable = false -- 初期状態では折りたたみを無効化
+			-- z から始まるkeybind で foldの開閉可能
+			vim.opt.foldmethod = "expr"
+			vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+			vim.opt.foldenable = true -- 初期状態では折りたたみを無効化
 			-- vim.opt.foldlevel = 99
 
 			-- -- 依存プラグインのrefactorとの連携
