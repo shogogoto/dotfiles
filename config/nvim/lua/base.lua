@@ -30,7 +30,7 @@ local opts = {
 	helpheight = 999, -- ヘルプを画面いっぱいに開く
 	colorcolumn = "80", --80列目の背景色変更
 	-------------------------------------------------- windows
-	clipboard = "unnamed,unnamedplus", -- OSのクリップボードをレジスタ指定無しで Yank, Put>
+	clipboard = "unnamedplus", -- OSのクリップボードをレジスタ指定無しで Yank, Put>
 	-- vim.o.mouse = 'a'  -- マウスの入力を受け付ける (コメントアウト)
 	shellslash = true, -- Windows でもパスの区切り文字を / にする
 
@@ -134,9 +134,9 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 -- ディレクトリ変更時にLSPをリフレッシュ
-vim.api.nvim_create_autocmd("DirChanged", {
-	pattern = "*",
-	callback = function()
-		vim.cmd("LspRestart")
-	end,
-})
+-- vim.api.nvim_create_autocmd("DirChanged", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		vim.cmd("LspRestart")
+-- 	end,
+-- })

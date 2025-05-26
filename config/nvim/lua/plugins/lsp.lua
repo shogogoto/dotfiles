@@ -40,9 +40,9 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities({
 				workspace = {
-					-- didChangeWatchedFiles = {
-					-- 	dynamicRegistration = true,
-					-- },
+					didChangeWatchedFiles = {
+						dynamicRegistration = true,
+					},
 					fileOperations = {
 						dynamicRegistration = true,
 						didCreate = true,
@@ -171,8 +171,8 @@ return {
 			-- "abeldekat/cmp-mini-snippets",
 
 			-- For snippy users.
-			-- "dcampos/nvim-snippy",
-			-- "dcampos/cmp-snippy",
+			"dcampos/nvim-snippy",
+			"dcampos/cmp-snippy",
 
 			-- ultisnips = snipet管理
 			{ "quangnguyen30192/cmp-nvim-ultisnips" }, -- cmp と UltiSnips の連携プラグイン
@@ -189,19 +189,18 @@ return {
 			cmp.setup({
 				snippet = {
 					expand = function(args)
-						vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-						require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-						-- require("snippy").expand_snippet(args.body) -- For `snippy` users.
+						-- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+						require("snippy").expand_snippet(args.body) -- For `snippy` users.
 						vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
 						vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
 
 						-- For `mini.snippets` users:
-						local MiniSnippets = require("mini.snippets")
-						local insert = MiniSnippets.config.expand.insert or MiniSnippets.default_insert
-						insert({ body = args.body }) -- Insert at cursor
-						cmp.resubscribe({ "TextChangedI", "TextChangedP" })
-						require("cmp.config").set_onetime({ sources = {} })
-						luasnip.lsp_expand(args.body)
+						-- local MiniSnippets = require("mini.snippets")
+						-- local insert = MiniSnippets.config.expand.insert or MiniSnippets.default_insert
+						-- insert({ body = args.body }) -- Insert at cursor
+						-- cmp.resubscribe({ "TextChangedI", "TextChangedP" })
+						-- require("cmp.config").set_onetime({ sources = {} })
+						luasnip.lsp_expand(args.body) -- LuaSnipに展開を任せる
 					end,
 				},
 				window = {
@@ -212,7 +211,10 @@ return {
 					["<C-b>"] = cmp.mapping.scroll_docs(-4), -- 補完候補のドキュメントを上にスクロール
 					["<C-f>"] = cmp.mapping.scroll_docs(4), -- 補完候補のドキュメントを下にスクロール
 					["<C-e>"] = cmp.mapping.abort(), -- 補完を中断して閉じる
-					["<CR>"] = cmp.mapping.confirm({ select = true }), -- 補完確定 (現在選択中の候補を使用)
+					["<CR>"] = cmp.mapping.confirm({
+						select = true,
+						behavior = cmp.ConfirmBehavior.Replace,
+					}), -- 補完確定 (現在選択中の候補を使用)
 					-- ["<C-Space>"] = cmp.mapping.complete(),
 					["<Tab>"] = cmp.mapping(function(fallback)
 						cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
@@ -225,15 +227,14 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip", priority_weight = 20 }, -- LuaSnip を補完候補に含める
 					{ name = "ultisnips", priority_weight = 10 }, -- UltiSnips を補完候補に含める
-					{ name = "luasnip" }, -- For luasnip users.
-					{ name = "ultisnips" }, -- For ultisnips users.
+
 					-- { name = "vsnip" }, -- For snippy users.
 					-- { name = "snippy" }, -- For snippy users.
 				}, { -- この区切り意味不明
 					{ name = "buffer" },
 					{ name = "path" },
 				}),
-				completion = { completeoht = "menu,menuone,noinsert" },
+				completion = { completeopt = "menu,menuone,noinsert" },
 				formatting = {
 					-- expandable_indicato = "▶",
 					format = lspkind.cmp_format({
@@ -290,9 +291,7 @@ return {
 		event = "InsertEnter",
 		opts = {
 			bind = true,
-			handler_opts = {
-				border = "rounded",
-			},
+			handler_opts = { border = "rounded" },
 			close_events = { "CursorMoved", "BufHidden", "InsertLeave" },
 		},
 	},
