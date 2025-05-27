@@ -4,6 +4,11 @@ return {
 		"nvim-lualine/lualine.nvim",
 		config = function()
 			local prose = require("nvim-prose")
+			local function get_char_count()
+				local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+				local text = table.concat(lines, "\n")
+				return vim.fn.strchars(text) .. " chars"
+			end
 			require("lualine").setup({
 				theme = "evil_lualine",
 				options = {
@@ -31,7 +36,8 @@ return {
 						"encoding",
 						"fileformat",
 						"filetype",
-						{ prose.word_count, cond = prose.is_available },
+						{ get_char_count },
+						-- { prose.word_count, cond = prose.is_available },
 						-- { prose.reading_time, cond = prose.is_available },
 					}, -- I added copilot here
 					lualine_y = { "progress" },
