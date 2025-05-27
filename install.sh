@@ -47,7 +47,7 @@ sudo gpasswd -a $USER docker
 
 # etc
 sudo apt install zip unzip curl -yq
-sudo apt install tofrodos -yq # install fromdos, todos command
+#sudo apt install tofrodos -yq # install fromdos, todos command
 sudo apt install xsel xclip -yq # WSL2でクリップボードを有効にする
 sudo apt install eog -yq # preview image file
 sudo apt install jq -yq

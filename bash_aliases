@@ -1,6 +1,6 @@
 alias vin="vi -u NONE -N" # 設定なしのデフォルトで起動
-alias dos2unix='fromdos'
-alias unix2dos='todos'
+#alias dos2unix='fromdos'
+#alias unix2dos='todos'
 alias wt='curl wttr.in'
 alias p='poetry shell'
 alias repomix="npx repomix --copy; rm repomix-output.xml"

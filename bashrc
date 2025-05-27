@@ -37,7 +37,7 @@ export PRE_COMMIT_ALLOW_NO_CONFIG=1
 eval "$(direnv hook bash)"
 
 . ~/dotfiles/bash_aliases
-
+. $XDG_CONFIG_HOME/todo/config/todo_completion
 if [ -f ~/.local/bin/bashmarks.sh ]; then
   . ~/.local/bin/bashmarks.sh
   ## ~/.bashrcのaliasのせいでlコマンドが使えないかも
