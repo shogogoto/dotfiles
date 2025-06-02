@@ -37,7 +37,6 @@ export PRE_COMMIT_ALLOW_NO_CONFIG=1
 eval "$(direnv hook bash)"
 
 . ~/dotfiles/bash_aliases
-. $XDG_CONFIG_HOME/todo/config/todo_completion
 if [ -f ~/.local/bin/bashmarks.sh ]; then
   . ~/.local/bin/bashmarks.sh
   ## ~/.bashrcのaliasのせいでlコマンドが使えないかも
@@ -48,7 +47,6 @@ if [ -f ~/.local/bin/bashmarks.sh ]; then
   # l                 - Lists all available bookmarks
 fi
 
-
 bind '"\C-n": history-search-forward'
 bind '"\C-p": history-search-backward'
 
@@ -56,5 +54,10 @@ bind '"\C-p": history-search-backward'
 HISTSIZE=100000
 
 export PATH=$HOME/.cargo/bin:$PATH
+
+
+TODO_PATH=$XDG_CONFIG_HOME/todo/config
+. $TODO_PATH/todo_completion
+export TODOTXT_CFG_FILE=$TODO_PATH/todo.cfg
 
 . <(curl -s https://raw.githubusercontent.com/shogogoto/conoha-client/main/conoha-client.bash)

@@ -6,3 +6,4 @@ alias p='poetry shell'
 alias repomix="npx repomix --copy; rm repomix-output.xml"
 alias yt-dlp-batch='yt-dlp --embed-thumbnail -x --audio-format mp3 --audio-quality 0 --parse-metadata "title:(?P<artist>.+?) - (?P<title>.+?) .*" ' # youtube チャンネル内mp3一括ダウンロード
 alias online="ngrok http --url=toucan-renewing-jackal.ngrok-free.app"
+alias t="todo.sh"
