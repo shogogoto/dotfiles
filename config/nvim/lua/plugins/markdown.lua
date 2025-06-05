@@ -16,7 +16,6 @@ return {
 				skip_heading = true,
 				icon = "▎",
 			},
-			render_mode = true, -- 挿入中もrenderする
 			-- strikethrough = { enabled = true },
 		},
 		ft = { "markdown", "Avante", "mdx" },
