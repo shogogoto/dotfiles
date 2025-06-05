@@ -17,13 +17,13 @@ return {
 		keys = {
 			{
 				"<Leader>e",
-				"<cmd>Neotree position=left reveal<CR>",
+				"<cmd>Neotree position=left reveal_force_cwd<CR>",
 				mode = "n",
 				desc = "ファイラー開く",
 			},
 			{
 				"<Leader>fe", -- efだとeコマンドと衝突
-				"<cmd>Neotree position=float reveal<CR>",
+				"<cmd>Neotree position=float reveal_force_cwd<CR>",
 				mode = "n",
 				desc = "フロートでファイラー開く",
 			},

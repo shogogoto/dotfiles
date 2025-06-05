@@ -107,7 +107,6 @@ return {
 
 			-- Treesitterモジュールの設定
 			require("nvim-treesitter.configs").setup(opts)
-
 			-- z から始まるkeybind で foldの開閉可能
 			vim.opt.foldmethod = "expr"
 			vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
@@ -287,6 +286,12 @@ return {
 				Rule("${", "}", { "javascript", "typescript", "javascriptreact", "typescriptreact" }):with_pair(
 					ts_conds.is_ts_node({ "template_string" })
 				),
+
+				-- JSX/TSXの属性値の引用符重複を防止 (className=""" の問題修正)
+				Rule('="', '"', { "typescriptreact", "javascriptreact" }):with_pair(function(opts)
+					-- この特殊ケースでは自動ペアリングを無効にする
+					return false
+				end),
 
 				-- JSX/TSXの特別ルール
 				-- Rule("<", ">", { "javascriptreact", "typescriptreact" }):with_pair(

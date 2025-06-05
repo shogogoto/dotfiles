@@ -1,17 +1,25 @@
+vim.treesitter.language.register("markdown", "mdx")
+vim.filetype.add({
+	extension = {
+		mdx = "mdx",
+	},
+})
+
 return {
 	{
 		"MeanderingProgrammer/render-markdown.nvim", -- Make sure to set this up properly if you have lazy=true
 		lazy = true,
 		opts = {
-			file_types = { "markdown", "Avante" },
+			file_types = { "markdown", "Avante", "mdx" },
 			indent = {
 				enabled = true,
 				skip_heading = true,
 				icon = "▎",
 			},
+			render_mode = true, -- 挿入中もrenderする
 			-- strikethrough = { enabled = true },
 		},
-		ft = { "markdown", "Avante" },
+		ft = { "markdown", "Avante", "mdx" },
 		keys = {
 			{ "<Space>rm", ":RenderMarkdown toggle<CR>" },
 		},
