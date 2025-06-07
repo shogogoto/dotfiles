@@ -21,12 +21,11 @@ export ZELLIJ_CONFIG_DIR=$XDG_CONFIG_HOME/zellij
 export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship.toml
 
 
+alias vi='nvim'
+export GIT_EDITOR=nvim # tig-explorerのエラー回避
+export EDITOR=nvim
+
 export PIPENV_VENV_IN_PROJECT=1  # pipenvの仮想環境がプロジェクト内に作成される ~/.local/share/virtualenvsではなく
-if [ -f /usr/bin/nvim ]; then
-  export GIT_EDITOR=nvim # tig-explorerのエラー回避
-  export EDITOR=nvim
-  alias vi='nvim'
-fi
 export PATH=$PATH:$HOME/dotfiles/bin:$HOME/bin
 export DEBIAN_FRONTEND=noninteractive
 export PYENV_ROOT="$HOME/.pyenv"
