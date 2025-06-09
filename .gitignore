@@ -5,7 +5,8 @@
 !*.sh
 !.github/
 !.github/**/*
-!bin/**
+!installers/
+!bin/
 !bash_aliases
 !bashrc
 !gitconfig
@@ -19,6 +20,5 @@
 !config/zellij
 !config/zellij/config.kdl
 !config/git/ignore
-!installers
-!installers/**
+
 
