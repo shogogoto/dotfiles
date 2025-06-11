@@ -160,7 +160,10 @@ return {
 			"hrsh7th/cmp-vsnip",
 			"hrsh7th/vim-vsnip",
 			-- for lua
-			"L3MON4D3/LuaSnip",
+			{
+				"L3MON4D3/LuaSnip",
+				build = "make install_jsregexp", -- これを追加
+			},
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets", -- cocでも使える
 			{ "honza/vim-snippets" }, -- スニペット集

@@ -15,7 +15,9 @@ do
   cd $out_folder2
 
   find . -name "*.webp" -exec img2pdf {} -o {}.pdf \;
-  pdftk *.pdf cat output ../${out_folder2}.pdf
+
+  pdfunite *.pdf ../${out_folder2}.pdf
+  # pdftk *.pdf cat output ../${out_folder2}.pdf
   # find . -name "*.webp" -exec dwebp {} -o {}.png \;
   # convert *.png ../${out_folder2}.pdf
   cd -

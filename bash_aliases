@@ -8,3 +8,4 @@ alias yt-dlp-batch='yt-dlp --embed-thumbnail -x --audio-format mp3 --audio-quali
 alias online="ngrok http --url=toucan-renewing-jackal.ngrok-free.app"
 alias t="todo.sh"
 alias i="vi ~/Documents/Dropbox/todo/inbox.md"
+alias ta="batch_todo.sh ~/Documents/Dropbox/todo/org/action.md"

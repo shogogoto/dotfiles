@@ -15,9 +15,11 @@ return {
 			{ "<Leader>aC", "<cmd>AvanteClear<CR>", mode = "n", desc = "Avante: clear" },
 		},
 		opts = {
-			provider = "gemini", -- プロバイダーをgeminiに変更
-			gemini = {
-				model = "gemini-2.0-flash", --　既存では1.5-flashしか用意されていない
+			-- provider = "gemini", -- プロバイダーをgeminiに変更
+			providers = {
+				gemini = {
+					model = "gemini-2.5-flash-preview", --　既存では1.5-flashしか用意されていない
+				},
 			},
 			web_search_engine = {
 				proivder = "google",
