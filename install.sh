@@ -117,6 +117,10 @@ flatpak install flathub io.github.vikdevelop.SaveDesktop -y
 
 sudo apt install wl-clipboard  -yq # for neovim plugin
 sudo snap install ngrok -yq # localhostをテスト用にwebに公開
+sudo apt install nautilus-share -yq # sambaによるファイル共有
+sudo usermod -aG sambashare $USER # ref: https://blog.peconet.org/articles/7/
+
+
 
 # firefox の favicon自動更新
 wget https://github.com/mozilla/geckodriver/releases/download/v0.36.0/geckodriver-v0.36.0-linux64.tar.gz
