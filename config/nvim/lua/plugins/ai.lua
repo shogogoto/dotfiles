@@ -15,7 +15,7 @@ return {
 			{ "<Leader>aC", "<cmd>AvanteClear<CR>", mode = "n", desc = "Avante: clear" },
 		},
 		opts = {
-			-- provider = "gemini", -- プロバイダーをgeminiに変更
+			provider = "gemini", -- プロバイダーをgeminiに変更
 			providers = {
 				gemini = {
 					model = "gemini-2.5-flash-preview", --　既存では1.5-flashしか用意されていない

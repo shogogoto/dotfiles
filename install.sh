@@ -17,6 +17,7 @@ npm install --save-dev @marp-team/marp-cli # markdownからプレゼン生成
 sudo npm install -g @anthropic-ai/claude-code # AI
 sudo npm install -g repomix # AIにコードベースの情報を渡すためのテキスト作成
 npm install -g npm-check-updates # パッケージの一括更新確認
+sudo apt install mkcert libnss3-tools -yq # httpsの証明書作成 for dev
 
 # python
 sudo apt install libffi-dev -yq # for resolve ModuleNotFoundError: No module named '_ctypes'
