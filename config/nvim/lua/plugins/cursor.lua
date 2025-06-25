@@ -22,8 +22,8 @@ return {
 			},
 		},
 	},
-	{
-		"sphamba/smear-cursor.nvim", -- カーソル移動アニメーション
-		opts = {},
-	},
+	-- {
+	-- 	"sphamba/smear-cursor.nvim", -- カーソル移動アニメーション
+	-- 	opts = {},
+	-- },
 }

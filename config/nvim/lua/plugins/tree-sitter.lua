@@ -111,7 +111,7 @@ return {
 			vim.opt.foldmethod = "expr"
 			vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 			vim.opt.foldenable = true -- 初期状態では折りたたみを無効化
-			vim.opt.foldlevel = 3
+			vim.opt.foldlevel = 5
 
 			-- -- 依存プラグインのrefactorとの連携
 			-- if vim.o.ft == "tsx" or vim.o.ft == "jsx" or vim.o.ft == "typescript" or vim.o.ft == "javascript" then
