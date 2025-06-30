@@ -111,6 +111,7 @@ return {
 			})
 			lspconfig.biome.setup({
 				capabilities = capabilities,
+				cmd = { "npx", "biome", "lsp-proxy" },
 				init_options = {
 					format = { enable = true },
 					validate = { enable = true },
@@ -344,7 +345,6 @@ return {
 				"pyproject-flake8",
 				-- typescript
 				"typescript-language-server", --"ts_ls",
-				"biome",
 				"tailwindcss-language-server",
 				-- "eslint-lsp",
 				-- "eslint_d",
