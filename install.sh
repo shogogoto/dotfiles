@@ -122,7 +122,7 @@ sudo apt install wl-clipboard  -yq # for neovim plugin
 sudo snap install ngrok -yq # localhostをテスト用にwebに公開
 sudo apt install nautilus-share -yq # sambaによるファイル共有
 sudo usermod -aG sambashare $USER # ref: https://blog.peconet.org/articles/7/
-
+sudo apt install inotify-tools -yq # neovimでLspRestartせずにファイル変更を検知
 
 
 # firefox の favicon自動更新
