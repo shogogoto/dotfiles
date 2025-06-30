@@ -39,19 +39,9 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities({
-				workspace = {
-					didChangeWatchedFiles = {
-						dynamicRegistration = true,
-					},
-					fileOperations = {
-						dynamicRegistration = true,
-						didCreate = true,
-						didRename = true,
-						didDelete = true,
-					},
-				},
 				dynamicRegistration = true,
 			}) -- LSP機能を補完に追加
+
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 				settings = {
@@ -77,6 +67,7 @@ return {
 								reportUnknownMemberType = "none",
 								reportUnknownVariableType = "none",
 								reportUnknownArgumentType = "none",
+								reportCallIssue = "none",
 							},
 							useLibraryCodeForTypes = true, -- 追加: ライブラリの型情報を使用
 							--unused import, var などをエラーにするのはstrictだけ
@@ -326,5 +317,56 @@ return {
 			"neovim/nvim-lspconfig", -- optional
 		},
 		opts = {}, -- your configuration
+	},
+	{
+		"williamboman/mason.nvim", -- LSPのインストール管理
+		opts = {
+			ui = {
+				icons = { package_installed = "✓", package_pending = "➜", package_uninstalled = "✗" },
+			},
+		},
+		keys = { { "<leader>m", "<cmd>Mason<CR>", desc = "Mason Package Manager Menu" } },
+		dependencies = {},
+	},
+	{ -- masonのdepsに入れたかったけどauto install 走らなくなった
+		-- 自動インストールどっちもできる
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		-- "williamboman/mason-lspconfig.nvim",
+		opts = {
+			ensure_installed = {
+				--lua
+				"stylua",
+				"lua-language-server", --"lua_ls",
+				"luacheck",
+				-- python
+				"pyright",
+				"ruff", -- formatter
+				"pyproject-flake8",
+				-- typescript
+				"typescript-language-server", --"ts_ls",
+				"biome",
+				"tailwindcss-language-server",
+				-- "eslint-lsp",
+				-- "eslint_d",
+				-- "prettier",
+				"bash-language-server", --"bashls",
+				"dockerfile-language-server", --"dockerls",
+				"docker-compose-language-service", -- "docker_compose_language_service",
+				"cypher-language-server", --"cypher_ls",
+				"vim-language-server", --"vimls",
+				-- text
+				"json-lsp", -- "jsonls",
+				"yaml-language-server", --"yamlls",
+				-- markdown
+				-- "markdown-toc",
+				-- "markdownlint",
+
+				"cspell",
+				"copilot-language-server",
+			},
+			auto_update = true,
+			run_on_start = true,
+			-- automatic_installation = true,
+		},
 	},
 }
