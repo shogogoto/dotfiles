@@ -7,6 +7,11 @@ sudo apt autoremove -y
 # sudo add-apt-repository ppa:neovim-ppa/unstable -y
 # for ssh-agent
 sudo apt install keychain -yq
+sudo apt install openssh-server -yq
+# 不正アクセス対策
+sudo apt install fail2ban -yq
+sudo systemctl start fail2ban.service
+sudo systemctl enable fail2ban.service
 
 # nodejs
 sudo apt install npm -yq # node
