@@ -60,3 +60,11 @@ TODO_PATH=$XDG_CONFIG_HOME/todo/config
 export TODOTXT_CFG_FILE=$TODO_PATH/todo.cfg
 
 . <(curl -s https://raw.githubusercontent.com/shogogoto/conoha-client/main/conoha-client.bash)
+
+
+# terminalの日本語入力の窓が近くに表示されるように
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export LANG=ja_JP.UTF-8
+export LC_ALL=ja_JP.UTF-8
