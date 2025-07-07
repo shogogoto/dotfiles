@@ -11,6 +11,29 @@ alias a="vi ~/Documents/Dropbox/todo/processed.md"
 alias ta="batch_todo.sh ~/Documents/Dropbox/todo/action.md"
 
 
+# online コマンド
+# ngrokを使ってローカルサーバーを公開します。
+# 使用法: online [-s] <port>
+#   -s: httpsで公開します (デフォルト: http)
 function online(){
-  ngrok http https://localhost:${1} --url=toucan-renewing-jackal.ngrok-free.app
+  local protocol="http"
+  local OPTIND
+  while getopts "s" opt; do
+    case ${opt} in
+      s) protocol="https" ;;
+      \?)
+        echo "Usage: online [-s] <port>" >&2
+        return 1
+        ;;
+    esac
+  done
+  shift $((OPTIND - 1))
+
+  if [ -z "${1}" ]; then
+    echo "Usage: online [-s] <port>" >&2
+    return 1
+  fi
+
+  ngrok http ${protocol}://localhost:${1} --url=toucan-renewing-jackal.ngrok-free.app
 }
+
