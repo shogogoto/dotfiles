@@ -56,10 +56,11 @@ return {
 						disableOrganizeImports = true, -- Using Ruff's import organizer
 						disableTaggedHints = false,
 						watchFiles = true,
-						-- watchFileKinds = { "SourceAndConfig" },
+						watchFileKinds = { "SourceAndConfig" },
 					},
 					python = {
 						analysis = {
+							exclude = { "**/node_modules", "**/__pycache__", "**/site-packages", ".venv", "venv" },
 							autoImportCompletions = true, -- 追加: 補完時に自動import
 							-- autoSearchPaths = true, -- 追加: パスを自動検索
 							diagnosticMode = "workspace", -- openFilesOnly, workspace(これじゃないと補完が効かない)

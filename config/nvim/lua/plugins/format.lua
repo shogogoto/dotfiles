@@ -18,7 +18,7 @@ return {
 					css = js_formatters,
 					json = js_formatters,
 					python = { "ruff_fix", "ruff_format" },
-					["*"] = { "codespell" },
+					-- ["*"] = { "codespell" }, TypeScriptで意図しないフォーマット afterAll -> after all
 					["_"] = { "trim_whitespace" },
 				},
 				formatters = {
