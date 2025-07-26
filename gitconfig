@@ -19,7 +19,7 @@
 [fetch]
   prune = true # ローカルのブランチをfetch時にお掃除
 [merge]
-  tool = vimdiff
+  tool = nvimdiff
 [alias]
   st = status
   untracked = ls-files --others --exclude-standard
