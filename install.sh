@@ -67,6 +67,11 @@ sudo apt install pdftk -yq
 sudo apt install byobu -yq
 byobu-ctrl-a emacs # <C-a>無効 F12を使うように -> vimの<C-a><C-x>インクリメント使用できるように
 curl -sS https://starship.rs/install.sh | sh
+# render CLI
+curl -fsSL https://raw.githubusercontent.com/render-oss/cli/refs/heads/main/bin/install.sh | sh
+
+
+
 
 # git
 sudo apt install tig -yq

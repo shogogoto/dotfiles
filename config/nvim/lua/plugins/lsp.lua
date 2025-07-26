@@ -361,7 +361,7 @@ return {
 				-- markdown
 				-- "markdown-toc",
 				-- "markdownlint",
-
+				"taplo", -- toml
 				"cspell",
 				"copilot-language-server",
 			},
