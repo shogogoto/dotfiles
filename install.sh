@@ -69,8 +69,8 @@ byobu-ctrl-a emacs # <C-a>無効 F12を使うように -> vimの<C-a><C-x>イン
 curl -sS https://starship.rs/install.sh | sh
 # render CLI
 curl -fsSL https://raw.githubusercontent.com/render-oss/cli/refs/heads/main/bin/install.sh | sh
-
-
+curl https://rclone.org/install.sh | sudo bash
+curl https://rclone.org/install.sh | sudo bash # for cloud storage
 
 
 # git

@@ -7,7 +7,7 @@ alias repomix="npx repomix --copy; rm repomix-output.xml"
 alias yt-dlp-batch='yt-dlp --embed-thumbnail -x --audio-format mp3 --audio-quality 0 --parse-metadata "title:(?P<artist>.+?) - (?P<title>.+?) .*" ' # youtube チャンネル内mp3一括ダウンロード
 alias t="todo.sh"
 alias i="vi ~/Documents/Dropbox/todo/inbox.md"
-alias a="vi ~/Documents/Dropbox/todo/processed.md"
+alias a="vi ~/Documents/Dropbox/todo/_processed.md"
 alias ta="batch_todo.sh ~/Documents/Dropbox/todo/action.md"
 
 
