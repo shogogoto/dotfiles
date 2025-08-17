@@ -68,3 +68,5 @@ export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export LANG=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
+
+eval "$(gh completion -s bash)"
