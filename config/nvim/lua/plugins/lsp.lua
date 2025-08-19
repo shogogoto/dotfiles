@@ -178,6 +178,13 @@ return {
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 			require("luasnip.loaders.from_vscode").lazy_load()
+
+			luasnip.add_snippets("markdown", {
+				luasnip.snippet("cb", {
+					luasnip.text_node("- [ ] "),
+				}),
+			})
+
 			local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 			local lspkind = require("lspkind")
 			-- UltiSnips スニペットディレクトリを設定
