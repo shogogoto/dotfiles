@@ -38,7 +38,7 @@ return {
 					-- env.NVIM: neovimからneivimを起動 => ex. /run/user/1000/nvim.499729.0 else nil
 					local is_direct_open = vim.env.NVIM == nil
 					if is_direct_open and is_uncommiting then
-						vim.cmd("Neotree show reveal dir=%:p:h")
+						vim.cmd("Neotree show reveal dir=" .. vim.fn.getcwd())
 					end
 				end,
 			})
