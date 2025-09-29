@@ -37,18 +37,17 @@ return {
 			},
 		},
 		config = function()
-			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities({
 				dynamicRegistration = true,
 			}) -- LSP機能を補完に追加
 
-			lspconfig.lua_ls.setup({
+			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 				settings = {
 					Lua = { diagnostics = { globals = { "vim", "require" } } }, -- Neovim変数を認識させる
 				},
 			})
-			lspconfig.pyright.setup({
+			vim.lsp.config("pyright", {
 				capabilities = capabilities,
 				settings = {
 					-- ref https://microsoft.github.io/pyright/#/settings
@@ -79,7 +78,7 @@ return {
 					},
 				},
 			})
-			lspconfig.ruff.setup({
+			vim.lsp.config("ruff", {
 				capabilities = capabilities,
 				-- cmd = { ".venv/bin/ruff", "server" }, -- venvでなくてもpyproject認識する
 				init_options = {
@@ -93,8 +92,8 @@ return {
 					},
 				},
 			})
-			lspconfig.taplo.setup({ capabilities = capabilities })
-			lspconfig.ts_ls.setup({
+			vim.lsp.config("taplo", { capabilities = capabilities })
+			vim.lsp.config("ts_ls", {
 				capabilities = capabilities,
 				init_options = {
 					preferences = {
@@ -110,7 +109,7 @@ return {
 					},
 				},
 			})
-			lspconfig.biome.setup({
+			vim.lsp.config("biome", {
 				capabilities = capabilities,
 				cmd = { "npx", "biome", "lsp-proxy" },
 				init_options = {
@@ -118,7 +117,7 @@ return {
 					validate = { enable = true },
 				},
 			})
-			-- lspconfig.jsonls.setup({
+			-- vim.lsp.config("jsonls", {
 			-- 	capabilities = capabilities,
 			-- 	settings = {
 			-- 		json = {
@@ -340,7 +339,7 @@ return {
 	{ -- masonのdepsに入れたかったけどauto install 走らなくなった
 		-- 自動インストールどっちもできる
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		-- "williamboman/mason-lspconfig.nvim",
+		-- "williamboman/mason-vim.lsp.config("nvim",
 		opts = {
 			ensure_installed = {
 				--lua
