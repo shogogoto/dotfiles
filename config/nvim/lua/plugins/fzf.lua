@@ -83,5 +83,10 @@ return {
 			"<cmd>Telescope lsp_references<CR>",
 			desc = "カーソルで現在ホーバーしている変数やメソッドなどのキーワードが参照されている箇所を検索",
 		},
+		{
+			"<leader>fb",
+			"<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
+			desc = "Telescope file browser",
+		},
 	},
 }

@@ -37,9 +37,9 @@ return {
 					local is_uncommiting = not string.match(vim.api.nvim_buf_get_name(0), tgt)
 					-- env.NVIM: neovimからneivimを起動 => ex. /run/user/1000/nvim.499729.0 else nil
 					local is_direct_open = vim.env.NVIM == nil
-					if is_direct_open and is_uncommiting then
-						vim.cmd("Neotree show reveal dir=" .. vim.fn.getcwd())
-					end
+					-- if is_direct_open and is_uncommiting then
+					-- 	vim.cmd("Neotree show reveal dir=" .. vim.fn.getcwd())
+					-- end
 				end,
 			})
 		end,
@@ -136,5 +136,26 @@ return {
 		end,
 		-- Optional: Lazy load Incline
 		event = "VeryLazy",
+	},
+	{
+		"nvim-telescope/telescope-file-browser.nvim",
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+		opts = {
+			extensions = {
+				file_browser = {
+					theme = "ivy",
+					-- disables netrw and use telescope-file-browser in its place
+					hijack_netrw = true,
+					mappings = {
+						["i"] = {
+							-- your custom insert mode mappings
+						},
+						["n"] = {
+							-- your custom normal mode mappings
+						},
+					},
+				},
+			},
+		},
 	},
 }
