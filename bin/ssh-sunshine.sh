@@ -24,7 +24,7 @@ start_stream(){
   echo "Starting sunshine server on host..."
   echo "Start moonlight on your client of choice"
   # -f runs ssh in the background
-  ssh -f $ssh_args "~/scripts/sunshine.sh &"
+  ssh -f $ssh_args "~/dotfiles/bin/sunshine.sh &"
 }
 
 check_ssh

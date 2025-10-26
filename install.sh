@@ -127,6 +127,7 @@ sudo apt install flatpak -yq
 sudo apt install wl-clipboard -yq
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub io.github.vikdevelop.SaveDesktop -y
+sudo apt install speedtest-cli -yq
 
 sudo apt install wl-clipboard  -yq # for neovim plugin
 sudo snap install ngrok -yq # localhostをテスト用にwebに公開
