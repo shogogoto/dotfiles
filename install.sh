@@ -1,5 +1,7 @@
 #!/bin/bash
 sudo apt install software-properties-common -yq # add-apt-repositoryを追加
+curl -fsSL https://tailscale.com/install.sh | sh # VPN
+sudo apt install waypipe # 音声をストリーミングするのに必要
 
 sudo apt update -yq
 sudo apt upgrade -yq
@@ -125,7 +127,7 @@ cd -
 sudo apt install neofetch -yq
 sudo apt install flatpak -yq
 sudo apt install wl-clipboard -yq
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub io.github.vikdevelop.SaveDesktop -y
 sudo apt install speedtest-cli -yq
 
