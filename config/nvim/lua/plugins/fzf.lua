@@ -85,7 +85,7 @@ return {
 		},
 		{
 			"<leader>fb",
-			"<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
+			"<cmd>Telescope file_browser<CR>",
 			desc = "Telescope file browser",
 		},
 	},

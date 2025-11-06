@@ -2,26 +2,26 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
-		keys = {
-			{ "gD", vim.lsp.buf.declaration, desc = "Go to declaration" },
-			{ "gd", vim.lsp.buf.definition, desc = "Go to definition" },
-			{ "K", vim.lsp.buf.hover, desc = "Hover information" },
-			{ "gi", vim.lsp.buf.implementation, desc = "Go to implementation" },
-			{ "<C-k>", vim.lsp.buf.signature_help, desc = "Signature help" },
-			{ "<leader>wa", vim.lsp.buf.add_workspace_folder, desc = "Add workspace folder" },
-			{ "<leader>wr", vim.lsp.buf.remove_workspace_folder, desc = "Remove workspace folder" },
-			{
-				"<leader>wl",
-				function()
-					print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-				end,
-				desc = "List workspace folders",
-			},
-			{ "<leader>D", vim.lsp.buf.type_definition, desc = "Type definition" },
-			{ "<leader>rn", vim.lsp.buf.rename, desc = "Rename" },
-			{ "<leader>ca", vim.lsp.buf.code_action, desc = "Code action" },
-			-- { "gr",         vim.lsp.buf.references,      desc = "References" },
-		},
+		-- keys = {
+		-- 	{ "gD", vim.lsp.buf.declaration, desc = "Go to declaration" },
+		-- 	{ "gd", vim.lsp.buf.definition, desc = "Go to definition" },
+		-- 	{ "K", vim.lsp.buf.hover, desc = "Hover information" },
+		-- 	{ "gi", vim.lsp.buf.implementation, desc = "Go to implementation" },
+		-- 	{ "<C-k>", vim.lsp.buf.signature_help, desc = "Signature help" },
+		-- 	{ "<leader>wa", vim.lsp.buf.add_workspace_folder, desc = "Add workspace folder" },
+		-- 	{ "<leader>wr", vim.lsp.buf.remove_workspace_folder, desc = "Remove workspace folder" },
+		-- 	{
+		-- 		"<leader>wl",
+		-- 		function()
+		-- 			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+		-- 		end,
+		-- 		desc = "List workspace folders",
+		-- 	},
+		-- 	{ "<leader>D", vim.lsp.buf.type_definition, desc = "Type definition" },
+		-- 	{ "<leader>rn", vim.lsp.buf.rename, desc = "Rename" },
+		-- 	{ "<leader>ca", vim.lsp.buf.code_action, desc = "Code action" },
+		-- 	-- { "gr",         vim.lsp.buf.references,      desc = "References" },
+		-- },
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			{
@@ -37,16 +37,47 @@ return {
 			},
 		},
 		config = function()
+			-- local lspconfig = require("lspconfig")
+			local setup_lsp_keymaps = function(client, bufnr)
+				local map = function(mode, lhs, rhs, opts)
+					opts = opts or {}
+					opts.silent = opts.silent ~= false
+					vim.keymap.set(mode, lhs, rhs, vim.tbl_extend("force", { buffer = bufnr }, opts))
+				end
+				map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
+				map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" }) -- ✅ 定義へのジャンプ
+				map("n", "K", vim.lsp.buf.hover, { desc = "Hover information" })
+				map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
+				map("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature help" })
+				map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, { desc = "Add workspace folder" })
+				map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, { desc = "Remove workspace folder" })
+				map("n", "<leader>D", vim.lsp.buf.type_definition, { desc = "Type definition" })
+				map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
+				map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
+				-- map("n", "gr", vim.lsp.buf.references, { desc = "References" })
+			end
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("LspAttachKeymaps", { clear = true }),
+				callback = function(args)
+					local client = vim.lsp.get_client_by_id(args.data.client_id)
+					-- on_attach の中身を呼び出す
+					setup_lsp_keymaps(client, args.buf)
+				end,
+			})
+
 			local capabilities = require("cmp_nvim_lsp").default_capabilities({
 				dynamicRegistration = true,
 			}) -- LSP機能を補完に追加
 
+			-- lspconfig.lua_ls.setup({
 			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 				settings = {
 					Lua = { diagnostics = { globals = { "vim", "require" } } }, -- Neovim変数を認識させる
 				},
 			})
+
+			-- lspconfig.pyright.setup({
 			vim.lsp.config("pyright", {
 				capabilities = capabilities,
 				settings = {
@@ -78,6 +109,7 @@ return {
 					},
 				},
 			})
+			-- lspconfig.ruff.setup({
 			vim.lsp.config("ruff", {
 				capabilities = capabilities,
 				-- cmd = { ".venv/bin/ruff", "server" }, -- venvでなくてもpyproject認識する
@@ -92,7 +124,9 @@ return {
 					},
 				},
 			})
+			-- lspconfig.taplo.setup({ capabilities = capabilities })
 			vim.lsp.config("taplo", { capabilities = capabilities })
+			-- lspconfig.ts_ls.setup({
 			vim.lsp.config("ts_ls", {
 				capabilities = capabilities,
 				init_options = {
@@ -109,6 +143,7 @@ return {
 					},
 				},
 			})
+			-- lspconfig.biome.setup({
 			vim.lsp.config("biome", {
 				capabilities = capabilities,
 				cmd = { "npx", "biome", "lsp-proxy" },
@@ -117,6 +152,12 @@ return {
 					validate = { enable = true },
 				},
 			})
+			vim.lsp.enable("lua_ls")
+			vim.lsp.enable("pyright")
+			vim.lsp.enable("ruff")
+			vim.lsp.enable("taplo")
+			vim.lsp.enable("ts_ls")
+			vim.lsp.enable("biome")
 			-- vim.lsp.config("jsonls", {
 			-- 	capabilities = capabilities,
 			-- 	settings = {
@@ -315,17 +356,17 @@ return {
 			vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
 		end,
 	},
-	{
-		"luckasRanarison/tailwind-tools.nvim",
-		name = "tailwind-tools",
-		build = ":UpdateRemotePlugins",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-telescope/telescope.nvim", -- optional
-			"neovim/nvim-lspconfig", -- optional
-		},
-		opts = {}, -- your configuration
-	},
+	-- {
+	-- 	"luckasRanarison/tailwind-tools.nvim",
+	-- 	name = "tailwind-tools",
+	-- 	build = ":UpdateRemotePlugins",
+	-- 	dependencies = {
+	-- 		"nvim-treesitter/nvim-treesitter",
+	-- 		"nvim-telescope/telescope.nvim", -- optional
+	-- 		"neovim/nvim-lspconfig", -- optional
+	-- 	},
+	-- 	opts = {}, -- your configuration
+	-- },
 	{
 		"williamboman/mason.nvim", -- LSPのインストール管理
 		opts = {
