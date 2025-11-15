@@ -152,12 +152,16 @@ return {
 					validate = { enable = true },
 				},
 			})
+			vim.lsp.config("tailwindcss-language-server", {
+				capabilities = capabilities,
+			})
 			vim.lsp.enable("lua_ls")
 			vim.lsp.enable("pyright")
 			vim.lsp.enable("ruff")
 			vim.lsp.enable("taplo")
 			vim.lsp.enable("ts_ls")
 			vim.lsp.enable("biome")
+			vim.lsp.enable("tailwindcss")
 			-- vim.lsp.config("jsonls", {
 			-- 	capabilities = capabilities,
 			-- 	settings = {
