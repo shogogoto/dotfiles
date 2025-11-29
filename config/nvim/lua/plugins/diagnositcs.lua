@@ -116,10 +116,16 @@ return {
 				},
 				virtual_text = false,
 			}) -- Only if needed in your configuration, if you already have native LSP diagnostics
-			vim.keymap.set("n", "gK", function()
-				local new_config = not vim.diagnostic.config().virtual_lines
-				vim.diagnostic.config({ virtual_lines = new_config })
-			end, { desc = "Toggle diagnostic virtual_lines" })
+			vim.keymap.set("n", "gF", function() -- 診断ウィンドウを開き、そこにフォーカス
+				vim.diagnostic.open_float({
+					focusable = true, -- 重要: ウィンドウをフォーカス可能にする
+					focus = true, -- 重要: 開いたときにカーソルを移動させる
+					scope = "line", -- 行単位で表示
+					border = "rounded", -- 見やすく枠を丸くする
+					source = "if_many", -- 複数のソースがある場合のみソース名を表示
+				})
+			end, { desc = "Show diagnostic float and focus" })
+
 			vim.opt.updatetime = 1000 -- ホバー表示の遅延時間を設定（ミリ秒）
 			-- カーソルがホバーした時に自動的に診断情報を表示する うぜーかも gKでトグルするだけでよい
 			-- vim.api.nvim_create_autocmd("CursorHold", {

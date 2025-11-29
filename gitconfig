@@ -16,6 +16,7 @@
 [core]
   editor = vi
   autocrlf = input
+	quotepath = false
 [fetch]
   prune = true # ローカルのブランチをfetch時にお掃除
 [merge]
