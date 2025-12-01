@@ -2,7 +2,7 @@ vim.treesitter.language.register("markdown", "mdx")
 vim.filetype.add({
 	extension = {
 		mdx = "mdx",
-		-- kn = "markdown",
+		kn = "markdown",
 	},
 })
 
@@ -48,6 +48,8 @@ return {
 			vim.g.mkdp_filetypes = { "markdown" }
 			vim.g.mkdp_markdown_renderer = "katex"
 			vim.g.mkdp_echo_preview_url = 1
+			vim.g.mkdp_port = 8904
+			vim.g.mkdp_host = "0.0.0.0"
 		end,
 		ft = { "markdown" },
 		keys = {
