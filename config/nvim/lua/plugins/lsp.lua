@@ -378,7 +378,7 @@ return {
 				icons = { package_installed = "✓", package_pending = "➜", package_uninstalled = "✗" },
 			},
 		},
-		keys = { { "<leader>m", "<cmd>Mason<CR>", desc = "Mason Package Manager Menu" } },
+		keys = { { "<leader>ms", "<cmd>Mason<CR>", desc = "Mason Package Manager Menu" } },
 		dependencies = {},
 	},
 	{ -- masonのdepsに入れたかったけどauto install 走らなくなった
