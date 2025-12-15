@@ -6,7 +6,7 @@ sudo apt install waypipe # 音声をストリーミングするのに必要
 sudo apt update -yq
 sudo apt upgrade -yq
 sudo apt autoremove -y
-# sudo add-apt-repository ppa:neovim-ppa/unstable -y
+sudo add-apt-repository ppa:neovim-ppa/unstable -y
 # for ssh-agent
 sudo apt install keychain -yq
 sudo apt install openssh-server -yq
@@ -35,12 +35,13 @@ sudo apt install python3-pip -yq
 sudo apt install libsqlite3-dev -yq # require to pre-commit
 curl https://pyenv.run | bash
 git clone https://github.com/pyenv/pyenv-update.git $(pyenv root)/plugins/pyenv-update
-# curl -sSL https://install.python-poetry.org | python3 -
-sudo apt install python3-poetry -yq
+curl -sSL https://install.python-poetry.org | python3 -
+# sudo apt install python3-poetry -yq
 poetry config virtualenvs.in-project true
 poetry self update
 poetry self add "poetry-dynamic-versioning[plugin]"
-pip3 install ruff-lsp # python formmter
+poetry self add poetry-plugin-shell # これでは効かない pip install poetry-plugin-shell なら行けた
+pip3 install poetry-plugin-shell
 
 # docker
 sudo apt install ca-certificates gnupg
@@ -107,6 +108,7 @@ sudo apt install rustup -yq
 rustup update stable
 cargo install viu # for fzf_lua
 cargo install --locked zellij # byobu的なターミナルマルチプレクサ
+zellij setup --generate-completion bash >> ~/.bashrc
 
 
 ## neovim setup
