@@ -22,7 +22,7 @@ return {
 			{ "g%", desc = "Jump to inside of matching pair" },
 		},
 		config = function(_, opts)
-			require("nvim-treesitter.configs").setup(opts)
+			require("nvim-treesitter").setup(opts)
 		end,
 	},
 	{
