@@ -107,6 +107,8 @@ return {
 					other_win_hl_color = "#e35e4f",
 				},
 			},
+			"antosha417/nvim-lsp-file-operations",
+
 			-- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
 			-- {
 			-- 	"ahmedkhalf/project.nvim", -- 自動でprojct rootへcd

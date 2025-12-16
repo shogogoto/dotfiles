@@ -2,48 +2,55 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		priority = 1000, -- 💡 全プラグインの中で最も高い優先度を設定
 		lazy = false,
-		-- event = { "BufReadPost", "BufNewFile" },
+		event = { "BufReadPost", "BufNewFile" },
 		keys = {
 			{ "<leader>ti", "<cmd>TSConfigInfo<cr>", desc = "Treesitter Info" },
 			{ "<leader>tu", "<cmd>TSUpdate<cr>", desc = "Update Parsers" },
 			{ "<leader>tU", "<cmd>TSUpdateSync<cr>", desc = "Update Parsers (Sync)" },
 		},
-		opts = {
-			sync_install = false,
-			auto_install = true,
-			highlight = {
-				enable = true, -- 基本的なハイライトは有効に
-				additional_vim_regex_highlighting = false,
-				disable = function(lang, buf)
-					local max_filesize = 50 * 1024 -- より小さいファイルサイズ制限 (50KB)
-					local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-					if ok and stats and stats.size > max_filesize then
-						return true
-					end
-				end,
-			},
-			indent = { enable = true },
-			folds = { enable = true },
-			incremental_selection = {
-				enable = false,
-			},
-			textobjects = {
-				select = {
-					enable = false,
-					lookahead = true,
-					include_surrounding_whitespace = true,
-				},
-				move = { enable = false },
-				swap = { enable = false },
-				lsp_interop = { enable = false },
-			},
-			matchup = {
-				enable = true,
-				disable_virtual_text = true,
-				include_match_words = false,
-			},
-			ensure_installed = {
+		-- opts = {
+		-- 	sync_install = true,
+		-- 	auto_install = true,
+		-- 	highlight = {
+		-- 		enable = true, -- 基本的なハイライトは有効に
+		-- 		additional_vim_regex_highlighting = false,
+		-- 		disable = function(lang, buf)
+		-- 			local max_filesize = 50 * 1024 -- より小さいファイルサイズ制限 (50KB)
+		-- 			local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+		-- 			if ok and stats and stats.size > max_filesize then
+		-- 				return true
+		-- 			end
+		-- 		end,
+		-- 	},
+		-- 	indent = { enable = true },
+		-- 	folds = { enable = true },
+		-- 	incremental_selection = {
+		-- 		enable = false,
+		-- 	},
+		-- 	textobjects = {
+		-- 		select = {
+		-- 			enable = false,
+		-- 			lookahead = true,
+		-- 			include_surrounding_whitespace = true,
+		-- 		},
+		-- 		move = { enable = false },
+		-- 		swap = { enable = false },
+		-- 		lsp_interop = { enable = false },
+		-- 	},
+		-- 	matchup = {
+		-- 		enable = true,
+		-- 		disable_virtual_text = true,
+		-- 		include_match_words = false,
+		-- 	},
+		-- },
+		config = function(_, opts)
+			require("nvim-treesitter").setup({
+				-- Directory to install parsers and queries to (prepended to `runtimepath` to have priority)
+				install_dir = vim.fn.stdpath("data") .. "/site",
+			})
+			require("nvim-treesitter").install({
 				"lua",
 				"vim",
 				"vimdoc",
@@ -94,9 +101,7 @@ return {
 				"scala",
 				"scss",
 				"solidity",
-			},
-		},
-		config = function(_, opts)
+			})
 			-- 追加のハイライト用のグループを設定
 			vim.api.nvim_set_hl(0, "RainbowDelimiterRed", { fg = "#E06C75" })
 			vim.api.nvim_set_hl(0, "RainbowDelimiterYellow", { fg = "#E5C07B" })

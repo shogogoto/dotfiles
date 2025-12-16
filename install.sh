@@ -117,7 +117,7 @@ sudo apt install fd-find -yq # for fzf, telescope.nvim
 # fdはバイナリ名で既に使われているのでfdfindというコマンド名
 ln -s $(which fdfind) ~/.local/bin/fd
 sudo apt install tree-sitter-cli -yq # for nvim lspsage
-
+sudo npm install -g neovim # for nvim-lspconfig
 
 # github repository
 git clone https://github.com/huyng/bashmarks.git

@@ -25,6 +25,7 @@ require("lazy").setup({
 	spec = {
 		-- import your plugins
 		{ import = "plugins" },
+		{ "folke/snacks.nvim" },
 		{ "nacro90/numb.nvim", opts = {} }, -- :行番号で行き先を表示
 		{ "jghauser/mkdir.nvim" }, -- Vim起動時や:editしたときに存在しないディレクトリを指定すると勝手にmkdir
 		-- { "tpope/vim-commentary" },
