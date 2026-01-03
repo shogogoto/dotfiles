@@ -112,7 +112,7 @@ return {
 			vim.api.nvim_set_hl(0, "RainbowDelimiterCyan", { fg = "#56B6C2" })
 
 			-- Treesitterモジュールの設定
-			require("nvim-treesitter").setup(opts)
+			-- require("nvim-treesitter").setup(opts)
 			-- z から始まるkeybind で foldの開閉可能
 			vim.opt.foldmethod = "expr"
 			vim.opt.foldexpr = "nvim_treesitter#foldexpr()"

@@ -24,20 +24,20 @@ return {
 			{ "<Space>rm", ":RenderMarkdown toggle<CR>" },
 		},
 	},
-	{
-		"nfrid/markdown-togglecheck",
-		dependencies = { "nfrid/treesitter-utils" }, -- 依存プラグイン
-		ft = { "markdown" }, -- markdownファイルでのみ有効にする
-		config = function()
-			require("markdown-togglecheck").setup({
-				create = true, -- チェックボックスがない行でトグルコマンドを実行すると新しいチェックボックスを作成する
-				remove = false, -- チェック済みのチェックボックスを削除する代わりにチェックを外す
-			})
-
-			-- キーバインドを設定 (例: <leader>tc でトグル)
-			vim.keymap.set("n", "<leader>tc", require("markdown-togglecheck").toggle, { desc = "Toggle Checkmark" })
-		end,
-	},
+	-- comment out for error avoiding
+	-- {
+	-- 	"nfrid/markdown-togglecheck",
+	-- 	dependencies = { "nfrid/treesitter-utils" }, -- 依存プラグイン
+	-- 	ft = { "markdown" }, -- markdownファイルでのみ有効にする
+	-- 	config = function()
+	-- 		require("markdown-togglecheck").setup({
+	-- 			create = true, -- チェックボックスがない行でトグルコマンドを実行すると新しいチェックボックスを作成する
+	-- 			remove = false, -- チェック済みのチェックボックスを削除する代わりにチェックを外す
+	-- 		})
+	-- 		-- キーバインドを設定 (例: <leader>tc でトグル)
+	-- 		vim.keymap.set("n", "<leader>tc", require("markdown-togglecheck").toggle, { desc = "Toggle Checkmark" })
+	-- 	end,
+	-- },
 	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

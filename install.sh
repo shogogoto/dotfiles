@@ -131,6 +131,8 @@ sudo apt install flatpak -yq
 sudo apt install wl-clipboard -yq
 flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub io.github.vikdevelop.SaveDesktop -y
+flatpak install flathub eu.nokun.MirrorHall -y # 仮想デスクトップ
+# 2つのos間でこれをインストールする必要あり
 sudo apt install speedtest-cli -yq
 
 sudo apt install wl-clipboard  -yq # for neovim plugin

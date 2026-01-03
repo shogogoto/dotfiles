@@ -393,7 +393,7 @@ return {
 				-- python
 				"pyright",
 				"ruff", -- formatter
-				"pyproject-flake8",
+				-- "pyproject-flake8",
 				-- typescript
 				"typescript-language-server", --"ts_ls",
 				"tailwindcss-language-server",
