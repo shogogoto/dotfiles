@@ -130,6 +130,8 @@ sudo apt install neofetch -yq
 sudo apt install flatpak -yq
 sudo apt install wl-clipboard -yq
 flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+# gnomeでCLIなしでflatpakのアプリをインストールできるようにする
+sudo apt install gnome-software-plugin-flatpak -y
 flatpak install flathub io.github.vikdevelop.SaveDesktop -y
 flatpak install flathub eu.nokun.MirrorHall -y # 仮想デスクトップ
 # 2つのos間でこれをインストールする必要あり
