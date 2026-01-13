@@ -1,0 +1,35 @@
+[colors.primary]
+background = '#1e1e1e' # macOS標準のターミナルに近い深いグレー
+foreground = '#ffffff' # 純粋な白
+
+[colors.normal]
+black =   '#000000'
+red =     '#ff3b30' # Apple System Red
+green =   '#28cd41' # Apple System Green
+yellow =  '#ffcc00' # Apple System Yellow
+blue =    '#007aff' # Apple System Blue
+magenta = '#ff2d55' # Apple System Pink
+cyan =    '#5ac8fa' # Apple System Teal
+white =   '#e5e5e5'
+
+[colors.bright]
+black =   '#666666'
+red =     '#ff6961'
+green =   '#30d158'
+yellow =  '#ffd60a'
+blue =    '#0a84ff'
+magenta = '#ff375f'
+cyan =    '#64d2ff'
+white =   '#ffffff'
+
+[window]
+padding = { x = 12, y = 12 } # 適度な余白がMacっぽさを出します
+opacity = 1.0                # 集中力重視
+
+
+[keyboard]
+bindings = [
+    { key = "Plus", mods = "Control|Shift", action = "IncreaseFontSize" },
+    # { key = "D", mods = "Control", action = "DecreaseFontSize" },
+    { key = "Key0", mods = "Control", action = "ResetFontSize" }
+]

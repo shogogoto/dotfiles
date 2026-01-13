@@ -20,5 +20,7 @@
 !config/zellij
 !config/zellij/config.kdl
 !config/git/ignore
-
+!config/starship.toml
+!config/alacritty/
+!config/alacritty/**
 
