@@ -68,7 +68,6 @@ return {
 				"javascript",
 				"jsdoc",
 				"json",
-				"jsonc",
 				"python",
 				"regex",
 				"rust",
