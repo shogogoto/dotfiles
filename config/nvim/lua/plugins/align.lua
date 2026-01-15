@@ -56,6 +56,13 @@ return {
 			},
 		},
 	},
+	{
+		"junegunn/vim-easy-align",
+		config = function()
+			-- キーマッピング (ビジュアルモードで ga を押して開始)
+			vim.keymap.set("x", "ga", "<Plug>(EasyAlign)")
+		end,
+	},
 
 	-- 別の選択肢: null-ls.nvim
 	-- {
