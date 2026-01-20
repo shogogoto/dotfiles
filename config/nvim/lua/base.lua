@@ -156,6 +156,10 @@ local function zellij_osc52_copy(lines, _)
 		io.write(osc52)
 		io.flush()
 	end
+
+	if vim.fn.executable("wl-copy") == 1 then
+		vim.fn.system("wl-copy", s)
+	end
 end
 -- クリップボードのプロバイダーを OSC 52 に強制する
 --
