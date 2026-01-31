@@ -23,4 +23,6 @@
 !config/starship.toml
 !config/alacritty/
 !config/alacritty/**
+!config/wezterm/
+!config/wezterm/**
 
