@@ -160,4 +160,33 @@ return {
 	-- 		},
 	-- 	},
 	-- },
+	{
+		"stevearc/oil.nvim",
+		---@module 'oil'
+		---@type oil.SetupOpts
+		-- Optional dependencies
+		dependencies = {
+			{ "nvim-mini/mini.icons", opts = {} },
+		},
+		-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+		-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+		lazy = false,
+		keys = {
+			{ "-", "<cmd>Oil<CR>", mode = "n", desc = "Oilで親ディレクトリを開く" },
+		},
+		opts = {
+			default_file_explorer = true, -- netrw を完全に置き換え
+			delete_to_trash = true, -- 削除時にゴミ箱へ（誤操作防止）
+			-- skip_confirm_for_simple_edits = true,
+			-- view_options = {
+			-- 	show_hidden = true,
+			-- },
+			-- window-picker 的な動きをさせたい場合は以下をアンコメント
+			-- keymaps = {
+			--   ["<CR>"] = "actions.select",
+			--   ["<C-v>"] = "actions.select_vsplit",
+			--   ["<C-s>"] = "actions.select_split",
+			-- },
+		},
+	},
 }

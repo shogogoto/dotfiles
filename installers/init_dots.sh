@@ -22,3 +22,6 @@ else
   echo "eval "$(starship init bash)"" >> ~/.bashrc
   echo "added source dotfiles bashrc"
 fi
+
+# weztermの設定ファイル
+mkdir -p ~/.config/wezterm && ln -s ~/dotfiles/config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua

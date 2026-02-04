@@ -3,6 +3,13 @@ sudo apt install software-properties-common -yq # add-apt-repositoryを追加
 curl -fsSL https://tailscale.com/install.sh | sh # VPN
 sudo apt install waypipe # 音声をストリーミングするのに必要
 
+# wezterm
+curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
+echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+sudo chmod 644 /usr/share/keyrings/wezterm-fury.gpg
+sudo apt install wezterm
+sudo apt install wezterm-nightly
+
 sudo apt update -yq
 sudo apt upgrade -yq
 sudo apt autoremove -y
@@ -143,6 +150,11 @@ sudo apt install nautilus-share -yq # sambaによるファイル共有
 sudo usermod -aG sambashare $USER # ref: https://blog.peconet.org/articles/7/
 sudo apt install inotify-tools -yq # neovimでLspRestartせずにファイル変更を検知
 
+
+
+# 辞書ツール Hazkeyと併用
+wget https://github.com/espanso/espanso/releases/latest/download/espanso-debian-wayland-amd64.deb
+sudo apt install -y ./espanso-debian-wayland-amd64.deb
 
 # firefox の favicon自動更新
 wget https://github.com/mozilla/geckodriver/releases/download/v0.36.0/geckodriver-v0.36.0-linux64.tar.gz
