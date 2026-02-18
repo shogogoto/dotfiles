@@ -178,9 +178,9 @@ return {
 			default_file_explorer = true, -- netrw を完全に置き換え
 			delete_to_trash = true, -- 削除時にゴミ箱へ（誤操作防止）
 			-- skip_confirm_for_simple_edits = true,
-			-- view_options = {
-			-- 	show_hidden = true,
-			-- },
+			view_options = {
+				show_hidden = true,
+			},
 			-- window-picker 的な動きをさせたい場合は以下をアンコメント
 			-- keymaps = {
 			--   ["<CR>"] = "actions.select",
