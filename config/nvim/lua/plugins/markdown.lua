@@ -5,7 +5,22 @@ vim.filetype.add({
 		kn = "markdown",
 	},
 })
+-- Markdownファイル（kn, mdx含む）を開いた時に設定を強制する
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = { "markdown", "mdx" },
+	callback = function()
+		-- 1. 以前の計算をリセットするために一度 manual にしてから expr に戻す
+		vim.opt_local.foldmethod = "manual"
 
+		-- 2. Treesitterの計算式を指定
+		vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+		vim.opt_local.foldmethod = "expr"
+
+		-- 3. 最初はすべて展開した状態にする（お好みで 0 にすれば全部閉じます）
+		vim.opt_local.foldlevel = 99
+		vim.opt_local.foldenable = true
+	end,
+})
 return {
 	{
 		"MeanderingProgrammer/render-markdown.nvim", -- Make sure to set this up properly if you have lazy=true
@@ -17,7 +32,7 @@ return {
 				skip_heading = true,
 				icon = "▎",
 			},
-			-- strikethrough = { enabled = true },
+			strikethrough = { enabled = true },
 		},
 		ft = { "markdown", "Avante", "mdx" },
 		keys = {
@@ -56,5 +71,14 @@ return {
 			{ "<leader>mp", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown Preview" },
 			{ "<leader>ms", "<cmd>MarkdownPreviewStop<cr>", desc = "Stop Preview" },
 		},
+	},
+	{
+		"dbeniamine/todo.txt-vim",
+		-- ft = { "todo" }, -- todo.txt ファイルを開いた時だけ読み込む（最適化）
+		config = function()
+			-- ここにカスタム設定を記述できます
+			-- 例: 完了時に日付を自動付与する
+			vim.g.TodoTxtForceDate = 1
+		end,
 	},
 }
