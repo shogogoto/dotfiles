@@ -59,7 +59,7 @@ TODO_PATH=$XDG_CONFIG_HOME/todo/config
 . $TODO_PATH/todo_completion
 export TODOTXT_CFG_FILE=$TODO_PATH/todo.cfg
 
-. <(curl -s https://raw.githubusercontent.com/shogogoto/conoha-client/main/conoha-client.bash)
+# . <(curl -s https://raw.githubusercontent.com/shogogoto/conoha-client/main/conoha-client.bash)
 
 
 # terminalの日本語入力の窓が近くに表示されるように
@@ -70,3 +70,5 @@ export LANG=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
 
 eval "$(gh completion -s bash)"
+
+. $ZELLIJ_CONFIG_DIR/bashrc
