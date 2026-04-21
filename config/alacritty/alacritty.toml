@@ -25,11 +25,17 @@ white =   '#ffffff'
 [window]
 padding = { x = 12, y = 12 } # 適度な余白がMacっぽさを出します
 opacity = 1.0                # 集中力重視
-
+# "OnlyFocused"（フォーカス時のみ）か "Always"（常に許可）に設定
+osc52 = "Always"
 
 [keyboard]
 bindings = [
-    { key = "Plus", mods = "Control|Shift", action = "IncreaseFontSize" },
+    { key = "Semilocon", mods = "Control|Shift", action = "IncreaseFontSize" },
     # { key = "D", mods = "Control", action = "DecreaseFontSize" },
-    { key = "Key0", mods = "Control", action = "ResetFontSize" }
+    { key = "Key0", mods = "Control", action = "ResetFontSize" },
+    # { key = "Up", mods = "Super", action = "ToggleMaximized" }
 ]
+
+[scrolling]
+history = 10000  # 遡れる最大行数
+multiplier = 3   # マウスホイールでのスクロール速度（お好みで）
