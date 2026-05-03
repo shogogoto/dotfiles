@@ -72,3 +72,9 @@ export LC_ALL=ja_JP.UTF-8
 eval "$(gh completion -s bash)"
 
 . $ZELLIJ_CONFIG_DIR/bashrc
+
+
+# alacrittyからsshでtigが開けなかったので対策
+if [ -n "$SSH_CONNECTION" ]; then
+  export TERM=xterm-256color
+fi
