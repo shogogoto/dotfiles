@@ -72,7 +72,6 @@ local opts = {
 for k, v in pairs(opts) do
 	vim.opt[k] = v
 end
-
 -- vim.opt.colorcolumn の色を変更
 vim.cmd([[ highlight ColorColumn ctermbg=grey guibg=grey ]])
 
@@ -133,57 +132,67 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	end,
 })
 
--- ディレクトリ変更時にLSPをリフレッシュ
--- vim.api.nvim_create_autocmd("DirChanged", {
--- 	pattern = "*",
--- 	callback = function()
--- 		vim.cmd("LspRestart")
--- 	end,
--- })
-local function zellij_osc52_copy(lines, _)
-	local s = table.concat(lines, "\n")
-	local base64 = vim.base64.encode(s)
-	-- OSC 52 本体
-	local osc52 = string.format("\x1b]52;c;%s\x07", base64)
+if vim.fn.executable("xclip") == 1 then
+	vim.g.clipboard = {
+		name = "xclip",
+		copy = {
+			["+"] = "xclip -in -selection clipboard",
+			["*"] = "xclip -in -selection primary",
+		},
+		paste = {
+			["+"] = "xclip -out -selection clipboard",
+			["*"] = "xclip -out -selection primary",
+		},
+		cache_enabled = 1,
+	}
+else
+	-- ディレクトリ変更時にLSPをリフレッシュ
+	-- vim.api.nvim_create_autocmd("DirChanged", {
+	-- 	pattern = "*",
+	-- 	callback = function()
+	-- 		vim.cmd("LspRestart")
+	-- 	end,
+	-- })
+	local function zellij_osc52_copy(lines, _)
+		local s = table.concat(lines, "\n")
+		local base64 = vim.base64.encode(s)
+		-- OSC 52 本体
+		local osc52 = string.format("\x1b]52;c;%s\x07", base64)
 
-	if os.getenv("ZELLIJ") then
-		-- \x1bPtmux; は「この中身を透過させろ」という信号です
-		-- 最後は \x1b\\ (ST) で閉じます
-		local passthrough = string.format("\x1bPtmux;\x1b%s\x1b\\", osc52)
-		io.write(passthrough)
-		io.flush()
-	else
-		io.write(osc52)
-		io.flush()
-	end
+		if os.getenv("ZELLIJ") then
+			-- \x1bPtmux; は「この中身を透過させろ」という信号です
+			-- 最後は \x1b\\ (ST) で閉じます
+			local passthrough = string.format("\x1bPtmux;\x1b%s\x1b\\", osc52)
+			io.write(passthrough)
+			io.flush()
+		else
+			io.write(osc52)
+			io.flush()
+		end
 
-	if vim.fn.executable("wl-copy") == 1 then
-		vim.fn.system("wl-copy", s)
+		if vim.fn.executable("wl-copy") == 1 then
+			vim.fn.system("wl-copy", s)
+		end
 	end
+	vim.g.clipboard = {
+		name = "OSC 52",
+		copy = {
+			["+"] = zellij_osc52_copy,
+			["*"] = zellij_osc52_copy,
+			-- ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+			-- ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+		},
+		paste = {
+			-- 外部（手元）を見に行かず、Neovim内部の無名レジスタを返すだけにする
+			-- これで「V」が返ってくる怪現象を完全に防ぎます
+			["+"] = function()
+				return vim.fn.getreg('"')
+			end,
+			["*"] = function()
+				return vim.fn.getreg('"')
+			end,
+			-- ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+			-- ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+		},
+	}
 end
--- クリップボードのプロバイダーを OSC 52 に強制する
---
---
---
---
-vim.g.clipboard = {
-	name = "OSC 52",
-	copy = {
-		["+"] = zellij_osc52_copy,
-		["*"] = zellij_osc52_copy,
-		-- ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-		-- ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-	},
-	paste = {
-		-- 外部（手元）を見に行かず、Neovim内部の無名レジスタを返すだけにする
-		-- これで「V」が返ってくる怪現象を完全に防ぎます
-		["+"] = function()
-			return vim.fn.getreg('"')
-		end,
-		["*"] = function()
-			return vim.fn.getreg('"')
-		end,
-		-- ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
-		-- ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
-	},
-}
