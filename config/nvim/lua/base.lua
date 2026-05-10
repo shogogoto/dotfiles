@@ -152,12 +152,6 @@ local function zellij_osc52_copy(lines, _)
 	if vim.fn.executable("wl-copy") == 1 then
 		vim.fn.system("wl-copy", s)
 	end
-
-	if vim.fn.display ~= "" and vim.fn.executable("xclip") == 1 then
-		-- clipboard ("+") と primary ("*") 両方に送るのが一般的
-		vim.fn.system("xclip -selection clipboard", s)
-		vim.fn.system("xclip -selection primary", s)
-	end
 end
 vim.g.clipboard = {
 	name = "OSC 52",
@@ -174,18 +168,3 @@ vim.g.clipboard = {
 		end,
 	},
 }
-
--- if vim.fn.executable("xclip") == 1 then
--- 	vim.g.clipboard = {
--- 		name = "xclip",
--- 		copy = {
--- 			["+"] = "xclip -in -selection clipboard",
--- 			["*"] = "xclip -in -selection primary",
--- 		},
--- 		paste = {
--- 			["+"] = "xclip -out -selection clipboard",
--- 			["*"] = "xclip -out -selection primary",
--- 		},
--- 		cache_enabled = 1,
--- 	}
--- end
