@@ -134,6 +134,13 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 
 local osc52 = require("vim.ui.clipboard.osc52")
 
+-- invalid data という警告が osc52.pasete("+")で出た
+local valid_register = function()
+	local lines = vim.fn.getreg('"', 1, true) -- クリップボードの内容を行ごとのリストとして取得
+	local regtype = vim.fn.getregtype('"') -- レジスタのタイプ
+	return { lines, regtype }
+end
+
 vim.g.clipboard = {
 	name = "OSC52-Pure",
 	copy = {
@@ -142,7 +149,7 @@ vim.g.clipboard = {
 		["*"] = osc52.copy("*"),
 	},
 	paste = {
-		["+"] = osc52.paste("+"),
-		["*"] = osc52.paste("*"),
+		["+"] = valid_register,
+		["*"] = valid_register,
 	},
 }
