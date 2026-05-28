@@ -98,7 +98,7 @@ return {
 								reportUnknownMemberType = "none",
 								reportUnknownVariableType = "none",
 								reportUnknownArgumentType = "none",
-								reportCallIssue = "none",
+								-- reportCallIssue = "none",
 							},
 							useLibraryCodeForTypes = true, -- 追加: ライブラリの型情報を使用
 							--unused import, var などをエラーにするのはstrictだけ

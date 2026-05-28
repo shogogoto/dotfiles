@@ -132,39 +132,17 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	end,
 })
 
-local function zellij_osc52_copy(lines, _)
-	local s = table.concat(lines, "\n")
-	local base64 = vim.base64.encode(s)
-	-- OSC 52 本体
-	local osc52 = string.format("\x1b]52;c;%s\x07", base64)
+local osc52 = require("vim.ui.clipboard.osc52")
 
-	if os.getenv("ZELLIJ") then
-		-- \x1bPtmux; は「この中身を透過させろ」という信号です
-		-- 最後は \x1b\\ (ST) で閉じます
-		local passthrough = string.format("\x1bPtmux;\x1b%s\x1b\\", osc52)
-		io.write(passthrough)
-		io.flush()
-	else
-		io.write(osc52)
-		io.flush()
-	end
-
-	if vim.fn.executable("wl-copy") == 1 then
-		vim.fn.system("wl-copy", s)
-	end
-end
 vim.g.clipboard = {
-	name = "OSC 52",
+	name = "OSC52-Pure",
 	copy = {
-		["+"] = zellij_osc52_copy,
-		["*"] = zellij_osc52_copy,
+		-- 💡 xsel等を使わず、Neovim 0.10標準のOSC 52送信関数を直接呼ぶ
+		["+"] = osc52.copy("+"),
+		["*"] = osc52.copy("*"),
 	},
 	paste = {
-		["+"] = function()
-			return vim.fn.getreg('"')
-		end,
-		["*"] = function()
-			return vim.fn.getreg('"')
-		end,
+		["+"] = osc52.paste("+"),
+		["*"] = osc52.paste("*"),
 	},
 }
