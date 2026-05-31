@@ -8,7 +8,7 @@ alias yt-dlp-batch='yt-dlp --embed-thumbnail -x --audio-format mp3 --audio-quali
 alias yt='yt-dlp -x --audio-format mp3 --cookies-from-browser chrome:"/home/gotoh/.config/google-chrome"'
 alias t="todo.sh"
 alias i="vi ~/Documents/Dropbox/DropsyncFiles/GTD/inbox.md"
-alias a="vi ~/Documents/Dropbox/DropsyncFiles/GTD/_processed.md"
+alias a="vi ~/Documents/Dropbox/DropsyncFiles/GTD/action.md"
 alias ta="batch_todo.sh ~/Documents/Dropbox/GTD/action.md"
 alias routine="cat ~/Documents/Dropbox/DropsyncFiles/GTD/check/routine.md"
 

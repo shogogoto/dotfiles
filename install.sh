@@ -150,14 +150,7 @@ sudo apt install nautilus-share -yq # sambaによるファイル共有
 sudo usermod -aG sambashare $USER # ref: https://blog.peconet.org/articles/7/
 sudo apt install inotify-tools -yq # neovimでLspRestartせずにファイル変更を検知
 
-
-
 # 辞書ツール Hazkeyと併用
 wget https://github.com/espanso/espanso/releases/latest/download/espanso-debian-wayland-amd64.deb
 sudo apt install -y ./espanso-debian-wayland-amd64.deb
-
-# firefox の favicon自動更新
-wget https://github.com/mozilla/geckodriver/releases/download/v0.36.0/geckodriver-v0.36.0-linux64.tar.gz
-tar -xvzf geckodriver-v0.36.0-linux64.tar.gz
-sudo mv geckodriver /usr/local/bin/
 

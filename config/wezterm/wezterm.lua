@@ -13,5 +13,8 @@ config.window_decorations = "RESIZE"
 
 -- 2. タブバーを有効にする (統合先として必要)
 -- config.enable_tab_bar = true
---
+-- config.enable_wayland = false -- for hazkey using
+-- config.use_ime = true
+-- config.xim_im_name = "fcitx"
+
 return config
