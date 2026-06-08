@@ -7,11 +7,7 @@ alias repomix="npx repomix --copy; rm repomix-output.xml"
 alias yt-dlp-batch='yt-dlp --embed-thumbnail -x --audio-format mp3 --audio-quality 0 --parse-metadata "title:(?P<artist>.+?) - (?P<title>.+?) .*" ' # youtube チャンネル内mp3一括ダウンロード
 alias yt='yt-dlp -x --audio-format mp3 --cookies-from-browser chrome:"/home/gotoh/.config/google-chrome"'
 alias t="todo.sh"
-alias i="vi ~/Documents/Dropbox/DropsyncFiles/GTD/inbox.md"
-alias a="vi ~/Documents/Dropbox/DropsyncFiles/GTD/action.md"
-alias ta="batch_todo.sh ~/Documents/Dropbox/GTD/action.md"
-alias routine="cat ~/Documents/Dropbox/DropsyncFiles/GTD/check/routine.md"
-
+alias i="vi ~/Nextcloud/Notes/DropsyncFiles/GTD/inbox.md"
 
 # online コマンド
 # ngrokを使ってローカルサーバーを公開します。
