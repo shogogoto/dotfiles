@@ -3,24 +3,12 @@ sudo apt install software-properties-common -yq # add-apt-repositoryを追加
 curl -fsSL https://tailscale.com/install.sh | sh # VPN
 sudo apt install waypipe # 音声をストリーミングするのに必要
 
-# wezterm
-curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
-echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
-sudo chmod 644 /usr/share/keyrings/wezterm-fury.gpg
-sudo apt install wezterm
-sudo apt install wezterm-nightly
-
 sudo apt update -yq
 sudo apt upgrade -yq
 sudo apt autoremove -y
-sudo add-apt-repository ppa:neovim-ppa/unstable -y
 # for ssh-agent
 sudo apt install keychain -yq
 sudo apt install openssh-server -yq
-# 不正アクセス対策
-sudo apt install fail2ban -yq
-sudo systemctl start fail2ban.service
-sudo systemctl enable fail2ban.service
 
 # nodejs
 sudo apt install npm -yq # node
@@ -74,14 +62,7 @@ sudo apt install preload -yq # よく使うアプリを事前に読み込む
 sudo apt install direnv -yq
 sudo apt install img2pdf -yq
 sudo apt install pdftk -yq
-sudo apt install byobu -yq
-byobu-ctrl-a emacs # <C-a>無効 F12を使うように -> vimの<C-a><C-x>インクリメント使用できるように
 curl -sS https://starship.rs/install.sh | sh
-# render CLI
-curl -fsSL https://raw.githubusercontent.com/render-oss/cli/refs/heads/main/bin/install.sh | sh
-curl https://rclone.org/install.sh | sudo bash
-curl https://rclone.org/install.sh | sudo bash # for cloud storage
-
 
 # git
 sudo apt install tig -yq
@@ -90,32 +71,23 @@ gh extension install github/gh-copilot
 sudo apt install hub -yq # cliからgithubを開く
 curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash # GitHub Actionsのローカル実行CLI
 
-## LazyGit
-LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
-curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-tar xf lazygit.tar.gz lazygit
-sudo install lazygit -D -t /usr/local/bin/
-
-
 # vim setup
-sudo apt install neovim -yq
 sudo apt install silversearcher-ag -yq # fzf for vim
 sudo apt install cmigemo -yq
 sudo apt install ripgrep bat universal-ctags -yq # for fzf.vim
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ./installers/init_dots.sh # keychinに依存
 . ~/.bashrc
-vim -c PlugInstall -c q -c q
 
 # rust
-sudo apt install cargo -yq # aiツール で必要
-sudo apt install rustup -yq
-rustup update stable
-cargo install viu # for fzf_lua
-cargo install --locked zellij # byobu的なターミナルマルチプレクサ
-zellij setup --generate-completion bash >> ~/.bashrc
+# sudo apt install cargo -yq # aiツール で必要
+# sudo apt install rustup -yq
+# rustup update stable
+# cargo install viu # for fzf_lua
+# cargo install --locked zellij # byobu的なターミナルマルチプレクサ
+# zellij setup --generate-completion bash >> ~/.bashrc
 
 
 ## neovim setup
