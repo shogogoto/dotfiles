@@ -36,7 +36,6 @@ poetry config virtualenvs.in-project true
 poetry self update
 poetry self add "poetry-dynamic-versioning[plugin]"
 poetry self add poetry-plugin-shell # これでは効かない pip install poetry-plugin-shell なら行けた
-pip3 install poetry-plugin-shell
 
 # docker
 sudo apt install ca-certificates gnupg
