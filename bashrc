@@ -16,9 +16,9 @@ LANG=C xdg-user-dirs-gtk-update # directoryを英語へ
 # WSLに割り当てられるIPアドレス
 # neovimでclipboardを使うのに必要
 # export DISPLAY=$(cat /etc/resolv.conf | grep -e "^nameserver" | awk '{print $2}'):0.0
-export XDG_CONFIG_HOME="$HOME/dotfiles/config"
-export ZELLIJ_CONFIG_DIR=$XDG_CONFIG_HOME/zellij
-export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship.toml
+export DOTFILE_CONFIG="$HOME/dotfiles/config"
+export ZELLIJ_CONFIG_DIR=$DOTFILE_CONFIG/zellij
+export STARSHIP_CONFIG=$DOTFILE_CONFIG/starship.toml
 
 
 alias vi='nvim'
@@ -55,7 +55,7 @@ HISTSIZE=100000
 export PATH=$HOME/.cargo/bin:$PATH
 
 
-TODO_PATH=$XDG_CONFIG_HOME/todo/config
+TODO_PATH=$DOTFILE_CONFIG/todo/config
 . $TODO_PATH/todo_completion
 export TODOTXT_CFG_FILE=$TODO_PATH/todo.cfg
 
