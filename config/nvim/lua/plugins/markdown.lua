@@ -67,4 +67,8 @@ return {
 			vim.g.TodoTxtForceDate = 1
 		end,
 	},
+	{
+		"dhruvasagar/vim-table-mode",
+		ft = { "markdown" },
+	},
 }

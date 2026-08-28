@@ -8,6 +8,7 @@ alias yt-dlp-batch='yt-dlp --embed-thumbnail -x --audio-format mp3 --audio-quali
 alias yt='yt-dlp -x --audio-format mp3 --cookies-from-browser chrome:"/home/gotoh/.config/google-chrome"'
 alias t="todo.sh"
 alias i="vi ~/Nextcloud/Notes/DropsyncFiles/GTD/inbox.md"
+alias codexweb='npx --yes codexapp --no-tunnel'
 
 # online コマンド
 # ngrokを使ってローカルサーバーを公開します。
