@@ -458,3 +458,4 @@ show_startup_tips false
 // Default: true
 //
 // show_release_notes false
+ host_notification_protocol "osc9"
