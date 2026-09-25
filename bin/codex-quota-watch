@@ -10,6 +10,9 @@ while true; do
     if [[ $status =~ Sol[[:space:]]+([0-9]+)% ]] && (( BASH_REMATCH[1] < lowest )); then
       lowest=${BASH_REMATCH[1]}
     fi
+    if [[ $status =~ Week[[:space:]]+([0-9]+)% ]] && (( BASH_REMATCH[1] < lowest )); then
+      lowest=${BASH_REMATCH[1]}
+    fi
     if [[ $status =~ Luna[[:space:]]+([0-9]+)% ]] && (( BASH_REMATCH[1] < lowest )); then
       lowest=${BASH_REMATCH[1]}
     fi
@@ -25,6 +28,7 @@ while true; do
     columns=$(tput cols 2>/dev/null || printf '80')
     if (( ${#status} >= columns )); then
       status=${status/Sol /S}
+      status=${status/\/ Week / W}
       status=${status/ \/ Luna / L}
       status=${status/ \/ reset / R}
     fi

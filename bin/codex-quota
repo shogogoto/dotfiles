@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Print the remaining Codex and Luna allowance as one status-bar-friendly line.
+# Print the remaining 5-hour, weekly and Luna allowances as one status-bar-friendly line.
 # The values come from the same local Codex app-server API used by Codex clients.
 
 set -u -o pipefail
@@ -61,9 +61,11 @@ jq -r '
       end;
   (.result.rateLimitsByLimitId // {}) as $limits
   | ($limits.codex // .result.rateLimits) as $sol
+  | ($sol.secondary // null) as $weekly
   | ($limits.base_model_inference // null) as $luna
   | [
       "Sol \(remaining($sol.primary))%",
+      (if $weekly == null then empty else "Week \(remaining($weekly))%" end),
       (if $luna == null then empty else "Luna \(remaining($luna.primary))%" end),
       "reset \(reset_in($sol.primary.resetsAt))"
     ]
