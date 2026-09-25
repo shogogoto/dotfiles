@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+
+# Print the remaining Codex and Luna allowance as one status-bar-friendly line.
+# The values come from the same local Codex app-server API used by Codex clients.
+
+set -u -o pipefail
+
+for required_command in codex jq; do
+  if ! command -v "$required_command" >/dev/null 2>&1; then
+    printf 'Codex usage unavailable (%s not found)\n' "$required_command" >&2
+    exit 1
+  fi
+done
+
+cleanup() {
+  if [[ -n "${CODEX_QUOTA_SERVER_PID:-}" ]]; then
+    kill "$CODEX_QUOTA_SERVER_PID" 2>/dev/null || true
+    wait "$CODEX_QUOTA_SERVER_PID" 2>/dev/null || true
+  fi
+}
+trap cleanup EXIT INT TERM
+
+coproc CODEX_QUOTA_SERVER { codex app-server --stdio 2>/dev/null; }
+CODEX_QUOTA_SERVER_PID=$!
+
+printf '%s\n' \
+  '{"method":"initialize","id":1,"params":{"clientInfo":{"name":"codex-quota","title":"Codex quota status","version":"0.1.0"},"capabilities":{"experimentalApi":true}}}' \
+  '{"method":"initialized","params":{}}' \
+  '{"method":"account/rateLimits/read","id":2,"params":{"excludeResetCreditDetails":true,"supportsLunaReserve":true}}' \
+  >&"${CODEX_QUOTA_SERVER[1]}"
+
+response=''
+deadline=${CODEX_QUOTA_TIMEOUT_SECONDS:-10}
+while IFS= read -r -t "$deadline" -u "${CODEX_QUOTA_SERVER[0]}" line; do
+  if jq -e '.id == 2 and (.result != null)' >/dev/null 2>&1 <<<"$line"; then
+    response=$line
+    break
+  fi
+  if jq -e '.id == 2 and (.error != null)' >/dev/null 2>&1 <<<"$line"; then
+    printf 'Codex usage unavailable\n' >&2
+    exit 1
+  fi
+done
+
+if [[ -z "$response" ]]; then
+  printf 'Codex usage unavailable\n' >&2
+  exit 1
+fi
+
+jq -r '
+  def remaining($window):
+    if $window == null then null else (100 - $window.usedPercent) end;
+  def reset_in($timestamp):
+    (($timestamp // 0) - now | floor | if . < 0 then 0 else . end) as $seconds
+    | if $seconds >= 86400 then
+        "\(($seconds / 86400) | floor)d\((($seconds % 86400) / 3600) | floor)h"
+      elif $seconds >= 3600 then
+        "\(($seconds / 3600) | floor)h\((($seconds % 3600) / 60) | floor)m"
+      else
+        "\(($seconds / 60) | floor)m"
+      end;
+  (.result.rateLimitsByLimitId // {}) as $limits
+  | ($limits.codex // .result.rateLimits) as $sol
+  | ($limits.base_model_inference // null) as $luna
+  | [
+      "Sol \(remaining($sol.primary))%",
+      (if $luna == null then empty else "Luna \(remaining($luna.primary))%" end),
+      "reset \(reset_in($sol.primary.resetsAt))"
+    ]
+  | join(" / ")
+' <<<"$response"

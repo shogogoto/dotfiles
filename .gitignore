@@ -7,6 +7,8 @@
 !.github/**/*
 !installers/
 !bin/
+!bin/codex-quota
+!bin/codex-quota-watch
 !bash_aliases
 !bashrc
 !gitconfig
@@ -19,10 +21,11 @@
 !config/pypoetry/**
 !config/zellij
 !config/zellij/config.kdl
+!config/zellij/layouts/
+!config/zellij/layouts/codex.kdl
 !config/git/ignore
 !config/starship.toml
 !config/alacritty/
 !config/alacritty/**
 !config/wezterm/
 !config/wezterm/**
-

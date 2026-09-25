@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+set -u
+
+interval=${CODEX_QUOTA_INTERVAL_SECONDS:-60}
+
+while true; do
+  if status=$(codex-quota 2>/dev/null); then
+    lowest=100
+    if [[ $status =~ Sol[[:space:]]+([0-9]+)% ]] && (( BASH_REMATCH[1] < lowest )); then
+      lowest=${BASH_REMATCH[1]}
+    fi
+    if [[ $status =~ Luna[[:space:]]+([0-9]+)% ]] && (( BASH_REMATCH[1] < lowest )); then
+      lowest=${BASH_REMATCH[1]}
+    fi
+
+    if (( lowest < 20 )); then
+      color='\033[31m'
+    elif (( lowest < 40 )); then
+      color='\033[33m'
+    else
+      color='\033[32m'
+    fi
+
+    columns=$(tput cols 2>/dev/null || printf '80')
+    if (( ${#status} >= columns )); then
+      status=${status/Sol /S}
+      status=${status/ \/ Luna / L}
+      status=${status/ \/ reset / R}
+    fi
+    printf '\r\033[2K%b%s\033[0m' "$color" "$status"
+  else
+    printf '\r\033[2K\033[90mCodex usage unavailable\033[0m'
+  fi
+  sleep "$interval"
+done
