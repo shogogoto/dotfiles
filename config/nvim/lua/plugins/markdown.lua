@@ -2,10 +2,11 @@ vim.treesitter.language.register("markdown", "mdx")
 vim.filetype.add({
 	extension = {
 		mdx = "mdx",
+		tb = "markdown",
 		kn = "markdown",
 	},
 })
--- Markdownファイル（kn, mdx含む）を開いた時に設定を強制する
+-- Markdownファイル(tb, kn, mdx含む)を開いた時に設定を強制する
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = { "markdown", "mdx" },
 	callback = function()

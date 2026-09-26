@@ -69,6 +69,23 @@ return {
 				dynamicRegistration = true,
 			}) -- LSP機能を補完に追加
 
+			local tanbun_command = vim.fn.expand("~/dev/tanbunism/.venv/bin/tb")
+			if vim.fn.executable(tanbun_command) == 1 then
+				vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+					group = vim.api.nvim_create_augroup("TanbunLanguageServer", { clear = true }),
+					pattern = { "*.tb", "*.kn" },
+					callback = function(args)
+						local path = vim.api.nvim_buf_get_name(args.buf)
+						vim.lsp.start({
+							name = "tanbun",
+							cmd = { tanbun_command, "lsp" },
+							root_dir = vim.fs.root(args.buf, { ".git" }) or vim.fs.dirname(path),
+							capabilities = capabilities,
+						}, { bufnr = args.buf })
+					end,
+				})
+			end
+
 			-- lspconfig.lua_ls.setup({
 			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
