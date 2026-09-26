@@ -1,0 +1,14 @@
+layout {
+    pane size=1 borderless=true {
+        plugin location="tab-bar"
+    }
+    pane
+    pane size=1 borderless=true {
+        plugin location="status-bar"
+    }
+    floating_panes {
+        pane x="73%" y=0 width="27%" height=1 borderless=true pinned=true command="bash" {
+            args "-lc" "exec codex-quota-watch"
+        }
+    }
+}

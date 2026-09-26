@@ -23,6 +23,7 @@
 !config/zellij/config.kdl
 !config/zellij/layouts/
 !config/zellij/layouts/codex.kdl
+!config/zellij/layouts/codex-tab.kdl
 !config/git/ignore
 !config/starship.toml
 !config/alacritty/

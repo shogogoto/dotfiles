@@ -11,4 +11,18 @@ layout {
             args "-lc" "exec codex-quota-watch"
         }
     }
+    new_tab_template {
+        pane size=2 split_direction="vertical" {
+            pane size="73%" borderless=true {
+                plugin location="tab-bar"
+            }
+            pane size="27%" borderless=true command="bash" {
+                args "-lc" "exec codex-quota-watch"
+            }
+        }
+        pane
+        pane size=1 borderless=true {
+            plugin location="status-bar"
+        }
+    }
 }

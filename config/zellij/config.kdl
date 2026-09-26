@@ -48,7 +48,12 @@ keybinds clear-defaults=true {
         bind "j" { GoToNextTab; }
         bind "k" { GoToPreviousTab; }
         bind "l" { GoToNextTab; }
-        bind "n" { NewTab; SwitchToMode "normal"; }
+        bind "n" {
+            NewTab {
+                layout "/home/gotoh/dotfiles/config/zellij/layouts/codex-tab.kdl"
+            }
+            SwitchToMode "normal"
+        }
         bind "r" { SwitchToMode "renametab"; TabNameInput 0; }
         bind "s" { ToggleActiveSyncTab; SwitchToMode "normal"; }
         bind "Ctrl t" { SwitchToMode "normal"; }
@@ -149,7 +154,12 @@ keybinds clear-defaults=true {
         bind "Ctrl q" { Quit; }
     }
     shared {
-        bind "F2" { NewTab; SwitchToMode "normal"; } // byobu
+        bind "F2" {
+            NewTab {
+                layout "/home/gotoh/dotfiles/config/zellij/layouts/codex-tab.kdl"
+            }
+            SwitchToMode "normal"
+        } // byobu
         bind "Ctrl F6" { CloseTab; SwitchToMode "normal"; } // byobu
         bind "Alt left" { MoveFocusOrTab "left"; }
         bind "Alt right" { MoveFocusOrTab "right"; }
