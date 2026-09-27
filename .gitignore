@@ -9,6 +9,7 @@
 !bin/
 !bin/codex-quota
 !bin/codex-quota-watch
+!bin/zellij-attach
 !bash_aliases
 !bashrc
 !gitconfig

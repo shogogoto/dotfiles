@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+set -u
+
+if (( $# == 0 )); then
+  printf 'Usage: zellij-attach SESSION [ATTACH_OPTIONS...]\n' >&2
+  exit 2
+fi
+
+session=$1
+shift
+
+repair_quota_panes() {
+  local attempt panes id should_rerun
+
+  for (( attempt = 0; attempt < 50; attempt++ )); do
+    if panes=$(zellij --session "$session" action list-panes --all --json 2>/dev/null); then
+      while IFS=$'\t' read -r id should_rerun; do
+        [[ -n "$id" ]] || continue
+        zellij --session "$session" action set-pane-borderless \
+          --pane-id "terminal_$id" --borderless >/dev/null 2>&1 || true
+        if [[ $should_rerun == true ]]; then
+          zellij --session "$session" action send-keys \
+            --pane-id "terminal_$id" Enter >/dev/null 2>&1 || true
+        fi
+      done < <(
+        jq -r '
+          .[]
+          | select(.is_plugin == false)
+          | select((.terminal_command // "") | contains("codex-quota-watch"))
+          | [.id, (.is_held or .exited)]
+          | @tsv
+        ' <<<"$panes"
+      )
+      return
+    fi
+    sleep 0.1
+  done
+}
+
+repair_quota_panes &
+exec zellij attach --force-run-commands "$session" "$@"

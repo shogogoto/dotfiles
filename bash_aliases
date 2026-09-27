@@ -9,6 +9,7 @@ alias yt='yt-dlp -x --audio-format mp3 --cookies-from-browser chrome:"/home/goto
 alias t="todo.sh"
 alias i="vi ~/Nextcloud/Notes/DropsyncFiles/GTD/inbox.md"
 alias codexweb='npx --yes codexapp --no-tunnel'
+alias za='zellij-attach'
 
 # online コマンド
 # ngrokを使ってローカルサーバーを公開します。
@@ -35,4 +36,3 @@ function online(){
 
   ngrok http ${protocol}://localhost:${1} --url=toucan-renewing-jackal.ngrok-free.app
 }
-
