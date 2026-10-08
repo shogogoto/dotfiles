@@ -12,7 +12,7 @@ clean_vim() {
 #   . ~/.keychain/`hostname`-sh
 # fi
 
-LANG=C xdg-user-dirs-gtk-update # directoryを英語へ
+# Directory renaming is a one-time setup step; see README.md.
 # WSLに割り当てられるIPアドレス
 # neovimでclipboardを使うのに必要
 # export DISPLAY=$(cat /etc/resolv.conf | grep -e "^nameserver" | awk '{print $2}'):0.0
@@ -30,13 +30,21 @@ export PATH=$PATH:$HOME/dotfiles/bin:$HOME/bin
 export DEBIAN_FRONTEND=noninteractive
 export PYENV_ROOT="$HOME/.pyenv"
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+if [[ -z "${DOTFILES_HOME_MANAGER:-}" ]]; then
+  if [[ -d "$PYENV_ROOT/bin" ]]; then
+    export PATH="$PYENV_ROOT/bin:$PATH"
+  fi
+  if command -v pyenv >/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+  fi
+fi
 export PRE_COMMIT_ALLOW_NO_CONFIG=1
-eval "$(direnv hook bash)"
+if [[ -z "${DOTFILES_HOME_MANAGER:-}" ]] && command -v direnv >/dev/null 2>&1; then
+  eval "$(direnv hook bash)"
+fi
 
 . ~/dotfiles/bash_aliases
-if [ -f ~/.local/bin/bashmarks.sh ]; then
+if [[ -z "${DOTFILES_HOME_MANAGER:-}" ]] && [ -f ~/.local/bin/bashmarks.sh ]; then
   . ~/.local/bin/bashmarks.sh
   ## ~/.bashrcのaliasのせいでlコマンドが使えないかも
   # s <bookmark_name> - Saves the current directory as "bookmark_name"
@@ -56,7 +64,9 @@ export PATH=$HOME/.cargo/bin:$PATH
 
 
 TODO_PATH=$DOTFILE_CONFIG/todo/config
-. $TODO_PATH/todo_completion
+if [[ -f "$TODO_PATH/todo_completion" ]]; then
+  . "$TODO_PATH/todo_completion"
+fi
 export TODOTXT_CFG_FILE=$TODO_PATH/todo.cfg
 
 # . <(curl -s https://raw.githubusercontent.com/shogogoto/conoha-client/main/conoha-client.bash)
@@ -69,7 +79,9 @@ export TODOTXT_CFG_FILE=$TODO_PATH/todo.cfg
 export LANG=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
 
-eval "$(gh completion -s bash)"
+if command -v gh >/dev/null 2>&1; then
+  eval "$(gh completion -s bash)"
+fi
 
 . $ZELLIJ_CONFIG_DIR/bashrc
 

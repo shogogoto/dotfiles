@@ -3,6 +3,11 @@
 
 # Allowlist
 !*.sh
+!flake.nix
+!flake.lock
+!README.md
+!nix/
+!nix/**
 !.github/
 !.github/**/*
 !installers/

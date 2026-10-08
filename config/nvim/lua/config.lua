@@ -37,8 +37,8 @@ require("lazy").setup({
 			config = function()
 				local ms = require("migemo-search")
 				ms.setup({
-					cmigemo_exec_path = "/usr/bin/cmigemo",
-					migemo_dict_path = "/usr/share/cmigemo/utf-8/migemo-dict",
+					cmigemo_exec_path = vim.fn.exepath("cmigemo"),
+					migemo_dict_path = vim.env.MIGEMO_DICT or "/usr/share/cmigemo/utf-8/migemo-dict",
 				})
 				vim.keymap.set("c", "<CR>", ms.cr) -- ここのせいでkeys使えない
 			end,
