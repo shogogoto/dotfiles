@@ -6,6 +6,7 @@ alias p='poetry shell'
 alias repomix="npx repomix --copy; rm repomix-output.xml"
 alias yt-dlp-batch='yt-dlp --embed-thumbnail -x --audio-format mp3 --audio-quality 0 --parse-metadata "title:(?P<artist>.+?) - (?P<title>.+?) .*" ' # youtube チャンネル内mp3一括ダウンロード
 alias yt='yt-dlp -x --audio-format mp3 --cookies-from-browser chrome:"/home/gotoh/.config/google-chrome"'
+alias yt-firefox='yt-dlp --no-playlist --extractor-args "youtube:player_client=default,web_safari;player_js_version=actual" -x --audio-format mp3'
 alias t="todo.sh"
 alias i="vi ~/Nextcloud/Notes/DropsyncFiles/GTD/inbox.md"
 alias codexweb='npx --yes codexapp --no-tunnel'
