@@ -279,7 +279,7 @@ return {
 						select = true,
 						behavior = cmp.ConfirmBehavior.Replace,
 					}), -- 補完確定 (現在選択中の候補を使用)
-					-- ["<C-Space>"] = cmp.mapping.complete(),
+					["<C-Space>"] = cmp.mapping.complete(),
 					["<Tab>"] = cmp.mapping(function(fallback)
 						cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
 					end, { "i", "s" }),
@@ -288,7 +288,14 @@ return {
 					end, { "i", "s" }),
 				}),
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
+					{
+						name = "nvim_lsp",
+						option = {
+							tanbun = {
+								keyword_pattern = [[\k\+]],
+							},
+						},
+					},
 					{ name = "luasnip", priority_weight = 20 }, -- LuaSnip を補完候補に含める
 					{ name = "ultisnips", priority_weight = 10 }, -- UltiSnips を補完候補に含める
 
