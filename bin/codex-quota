@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Print the remaining 5-hour, weekly and Luna allowances as one status-bar-friendly line.
+# Print each remaining allowance and its reset time as one status-bar-friendly line.
 # The values come from the same local Codex app-server API used by Codex clients.
 
 set -u -o pipefail
@@ -50,24 +50,25 @@ fi
 jq -r '
   def remaining($window):
     if $window == null then null else (100 - $window.usedPercent) end;
-  def reset_in($timestamp):
-    (($timestamp // 0) - now | floor | if . < 0 then 0 else . end) as $seconds
-    | if $seconds >= 86400 then
-        "\(($seconds / 86400) | floor)d\((($seconds % 86400) / 3600) | floor)h"
-      elif $seconds >= 3600 then
-        "\(($seconds / 3600) | floor)h\((($seconds % 3600) / 60) | floor)m"
-      else
-        "\(($seconds / 60) | floor)m"
-      end;
+  def quota($label; $window; $reset_format):
+    if $window == null or $window.usedPercent == null then
+      empty
+    else
+      "\($label) \(remaining($window))%"
+      + (if $window.resetsAt == null then
+          ""
+        else
+          "(\($window.resetsAt | strflocaltime($reset_format)))"
+        end)
+    end;
   (.result.rateLimitsByLimitId // {}) as $limits
   | ($limits.codex // .result.rateLimits) as $sol
   | ($sol.secondary // null) as $weekly
   | ($limits.base_model_inference // null) as $luna
   | [
-      "Sol \(remaining($sol.primary))%",
-      (if $weekly == null then empty else "Week \(remaining($weekly))%" end),
-      (if $luna == null then empty else "Luna \(remaining($luna.primary))%" end),
-      "reset \(reset_in($sol.primary.resetsAt))"
+      quota("Sol"; $sol.primary; "%H:%M"),
+      quota("Week"; $weekly; "%m:%d"),
+      quota("Luna"; $luna.primary; "%m:%d")
     ]
   | join(" / ")
 ' <<<"$response"

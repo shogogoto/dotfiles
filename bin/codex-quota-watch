@@ -30,7 +30,6 @@ while true; do
       status=${status/Sol /S}
       status=${status/\/ Week / W}
       status=${status/ \/ Luna / L}
-      status=${status/ \/ reset / R}
     fi
     printf '\r\033[2K%b%s\033[0m' "$color" "$status"
   else
