@@ -50,6 +50,15 @@ fi
 jq -r '
   def remaining($window):
     if $window == null then null else (100 - $window.usedPercent) end;
+  def reset_in($timestamp):
+    (($timestamp // 0) - now | floor | if . < 0 then 0 else . end) as $seconds
+    | if $seconds >= 86400 then
+        "\(($seconds / 86400) | floor)d\((($seconds % 86400) / 3600) | floor)h"
+      elif $seconds >= 3600 then
+        "\(($seconds / 3600) | floor)h\((($seconds % 3600) / 60) | floor)m"
+      else
+        "\(($seconds / 60) | floor)m"
+      end;
   def quota($label; $window; $reset_format):
     if $window == null or $window.usedPercent == null then
       empty
@@ -58,7 +67,11 @@ jq -r '
       + (if $window.resetsAt == null then
           ""
         else
-          "(\($window.resetsAt | strflocaltime($reset_format)))"
+          "(\(if $reset_format == "relative" then
+              reset_in($window.resetsAt)
+            else
+              ($window.resetsAt | strflocaltime($reset_format))
+            end))"
         end)
     end;
   (.result.rateLimitsByLimitId // {}) as $limits
@@ -66,7 +79,7 @@ jq -r '
   | ($sol.secondary // null) as $weekly
   | ($limits.base_model_inference // null) as $luna
   | [
-      quota("Sol"; $sol.primary; "%H:%M"),
+      quota("Sol"; $sol.primary; "relative"),
       quota("Week"; $weekly; "%m/%d"),
       quota("Luna"; $luna.primary; "%m/%d")
     ]
