@@ -67,8 +67,8 @@ jq -r '
   | ($limits.base_model_inference // null) as $luna
   | [
       quota("Sol"; $sol.primary; "%H:%M"),
-      quota("Week"; $weekly; "%m:%d"),
-      quota("Luna"; $luna.primary; "%m:%d")
+      quota("Week"; $weekly; "%m/%d"),
+      quota("Luna"; $luna.primary; "%m/%d")
     ]
   | join(" / ")
 ' <<<"$response"
